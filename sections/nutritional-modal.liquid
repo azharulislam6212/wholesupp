@@ -1,0 +1,61 @@
+
+    {%- assign nutritional_modal_info = product.metafields.custom.nutritional_modal_info.value -%}
+    {%- if nutritional_modal_info != blank -%}
+
+        {% assign nutritional_blocks = nutritional_modal_info.nutritional_blocks.value %}
+        <!-- Modal -->
+    <section class="nutritional-info-modal" id="nutritional">
+        <div class="nutritional-inner-modal">
+            <div class="nutritional-info">
+                <div class="top-bar">
+                    <div class="modal-content">
+                        <h3>{{ nutritional_modal_info.section_heading}}</h3>
+                    </div>
+                    <div class="close-modal">
+                        <img src="{{"Close.svg" | asset_url }}">
+                    </div>
+
+                    {%- if nutritional_blocks != blank -%}
+                    <div class="tabs-button">
+                        <ul class="modal-nav" id="nav1">
+                            {%- for nutritional_block in nutritional_blocks -%}
+                                <li><a href="#{{nutritional_block.title |  handleize }}">{{ nutritional_block.title  }}</a></li>
+                            {%- endfor -%}
+                     
+                        </ul>
+                    </div>
+                {%- endif -%}
+                </div>
+
+                {%- if nutritional_blocks != blank -%}
+                <div class="modal-tab">
+                    <div class="modal-tab-content">
+                        {%- for nutritional_block in nutritional_blocks -%}
+                        
+                        <div class="modal-tab-item" id="{{nutritional_block.title |  handleize }}">
+                            <div class="top-modal-title">
+                                <p>{{ nutritional_block.pre_heading  }}</p>
+                                <span>{{ nutritional_block.amount  }}</span>
+                            </div>
+                            {%- assign nutritional_items = nutritional_block.nutritional_items.value -%}
+
+                            {%- if nutritional_items != blank -%}
+                            <div class="modal-table">
+                                <ul>
+                                    {%- for nutritional_item in nutritional_items -%}
+                                    <li>{{ nutritional_item.title  }} <dfn>{{ nutritional_item.value  }}</dfn></li>
+                                {%- endfor -%}
+                                </ul>
+                            </div>
+                        {%- endif -%}
+                        </div>
+                       {%- endfor -%}
+                    </div>
+                </div>
+            {%- endif -%}
+            </div>
+        </div>
+    </section>
+    <!-- Modal -->
+
+{%- endif -%}

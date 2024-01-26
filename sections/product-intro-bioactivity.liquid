@@ -1,0 +1,99 @@
+{% liquid
+  assign s = section.settings
+%}
+  <div class="common-wrap clear">
+    <div class="product-intro-inner">
+      <div class="bioactivity-info">
+        <div class="bioactivity-content">
+            {% if s.heading != blank %}
+                <h2>{{ s.heading }}</h2>
+              {% endif %}
+              {% if s.text != blank %}
+                {{ s.text }}
+              {% endif %}
+
+              {% if s.author != blank %}
+                <author>{{ s.author}}</author>
+              {% endif %}
+
+        </div>
+        <div class="product-intro-thumb">
+            {% if s.image_mob != blank %}
+                {% render 'smart-image', image: s.image, image_mob: s.image_mob %}
+              {% elsif s.image != blank %}
+                {% render 'responsive-image' with image: s.image %}
+              {% else %}
+                {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+              {% endif %}
+              {% assign video_id = '' %}
+              {% if s.video_url contains 'youtube' %}
+                {% assign video_id = s.video_url | replace: 'https://www.youtube.com/watch?v=', '' %}
+              {% elsif s.video_url contains 'vimeo' %}
+                {% assign video_id = s.video_url | replace: '//player.vimeo.com/video/', '' %}
+              {% endif %}
+
+
+          <a
+          href="javascript:void(0)"
+          data-id="{{video_id}}"
+          data-type="youtube"
+          data-autoplay="true"
+          class="play-btn video-btn"
+        >
+          <img src="{{"Play.svg" | asset_url }}">
+        </a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+{% schema %}
+{
+  "name": "Product Intro Bioactivity",
+  "tag": "section",
+  "class": "product-intro-video bioactivity-wrap",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image For Desktop"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mob",
+      "label": "Image For Mobile"
+    },
+    {
+      "type": "video_url",
+      "id": "video_url",
+      "accept": ["youtube", "vimeo"],
+      "default": "https://www.youtube.com/watch?v=Nz4m-v0n3zg",
+      "label": "Video Url"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Bioactivity & why it matters"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p> The bioactive compounds found in our plant-based, whole food ingredients offer remarkable concentrations of health-promoting nutrients that supercharge your overall wellbeing.</p>"
+    },
+    {
+      "type": "text",
+      "id": "author",
+      "label": "Author"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Intro Bioactivity"
+    }
+  ]
+}
+{% endschema %}

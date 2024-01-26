@@ -1,0 +1,152 @@
+
+{% assign s = section.settings %}
+
+
+ <div class="common-wrap clear">
+    <div class="faqs-inner">
+      <aside class="sidebar-wrap">
+        {% liquid
+        assign items = section.blocks | where: 'type', 'menu'
+      %}
+
+
+        <ul>
+            {%- for block in items -%}
+                {% assign b = block.settings %}
+                {% capture param %}{{ template.suffix | handleize }}{% endcapture %}
+                {% capture hanlder %}{{ b.link | handleize |  remove_first: "pages-" }}{% endcapture %}
+
+          <li class="lists {{hanlder}}">
+            <a {% if param contains hanlder %} class="show-active"  {% endif %} href="{{ b.link }}">{{ b.title}}</a>
+                {% if  param contains hanlder  %} 
+                    {% liquid
+                    assign headings = section.blocks | where: 'type', 'heading'
+                  %}
+                     <ul class="sub-list">
+                        {%- for block in headings -%}
+                            {% assign b = block.settings %}
+                        <li class="list"><a href="#tab_{{ b.heading |  handleize}}"> {{ b.heading }}</a></li>
+                    {%- endfor -%}
+                </ul>  
+            {% endif %}
+          </li>
+
+        {%- endfor -%}
+
+        </ul>
+      </aside>
+      <div class="left-faqs">
+        <div class="left-item">
+          <div class="accordions" >
+            <div class="accordion">
+                {%- for block in section.blocks -%}
+                    {%- case block.type -%}
+                    {%- when 'heading' -%}
+                        {% assign b = block.settings %}
+                        <div class="accordion__header" id="tab_{{ b.heading |  handleize}}"> 
+                            <h3>{{ b.heading }}</h3>
+                        </div>
+                    {%- when 'faq' -%}
+                        {% assign b = block.settings %}
+                        <div class="accordion-item">
+                            <h5>{{ b.heading }}</h5>
+                            <div class="accordion-content">
+                                {{ b.text }}
+                            </div>
+                          </div>
+
+                     {%- endcase -%}
+                   {%- endfor -%}
+
+            </div>
+          </div>
+
+
+
+        </div>
+        <div class="looking-for">
+          <h5>{{s.heading}}</h5>
+          <a href="{{ s.button_link}}" class="btn transparent">{{ s.button_label}}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+{% schema %}
+{
+  "name": "Faq Page Content",
+  "tag": "section",
+  "class": "faqs-info",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Not finding what you are looking for?"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "Contact Us"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "menu",
+      "name": "Menu",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Menu Label"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "name": "heading",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading"
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "name": "Accordion",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Faq Page Content"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,70 @@
+{%liquid
+  assign s =  section.settings
+%}
+
+  <div class="container-text">
+     {% if s.text != blank %}
+      <p>{{s.text }}</p>
+     {% endif %}
+
+  </div>
+  <div class="language-selector" id="large-device">
+    {%- form 'localization', id: "languageForm" -%}
+      <div class="translate_wrapper">
+          <div class="current_lang">
+              <div class="lang">
+                {% if localization.language.iso_code contains "nl" %}
+                  <img src="{{ 'NL.svg' | asset_url }}">
+                  {% elsif localization.language.iso_code contains "en" %}
+                  <img src="{{ 'flag.svg' | asset_url }}">
+                  {% elsif localization.language.iso_code contains "uk" %}
+                  <img src="{{ 'flag.svg' | asset_url }}">
+                {% endif %}
+                  <span class="lang-txt">{{- localization.language.iso_code | capitalize -}}</span>
+                  <span class="chevron"></span>
+              </div>
+          </div>
+
+          <div class="more_lang">
+            
+            {%- for language in localization.available_languages -%}
+              {%- assign is_selected = false -%}
+  
+              {%- if language.iso_code == localization.language.iso_code -%}
+                {%- assign is_selected = true -%}
+              {%- endif -%}
+
+              <div class="lang" data-value='{{ language.iso_code }}'  aria-current="{% if is_selected %}true{% else %}false{% endif %}">
+                {% if language.iso_code contains "nl" %}
+                  <img src="{{ 'NL.svg' | asset_url }}">
+                  {% elsif language.iso_code contains "en" %}
+                  <img src="{{ 'flag.svg' | asset_url }}">
+                  {% elsif language.iso_code contains "uk" %}
+                  <img src="{{ 'flag.svg' | asset_url }}">
+                {% endif %}
+                  <span class="lang-txt">{{- language.endonym_name | capitalize -}}</span>
+              </div>
+            {%- endfor -%}
+            
+          </div>
+      </div>
+      <input type="hidden" name="locale_code" value="{{ localization.language.iso_code }}">
+    {%- endform -%}
+  </div>
+
+
+
+{% schema %}
+{
+  "name": "t:sections.announcement-bar.name",  
+  "tag": "div",
+  "class": "header-top",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text"
+    }
+  ]
+}
+{% endschema %}

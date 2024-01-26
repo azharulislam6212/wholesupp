@@ -1,0 +1,84 @@
+
+{% assign product_nutrition_info = product.metafields.custom.product_nutrition_info.value %}
+<!-- Everything you need. Nothing you don’t -->
+
+{%- if product_nutrition_info != blank -%}
+<div class="everything-wrap">
+  <div class="common-wrap clear">
+    {%- if product_nutrition_info.heading != blank -%}
+        <h2>{{ product_nutrition_info.heading}}</h2>
+    {%- endif -%}
+      <div class="everythin-inner">
+      {% assign super_food_items = product_nutrition_info.super_food_item.value %}
+      {%- if super_food_items != blank -%}
+          <div class="super-food-item">
+            {% for super_food_item in super_food_items limit: 3  %}
+              <div class="food-content">
+                  <h5>{{ super_food_item.title | metafield_tag}}</h5>
+                  {{ super_food_item.text | metafield_tag}}
+              </div>
+            {% endfor %}
+    
+          </div>
+
+        {%- endif -%}
+          {% if product_nutrition_info.heigh_light_image != blank %}
+          <div class="heights-thumb">
+                {% render 'responsive-image' with image: product_nutrition_info.heigh_light_image.value %}
+          </div>
+        {% endif %}
+        {%- if super_food_items != blank -%}
+          <div class="super-food-item">
+            {% for super_food_item in super_food_items offset: 3  %}
+              <div class="food-content">
+                <h5>{{ super_food_item.title | metafield_tag}}</h5>
+                {{ super_food_item.text | metafield_tag}}
+              </div>
+            {% endfor %}
+          
+          </div>
+        {%- endif -%}
+        {%- if super_food_items != blank -%}
+          <div class="accordion" id="mobile">
+            {% for super_food_item in super_food_items offset: 3  %}
+              <div class="tab-accordion-item">
+                   <h5>{{ super_food_item.title | metafield_tag}}</h5>
+                  <div class="tab-accordion-content">
+                    {{ super_food_item.text | metafield_tag}}
+                  </div>
+              </div>
+            {% endfor %}
+          </div>
+        {%- endif -%}
+      </div>
+      <div class="modal-btn">
+        {%- if product_nutrition_info.nutritional_button_text != blank -%}
+            <button class="btn green nutrition">{{ product_nutrition_info.nutritional_button_text | metafield_tag}}</button>
+        {%- endif -%}
+        {%- if product_nutrition_info.ingredients_button_text != blank -%}
+          <button class="btn green ingredient">{{ product_nutrition_info.ingredients_button_text | metafield_tag}}</button>
+        {%- endif -%}
+      </div>
+  </div>
+</div>
+ 
+
+{%- endif -%}
+
+<!-- End Everything you need. Nothing you don’t -->
+
+{% schema %}
+    {
+      "name": "Product Nutritional Info",
+      "tag": "section",
+      "settings": [
+
+      ],
+      "presets": [
+        {
+          "name": "Product Nutritional Info"
+        }
+      ]
+    }
+    {% endschema %}
+    

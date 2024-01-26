@@ -1,0 +1,44 @@
+
+{% liquid
+    assign s = section.settings
+  %}
+
+  <div class="common-wrap">
+    <div class="quote-inner">
+      <div class="block-quote-text">
+      {% if s.text != blank %}
+        <h3>{{ s.text }}</h3>
+      {% endif %}
+        {% if s.heading != blank %}
+            <span> {{ s.heading }}</span>
+          {% endif %}
+      </div>
+    </div>
+  </div>
+
+{% schema %}
+{
+  "name": "Block Quote",
+  "tag": "div",
+  "class": "block-quote-wrap",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Author",
+      "default": "Dr. Brian Carson"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "When we put the industry under the microscope there wasn’t many truly complete, wholesome products. Ineffective ingredients in minimal quantities, GMO, artificial coloring and packed full of sugars. Our health and our bodies deserve better."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Block Quote"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,131 @@
+
+{% assign s = section.settings %}
+ 
+ <div class="common-wrap clear">
+    <div class="planet-inner">
+      <div class="planet-content">
+        <div class="planet-heading">
+            {% if s.heading != blank %}
+                <h2>{{ s.heading }}</h2>
+              {% endif %}
+              {% if s.text != blank %}
+                {{ s.text }}
+              {% endif %}
+        </div>
+
+        {% liquid
+        assign items = section.blocks | where: 'type', 'item'
+      %}
+
+
+
+      {%- if items != blank -%}
+        
+
+        <div class="planet-item-wrap">
+            {%- for block in items -%}
+
+                {% assign b = block.settings %}
+
+          <div class="planet-item">
+            <div class="compostable-icon">
+
+              {% if b.image != blank %}
+                {% render 'responsive-image' with image: b.image %}
+                {% else %}
+                {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+              {% endif %}
+
+            </div>
+            <div class="compostable-heading">
+            <h5>{{ b.title }}</h5>
+            {{ b.text }}
+            </div>
+          </div>
+
+        {%- endfor -%}
+
+
+        </div>
+    {%- endif -%}
+
+      </div>
+    </div>
+
+
+    {% if s.image_fly != blank %}
+        <div class="planet-icon-left">
+            <img src="{{ s.image_fly  | img_url: "master" }}" alt="" loading="lazy">
+
+    </div>
+      {% endif %}
+
+      {% if s.image_cloud != blank %}
+        <div class="planet-icon-right">
+            <img src="{{ s.image_cloud  | img_url: "master" }}" alt="" loading="lazy">
+  
+     </div>
+    {% endif %}
+
+  </div>
+
+
+{% schema %}
+{
+  "name": "Planet Banner",
+  "tag": "section",
+  "class": "planet-wrap",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Nothing will ever harm you or the planet"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p> We’re serious about keeping you — and the planet — healthy, which is why we have zero tolerance for plastic packaging. In becoming as planet-friendly as possible, our pouches are home compostable while delivery boxes are 100% recyclable.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_fly",
+      "label": "Left Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_cloud",
+      "label": "Right Image"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Planet Banner"
+    }
+  ]
+}
+{% endschema %}

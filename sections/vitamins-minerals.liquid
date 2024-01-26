@@ -1,0 +1,371 @@
+{% liquid
+    assign s = section.settings
+  %}
+<div class="common-wrap clear">
+  <div class="vitamin-tab-inner">
+    <div class="vitamin-top-content">
+
+    {% if s.heading != blank %}
+        <h2>{{ s.heading }}</h2>
+      {% endif %}
+      {% if s.text != blank %}
+        {{ s.text }}
+      {% endif %}
+
+      
+    
+    </div>
+    <div class="vitamin-tab-details">
+      <div class="tabs-button">
+        <ul class="button-nav">
+          <li><a href="#tab-1">{{ s.tab_heading_1 }}</a></li>
+          <li><a href="#tab-2">{{ s.tab_heading_2 }}</a></li>
+          <li><a href="#tab-3">{{ s.tab_heading_3  }}</a></li>
+        </ul>
+      </div>
+
+      <div class="tabs-stage">
+        <div class="stage-items" id="tab-1">
+          <div class="tab-inner">
+            <div class="tabs-stage-item">
+              <div class="tab-list-btn">
+                {%- if s.heading_1  != blank -%}
+                    <h3>{{ s.heading_1 }}</h3>
+                {%- endif -%}
+                       
+          {% liquid
+             assign vitamins = section.blocks | where: 'type', 'vitamins'
+          %}
+
+          {%- if vitamins != blank -%}
+                <div class="vitamin-list">
+                  <ul class="tab-list-nav" id="nav1">
+                    {%- for block in vitamins limit: 7 -%}
+                        {% assign b = block.settings %}
+                        <li><a href="#tab-{{b.title | handleize }}">{{ b.title}}</a></li>
+                     {%- endfor -%}
+
+                  </ul>
+                  <ul class="tab-list-nav navtwo">
+                    {%- for block in vitamins offset: 7 -%}
+                        {% assign b = block.settings %}
+                        <li><a href="#tab-{{b.title | handleize }}">{{ b.title}}</a></li>
+                     {%- endfor -%}
+
+                  </ul>
+                </div>
+            {%- endif -%}
+                {%- if s.tab_text_1 != blank -%}
+                    <p>{{ s.tab_text_1 }}</p>
+                {%- endif -%}
+              </div>
+              {%- if vitamins != blank -%}
+              <div class="vitamin-inner-tab">
+
+              {%- for block in vitamins -%}
+                {% assign b = block.settings %}
+                <div class="vitamin-detailis" id="tab-{{b.title | handleize }}">
+                  <div class="vitamin-content">
+                    <h6>{{ b.title}}</h6>
+                    {{ b.text}}
+                    {%- if b.title_2 != blank -%}
+                        <span> {{ b.title_2}}</span>
+                    {%- endif -%}
+                    {%- if b.text_2 != blank -%}
+                     {{ b.text_2}}
+                   {%- endif -%}
+                  </div>
+                </div>
+              {%- endfor -%}
+       
+              </div>
+            {%- endif -%}
+            </div>
+          </div>
+        </div>
+        <div class="stage-items" id="tab-2">
+          <div class="tab-inner">
+            <div class="tabs-stage-item">
+              <div class="tab-list-btn">
+                {%- if s.heading_2  != blank -%}
+                    <h3>{{ s.heading_2 }}</h3>
+                {%- endif -%}
+
+                {% liquid
+                assign minerals = section.blocks | where: 'type', 'minerals'
+               %}
+
+               {%- if minerals != blank -%}
+                <div class="vitamin-list">
+                  <ul class="tab-list-navone">
+
+                  {%- for block in minerals limit: 7 -%}
+                    {% assign b = block.settings %}
+                    <li><a href="#mtab-{{b.title | handleize }}">{{ b.title}}</a></li>
+                 {%- endfor -%}
+
+                  </ul>
+                  <ul class="tab-list-navone">
+                    {%- for block in minerals offset: 7 -%}
+                        {% assign b = block.settings %}
+                        <li><a href="#mtab-{{b.title | handleize }}">{{ b.title}}</a></li>
+                     {%- endfor -%}
+                </div>
+            {%- endif -%}
+                {%- if s.tab_text_2 != blank -%}
+                    <p>{{ s.tab_text_2 }}</p>
+                {%- endif -%}
+              </div>
+              {%- if minerals != blank -%}
+              <div class="vitamin-inner-tab">
+
+              {%- for block in minerals -%}
+                {% assign b = block.settings %}
+                <div class="minerals" id="mtab-{{b.title | handleize }}">
+                  <div class="vitamin-content">
+                    <h6>{{ b.title}}</h6>
+                    {{ b.text}}
+                    {%- if b.title_2 != blank -%}
+                        <span> {{ b.title_2}}</span>
+                    {%- endif -%}
+                    {%- if b.text_2 != blank -%}
+                     {{ b.text_2}}
+                   {%- endif -%}
+                  </div>
+                </div>
+            {%- endfor -%}
+
+              </div>
+            {%- endif -%}
+            </div>
+          </div>
+        </div>
+        <div class="stage-items" id="tab-3">
+          <div class="tab-inner">
+            <div class="tabs-stage-item">
+              <div class="tab-list-btn">
+                {%- if s.heading_3  != blank -%}
+                    <h3>{{ s.heading_3 }}</h3>
+                {%- endif -%}
+
+                {% liquid
+                assign others = section.blocks | where: 'type', 'others'
+               %}
+
+
+               {%- if others != blank -%}
+                
+        
+                <div class="vitamin-list">
+                  <ul class="tab-list-navtwo">
+                    {%- for block in others limit: 7 -%}
+                        {% assign b = block.settings %}
+                        <li><a href="#otab-{{b.title | handleize }}">{{ b.title}}</a></li>
+                     {%- endfor -%}
+                  </ul>
+                  <ul class="tab-list-navtwo">
+                    {%- for block in others offset: 7 -%}
+                        {% assign b = block.settings %}
+                        <li><a href="#otab-{{b.title | handleize }}">{{ b.title}}</a></li>
+                     {%- endfor -%}
+                  </ul>
+                </div>
+
+            {%- endif -%}
+                {%- if s.tab_text_3 != blank -%}
+                    <p>{{ s.tab_text_3 }}</p>
+                {%- endif -%}
+              </div>
+              {%- if others != blank -%}
+              <div class="vitamin-inner-tab">
+                {%- for block in others -%}
+                    {% assign b = block.settings %}
+
+                <div class="nutrients" id="otab-{{b.title | handleize }}">
+                  <div class="vitamin-content">
+                    <h6>{{ b.title}}</h6>
+                    {{ b.text}}
+                    {%- if b.title_2 != blank -%}
+                        <span> {{ b.title_2}}</span>
+                    {%- endif -%}
+                    {%- if b.text_2 != blank -%}
+                     {{ b.text_2}}
+                   {%- endif -%}
+                  </div>
+                </div>
+            {%- endfor -%}
+              </div>
+            {%- endif -%}
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Vitamins & Minerals",
+  "tag": "section",
+  "class": "vitamin-tab-wrap",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Vitamins & Minerals"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>Our superfoods are packed with 30 essential vitamins and minerals that are vegan, sustainably-sourced, and chosen in impactful amounts.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Tab Labels"
+    },
+    {
+      "type": "text",
+      "id": "tab_heading_1",
+      "label": "Tab Label",
+      "default": "Vitamins"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading_1",
+      "label": "Heading",
+      "default": "VITAMINS 20% of RDA*"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "tab_text_1",
+      "label": "Text",
+      "default": "*Vitamin D is 50% of Recommended Daily Intake (RDI)"
+    },
+    {
+      "type": "text",
+      "id": "tab_heading_2",
+      "label": "Tab Label",
+      "default": "Minerals"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading_2",
+      "label": "Heading",
+      "default": "MINERALS 20% of RDA*"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "tab_text_2",
+      "label": "Text",
+      "default": "*Vitamin D is 50% of Recommended Daily Intake (RDI)"
+    },
+    {
+      "type": "text",
+      "id": "tab_heading_3",
+      "label": "Tab Label",
+      "default": "Other nutrients"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading_3",
+      "label": "Heading",
+      "default": "Others 20% of RDA*"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "tab_text_3",
+      "label": "Text",
+      "default": "*Vitamin D is 50% of Recommended Daily Intake (RDI)"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "vitamins",
+      "name": "Vitamins Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        },
+        {
+          "type": "text",
+          "id": "title_2",
+          "label": "Type"
+        },
+        {
+          "type": "richtext",
+          "id": "text_2",
+          "label": "Text"
+        }
+      ]
+    },
+    {
+      "type": "minerals",
+      "name": "Minerals Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        },
+        {
+          "type": "text",
+          "id": "title_2",
+          "label": "Type"
+        },
+        {
+          "type": "richtext",
+          "id": "text_2",
+          "label": "Text"
+        }
+      ]
+    },
+    {
+      "type": "others",
+      "name": "Others Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        },
+        {
+          "type": "text",
+          "id": "title_2",
+          "label": "Type"
+        },
+        {
+          "type": "richtext",
+          "id": "text_2",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Vitamins & Minerals"
+    }
+  ]
+}
+{% endschema %}

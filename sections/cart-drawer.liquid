@@ -1,0 +1,222 @@
+<section class="product-cart-wrap">
+
+<div class="product-cart-overlay"></div>
+    <div class="product-cart-main-area">
+        <div class="cart-top">
+            <div class="cart-top-bar">
+                <h4>CART ({{ cart.item_count }})</h4>
+                <div class="back-arrow" onclick="closeCart(event, this)"><img src="{{"cart-close.svg" | asset_url}}" alt=""></div>
+            </div>
+            {% if cart.item_count != 0 %}
+
+                {%- if section.settings.text  != blank -%}
+                    <div class="cart-progress">
+                        <h5>{{ section.settings.text }}</h5>
+                    </div>
+        
+                {%- endif -%}
+
+         
+
+        {% endif %}
+        </div>
+   
+        
+ 
+
+        <div class="cart-item-wrap   {% if cart.item_count == 0 %}   overflow-hidden  {% endif %}">
+
+        {% if cart.item_count == 0 %}
+            <div class="epmty-cart">
+                <p>Your Cart is Empty</p>
+            </div>
+         {% endif %}
+
+            {% for item in cart.items %}
+
+                <div class="cart-product__item"> 
+
+            <div class="cart-item">
+                <a href="{{ item.url }}" class="cart-item-thumb">
+                    <figure>
+                        {% render 'responsive-image' with image: item.image %}
+                    </figure>
+                </a>
+                <div class="cart-item-content">
+                    <div class="cart-item-content-top">
+                        <a class="cart-item-content-top-left">
+                            <h6>{{ item.product.title }}</h6>
+                         
+
+                          {% if item.product.selling_plan_groups.size > 0 %}
+
+                            {% if item.selling_plan_allocation != blank %}
+                                    <span> MONTHLY SUBSCRIPTION</span>
+                                    {%- else -%}
+                                    <span>  ONCE-OFF PURCHASE </span>
+                              {% endif %}
+
+                            {% endif %}
+
+                        </a>
+                        <div class="cart-item-content-top-right">
+                            <h6>{{ item.final_line_price | money }}</h6>
+                        </div>
+                    </div>
+                    <div class="cart-item-content-bottom ">
+                        <div class="input-group">
+                            <button class="minus-item" onclick="decreaseItem(event, this)">–</button>
+                          
+                            <input
+                        class="input-num item-count"
+                        min="0"
+                        name="{{item.variant.id}}"
+                        data-id="{{item.variant.id}}"
+                        value="{% if item.quantity <=9 %}0{% endif %}{{ item.quantity }}"
+                        type="number"
+                        id="updates_'{{item.variant.id}}">
+
+                            <button class="plus-item" onclick="increaseItem(event, this)">+</button>
+                        </div>
+                        <a href="#" class="cart-item-remove"  data-id="{{item.key}}"  onclick="itemRemove(event, this)">Remove</a>
+                    </div>
+                </div>
+            </div>
+
+
+            {% if item.product.selling_plan_groups.size > 0 %}
+
+
+               
+
+                {% if item.selling_plan_allocation == blank %}
+
+                {%- liquid
+                assign current_variant = item.product.selected_or_first_available_variant | default: item.product.variants.first
+                assign current_selling_plan_allocation = current_variant.selected_selling_plan_allocation
+               
+                if current_selling_plan_allocation == nil and current_variant.requires_selling_plan
+                 assign current_selling_plan_allocation = current_variant.selling_plan_allocations | first
+                endif
+      
+      
+                assign offer = current_selling_plan_allocation | default: current_variant
+                assign offerPrice = offer.price 
+                assign discount = offer.price | times: 0.1
+                assign discountedPrice = offerPrice | minus: discount
+      
+                assign perdiscount  = current_variant.price | minus: discountedPrice
+                assign perce  = perdiscount | divided_by: current_variant.price
+                assign percentage  = perce | times:100
+      
+               %}
+
+
+                {%- assign currentProductId =  item.id -%}
+                {%- assign product_form_id = 'cart-form-' | append: currentProductId -%}
+    
+                {%- form 'product',
+                    item.product,
+                  class: 'cart-product-form',
+                  id: product_form_id,
+                  novalidate: 'novalidate'
+                -%}
+
+                {% assign selling_plan_first = item.product.selling_plan_groups[0].selling_plans[1] %}
+                <input type="hidden"  name="selling_plan" value="{{ selling_plan_first.id }}">
+                <input type="hidden" name="id" value="{{current_variant.id }}">
+
+              <div class="cart-item-sub">
+                <div class="save-10p-btn"><a href="#">Save {{percentage | round | append: '%' }}</a></div>
+                <a href="{{ item.url }}" class="cart-item-thumb">
+                    <figure>
+                        {% render 'responsive-image' with image: item.image %}
+                    </figure>
+                </a>
+                <div class="cart-item-content">
+                    <div class="cart-item-content-top">
+                        <a class="cart-item-content-top-left">
+                            <h6>{{ item.product.title  }}</h6>
+                            <span> MONTHLY SUBSCRIPTION</span>
+                            <span>CANCEL ANYTIME</span>
+                        </a>
+                        <div class="cart-item-content-top-right">
+                            <del>{{offerPrice | money }}</del>
+                            <h6>{{ discountedPrice | money }}</h6>
+                        </div>
+                    </div>
+                    <div class="cart-item-content-bottom ">
+                        <a href="javascript:void(0)" class="upgrade-selling"  onclick="upgrader_sellingplan(event, this)">Upgrade to subscription</a>
+                      
+                    </div>
+                </div>
+              </div>
+
+
+            {%- endform -%}
+
+              {% endif %}
+
+        {% endif %}
+        </div>
+
+           {% endfor %}
+        </div>
+
+
+    {% if cart.item_count != 0 %}
+
+        {%- if section.settings.reveiw_text != blank -%}
+        <div class="cart-over-view">
+            <div class="review-rating">
+                <img src="{{"5-star-in-cart-product.svg" |  asset_url}}" >
+                <p>{{ section.settings.reveiw_text }}</p>
+            </div>
+        </div>
+    {%- endif -%}
+
+        <div class="cart-checkout">
+            <div class="cart-checkout-top flex-box">
+                <div class="left-cart">
+                    <em>ORDER TOTAL</em>
+                    <span>Shipping</span>
+                </div>
+                <div class="right-cart">
+                    <em>{{ cart.total_price | money }}</em>
+                    <span>Calculated at checkout</span>
+                </div>
+
+            </div>
+            <a href="/checkout" class="btn checkout-btn">CHECKOUT</a>
+        </div>
+    {% endif %}
+
+    </div>
+</section>
+
+
+{% schema %}
+    {
+      "name": "Cart Drawer",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "Free shipping on all orders over £55+"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "reveiw_text",
+          "label": "Review Text",
+          "default": "1,599 Happy Customers"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Cart Drawer"
+        }
+      ]
+    }
+    {% endschema %}
+    

@@ -1,0 +1,66 @@
+
+
+<!-- FAQ -->
+{% assign product_faq = product.metafields.custom.product_faq.value %}
+
+{%- if product_faq != blank -%}
+<div class="faq-wrap">
+  {% assign faq_items = product_faq.faq_items.value %}
+  <div class="common-wrap clear">
+      <div class="faq-inner">
+          <div class="faq-title">
+              <h2>{{ product_faq.title}}</h2>
+              <p>{{ product_faq.text }}</p>
+              <div class="faq-btn">
+                {%- if product_faq.button_label_1 != blank -%}
+                    <a href="{{ product_faq.button_link_1}}" class="btn green">{{ product_faq.button_label_1}}</a>
+                {%- endif -%}
+
+                {%- if product_faq.button_label_2 != blank -%}
+                    <a href="{{ product_faq.button_link_2}}" class="btn transparent">{{ product_faq.button_label_2}}</a>
+                {%- endif -%}
+          
+        
+              </div>
+          </div>
+
+          {%- if faq_items != blank -%}
+            
+    
+          <div class="accordion">
+
+          {%- for faq_item in faq_items -%}
+            <div class="accordion-item">
+                <h5>{{ faq_item.title}}</h5>
+                <div class="accordion-content">
+                    {{ faq_item.text | metafield_tag }}
+                </div>
+            </div>
+          {%- endfor -%}
+
+          </div>
+
+        {%- endif -%}
+      </div>
+  </div>
+</div>
+    
+
+{%- endif -%}
+
+<!-- End FAQ -->
+{% schema %}
+    {
+      "name": "Product FAQ",
+      "tag": "section",
+      "settings": [
+
+      ],
+      "presets": [
+        {
+          "name": "Product FAQ"
+        }
+      ]
+    }
+    {% endschema %}
+    

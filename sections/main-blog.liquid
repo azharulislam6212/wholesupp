@@ -1,0 +1,215 @@
+
+{% paginate blog.articles by 9 %}
+
+    <!-- start blog-tab section  -->
+    <div class="blog-tab">
+      <div class="blog-inner">
+          <ul class="blog-tabs">
+            <li><a href="{{ blogs['news'].url }}/" class="{% if current_tags == nul and blog.handle == "news" %}active{% endif %}">All</a></li>
+            {% for tag in blogs['news'].all_tags %}
+              {% unless tag contains "Featured"  or  tag contains "FEATURED" or  tag contains "featured_blogs" %}
+              <li> <a href="{{ blogs['news'].url }}/tagged/{{ tag | handle }}"  class="{% if current_tags.first == tag %}active{% endif %}">{{tag}}</a> </li>
+            {% endunless %}
+            {% endfor %}
+          </ul>
+      </div>
+  </div>
+  <!-- end blog-tab section -->
+  {% if blog.handle == "news" and paginate.current_page == 1 and current_tags == nul%}
+
+
+
+  <!-- start blog-featured section  -->
+  <section class="blog-featured-wrap">
+      <div class="common-wrap clear">
+          <div class="blog-featured-inner">
+              <div class="blog-featured-item">
+                  <div class="blog-featured">
+                    {%- for article in blog.articles -%}
+                      {% assign featured = false %}
+                      {% for tag in article.tags %}
+                        {% if tag contains "Featured" or  tag contains "FEATURED" or  tag contains "featured_blogs" %}
+                          {% assign featured = true %}
+                        {% endif %}
+                      {%- endfor -%}
+                      {% if featured %}
+                        
+                   
+                      <div class="blog-featured-slider">
+                          <div class="tag-btn-wrap">
+                            {% for tag in article.tags limit: 2 %}
+                              {% if tag contains "Featured" or  tag contains "FEATURED" or  tag contains "featured_blogs" %}
+                                <a  class="tag-btn bg-black">{{ tag }}</a>
+                                {% else %}
+                                <a href="{{ blog.url }}/tagged/{{ tag | handle }}" class="tag-btn green">{{ tag }}</a>
+                              {% endif %}
+                       
+                            {% endfor %}
+                 
+                          </div>
+                          {% assign reading_time = article.content | strip_html | split: ' ' | size | times: 1.0 | divided_by: 250 | ceil %}
+
+                          <div class="featured-left-content">
+                              <h3>{{ article.title }}</h3>
+                         
+                              {% if article.excerpt != empty %}
+                                {{ article.excerpt }}
+                              {% else %}
+                                {{ article.content | strip_html | truncate: 160 }}
+                              {% endif %}
+                           
+                              <span> {{ article.published_at | date: '%b' }} {{- article.published_at | date: '%d' }}, {{ article.published_at | date: '%Y' -}} • {{reading_time}} minute read</span>
+                          </div>
+                      </div>
+
+                    {% endif %}
+                    {%- endfor -%}
+                     
+                  </div>
+                  <div class="blog-featured-image">
+                    {%- for article in blog.articles -%}
+
+                      {% assign featured = false %}
+                      {% for tag in article.tags %}
+                        {% if tag contains "Featured" or  tag contains "FEATURED" or  tag contains "featured_blogs" %}
+                          {% assign featured = true %}
+                        {% endif %}
+                      {%- endfor -%}
+                      {% if featured %}
+                        
+
+                      <div class="blog-featured-right">
+                        {%- if article.image != blank -%}
+                        {% render 'responsive-image' with image: article.image %}
+                      {%- endif -%}
+                  
+                      </div>
+
+                    {% endif %}
+                    {%- endfor -%}
+                     
+                    
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+  <!-- end blog-featured section -->
+{% endif %}
+ 
+
+  <!-- start blog-item section  -->
+  <section class="blog-item-wrap">
+      <div class="common-wrap clear">
+          <div class="blog-item-inner">
+
+            {%- for article in blog.articles -%}
+              <a href="{{ article.url }}" class="blog-item">
+                  <div class="blog-item-img">
+                    {%- if article.image != blank -%}
+                      {% render 'responsive-image' with image: article.image %}
+                    {%- endif -%}
+                  </div>
+                  <div class="blog-item-content">
+                      <h5>{{ article.title  }}</h5>
+
+                      <div>
+                
+                       {% if article.excerpt != empty %}
+                        {{ article.excerpt | strip_html | truncate: 150, '' }}
+                      {% else %}
+                        {{ article.content | strip_html | truncate: 150 }}
+                      {% endif %}
+                    </div>
+                  </div>
+                  <div class="tag-btn-wrap">
+                    {% for tag in article.tags  %}
+                      {% unless tag contains "Featured"  or  tag contains "FEATURED" or  tag contains "featured_blogs" %}
+                      <button class="tag-btn green">{{ tag }}</button>
+                    {% endunless %}
+                  {% endfor %}
+                  </div>
+
+                  {% assign reading_time = article.content | strip_html | split: ' ' | size | times: 1.0 | divided_by: 250 | ceil %}
+
+                  <div class="blog-item-time">
+                      <span>{{ article.published_at | date: '%b' }} {{- article.published_at | date: '%d' }}, {{ article.published_at | date: '%Y' -}} • {{readtime }}-- {{reading_time}} minute read</span>
+                  </div>
+              </a>
+
+            {%- endfor -%}
+              
+          </div>
+          {%- if paginate.pages > 1 -%}
+          <div class="blog-item-page-number">
+              <ul class="pagination">
+
+                {%- if  paginate.previous %}
+                  <li class="previous-page">
+                    <a href="{{ paginate.previous.url }}" class="page-link">
+                      <img src="{{"arrow.svg" | asset_url }}" alt="">
+                  </a>
+                </li>
+
+                {%- else -%}
+                <li class="previous-page">
+                  <img src="{{"arrow.svg" | asset_url }}" alt="">
+              </li>
+                {%- endif -%}
+
+
+              
+              
+
+                  {%- for part in paginate.parts -%}
+                    {%- if part.is_link -%}
+                      <li class="page-item">
+                        <a href="{{ part.url }}" class="page-link">
+                          {{ part.title }}
+                        </a>
+                      </li>
+                    {%- else -%}
+                      {%- if part.title == paginate.current_page -%}
+                        <li class="page-item active-page" aria-current="page">
+                          <span class="page-link">{{ part.title }}</span>
+                        </li>
+                      {%- else -%}
+                        <li class="page-item">
+                          <span class="page-link"> {{ part.title }} </span>
+                        </li>
+                      {%- endif -%}
+                    {%- endif -%}
+                  {%- endfor -%}
+
+                  {%- if paginate.next -%}
+                    <li class="next-page">
+                      <a href="{{ paginate.next.url }}" class="page-link">
+                        <img src="{{"arrow.svg" | asset_url }}" alt="">
+                      </a>
+                    </li>
+                  {%- else -%}
+                    <li class="next-page">
+                      <img src="{{"arrow.svg" | asset_url }}" alt="">
+                    </li>
+                  {%- endif -%}
+                
+           
+              </ul>
+          </div>
+        {%- endif -%}
+      </div>
+  </section>
+  <!-- end blog-item section -->
+
+  {% endpaginate %}
+
+
+
+{% schema %}
+{
+  "name": "Blog",
+  "settings": [
+
+  ]
+}
+{% endschema %}

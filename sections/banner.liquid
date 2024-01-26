@@ -1,0 +1,99 @@
+{% liquid
+  assign s = section.settings
+%}
+<div class="planet-thumb">
+  {% if s.image_mob != blank %}
+    {% render 'smart-image', image: s.image, image_mob: s.image_mob %}
+  {% elsif s.image != blank %}
+    {% render 'responsive-image' with image: s.image %}
+  {% else %}
+    {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+  {% endif %}
+</div>
+<div class="common-wrap clear">
+  <div class="banner-inner">
+    <div class="banner-text">
+      {% if s.heading != blank %}
+        <h2>{{ s.heading }}</h2>
+      {% endif %}
+      {% if s.text != blank %}
+        {{ s.text }}
+      {% endif %}
+
+      {% if s.button_label != blank %}
+        <a href="{{s.button_link }}" class="btn green">{{ s.button_label }}</a>
+      {% endif %}
+    </div>
+
+    {% if s.image_fly != blank %}
+        <div class="fly-pack">
+        {% render 'responsive-image' with image: s.image_fly %}
+    </div>
+      {% endif %}
+
+      {% if s.image_cloud != blank %}
+        <div class="cloud-pack">
+        {% render 'responsive-image' with image: s.image_cloud %}
+     </div>
+      {% endif %}
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Banner",
+  "tag": "section",
+  "class": "banner-planet",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image For Desktop"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mob",
+      "label": "Image For Mobile"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Good for you and the planet"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>We’re all about transparency. And we’ve made a promise that nothing in Whole Supp will ever harm you or the planet.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "SUSTAINABILITY"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Link"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_fly",
+      "label": "Left Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_cloud",
+      "label": "Right Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Banner"
+    }
+  ]
+}
+{% endschema %}

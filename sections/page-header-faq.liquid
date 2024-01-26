@@ -1,0 +1,88 @@
+{% liquid
+  assign s = section.settings
+%}
+
+  <div class="common-wrap clear">
+    <div class="blog-hero-inner">
+
+    {% if s.heading != blank %}
+        <h1>{{ s.heading }}</h1>
+      {% endif %}
+      {% if s.text != blank %}
+        {{ s.text }}
+      {% endif %}
+
+      <div class="dropdown-select" id="mobile">
+        <div class="dropdown">
+
+        {% if s.filter_label != blank %}
+            <button class="dropbtn">{{s.filter_label}}</button>
+          {% endif %}
+    
+          {% liquid
+          assign items = section.blocks | where: 'type', 'item'
+        %}
+
+          <div class="dropdown-content">
+            {%- for block in items -%}
+           {% assign b = block.settings %}
+             <a href="{{b.link}}">{{ b.label }}</a>
+            {%- endfor -%}
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+{% schema %}
+{
+  "name": "Page Header Faq",
+  "tag": "section",
+  "class": "blog-hero-wrap",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Frequently Asked Questions"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>Here are some of the questions we get asked by our customers</p>"
+    },
+    {
+      "type": "text",
+      "id": "filter_label",
+      "label": "Filter label",
+      "default": "FAQs"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Link",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Menu label"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Menu Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Page Header Faq"
+    }
+  ]
+}
+{% endschema %}

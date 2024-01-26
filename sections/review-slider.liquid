@@ -1,0 +1,71 @@
+<!-- Review Slider -->
+{% assign s = section.settings %}
+
+<div class="common-wrap clear">
+  <div class="review-inner">
+    <div class="review-title">
+        <img src="{{"reviewsio-logo3.png" | asset_url }}">
+        <p>4.9 based on <a href="#">160 reviews</a></p>
+    </div>
+    <div class="review-slider">
+        {% liquid
+            assign items = section.blocks | where: 'type', 'slider'
+          %}
+          {%- for block in items -%}
+            {% assign b = block.settings %}
+      <div class="review-item slider-content">
+        <div class="rating-star">
+            {% for i in (1..5) %}
+                <img src="{{"Star-black.svg" | asset_url}}">
+            {% endfor %}
+
+        </div>
+        <div class="review-text">
+            {{b.text}}
+          <div class="author-name">
+            <author>{{b.author }}</author>
+            <img src="{{"verified.png" | asset_url}}">
+          </div>
+        </div>
+      </div>
+
+    {%- endfor -%}
+
+    </div>
+  </div>
+</div>
+
+
+{% schema %}
+{
+  "name": "Review Slider",
+  "tag": "section",
+  "class": "review-slider-wrap",
+  "settings": [
+
+  ],
+  "blocks": [
+    {
+      "type": "slider",
+      "name": "Item",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "author",
+          "label": "Author"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Review Slider"
+    }
+  ]
+}
+{% endschema %}

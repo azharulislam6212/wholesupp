@@ -1,0 +1,89 @@
+{% liquid
+    assign s = section.settings
+  %}
+    <div class="common-wrap clear">
+        {% if s.heading != blank %}
+            <h2 class="title-large">{{ s.heading }}</h2>
+          {% endif %}
+        <div class="order-save-inner">
+            <div class="order-save-content">
+                <div class="top-content">
+                    {% if s.heading != blank %}
+                        <h2>{{ s.heading }}</h2>
+                      {% endif %}
+                </div>
+                <div class="bottom-content">
+                    {% if s.text != blank %}
+                        {{ s.text }}
+                      {% endif %}
+
+                    {% if s.button_label != blank %}
+                        <a href="{{s.button_link }}" class="btn green">{{ s.button_label }}</a>
+                      {% endif %}
+
+                </div>
+            </div>
+            <div class="save-product-thumb">
+                <figure>
+                    {% if s.image_mob != blank %}
+                        {% render 'smart-image', image: s.image, image_mob: s.image_mob %}
+                      {% elsif s.image != blank %}
+                        {% render 'responsive-image' with image: s.image %}
+                      {% else %}
+                        {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                      {% endif %}
+                </figure>
+
+            </div>
+        </div>
+    </div>
+
+
+
+{% schema %}
+{
+  "name": "Image with Text",
+  "tag": "section",
+  "class": "order-save similar-warp",
+  "settings": [
+    {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image For Desktop"
+      },
+      {
+        "type": "image_picker",
+        "id": "image_mob",
+        "label": "Image For Mobile"
+      },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Shaking things up in the kitchen"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>Meet your new pantry staple. Discover delicious Whole Supp recipes for supercharged snacks that help you stay on top of your game.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "RECIPES"
+    },
+    {
+        "type": "url",
+        "id": "button_link",
+        "label": "Link"
+      }
+  ],
+  "presets": [
+    {
+      "name": "Image with Text"
+    }
+  ]
+}
+{% endschema %}

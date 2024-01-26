@@ -1,0 +1,63 @@
+
+{% assign product_benefits = product.metafields.custom.product_benefits.value %}
+<!-- Science-backed nutrition in every sip  -->
+
+{%- if product_benefits != blank -%}
+  <div class="vitamin-tab-wrap nutrition-tab">
+    <div class="common-wrap clear">
+      <div class="vitamin-tab-inner">
+
+          <div class="vitamin-tab-details">
+              <div class="tabs-button">
+                  <ul class="button-nav">
+                    {%- for product_benefit in product_benefits -%}
+                        <li><a href="#tab-{{ product_benefit.tab_heading | handleize }}">{{ product_benefit.tab_heading }}</a></li>
+                    {%- endfor -%}
+                  </ul>
+              </div>
+
+              <div class="tabs-stage">
+                {%- for product_benefit in product_benefits -%}
+                  <div class="stage-items" id="tab-{{ product_benefit.tab_heading | handleize }}">
+                      <div class="tab-inner">
+                          <div class="tabs-stage-item">
+                              <div class="tab-list-btn">
+                                  <h2>{{ product_benefit.title }}</h2>
+                                  {{ product_benefit.text | metafield_tag}}
+                              </div>
+                              {%- if product_benefit.image != blank -%}
+                                <div class="vitamin-inner-tab">
+                                    {% render 'responsive-image' with image: product_benefit.image.value %}
+                                  </div>
+                              {%- endif -%}
+                            
+                          </div>
+                      </div>
+                  </div>
+                {%- endfor -%}
+               
+              </div>
+          </div>
+      </div>
+  </div>
+  </div>
+  
+
+{%- endif -%}
+<!-- End Science-backed nutrition in every sip  -->
+
+{% schema %}
+    {
+      "name": "Product Benefits",
+      "tag": "section",
+      "settings": [
+
+      ],
+      "presets": [
+        {
+          "name": "Product Benefits"
+        }
+      ]
+    }
+    {% endschema %}
+    

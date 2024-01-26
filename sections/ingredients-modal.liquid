@@ -1,0 +1,58 @@
+
+
+   
+{% assign ingredients_modal_info = product.metafields.custom.ingredients_modal_info.value %}
+
+{%- if ingredients_modal_info != blank -%}
+    {% assign ingredients_blocks = ingredients_modal_info.ingredients_blocks.value %}
+   <!-- Modal 2 -->
+    <section class="nutritional-info-modal" id="ingredients">
+        <div class="nutritional-inner-modal">
+            <div class="nutritional-info">
+                <div class="top-bar">
+                    <div class="modal-content">
+                        <h3>{{ ingredients_modal_info.section_heading }}</h3>
+                    </div>
+                    <div class="close-modal">
+                        <img src="{{"Close.svg" | asset_url }}">
+                    </div>
+                    {%- if ingredients_blocks != blank -%}
+                    <div class="tabs-button">
+                        <ul class="modal-nav" id="nav2">
+                            {%- for ingredients_block in ingredients_blocks -%}
+                            <li><a href="#ingrident_{{ingredients_block.title |  handleize }}">{{ ingredients_block.title }}</a></li>
+                        {%- endfor -%}
+                            
+                        </ul>
+                    </div>
+                {%- endif -%}
+                </div>
+
+                {%- if ingredients_blocks != blank -%}
+                <div class="modal-tab">
+                    <div class="modal-tab-content">
+                        {%- for ingredients_block in ingredients_blocks -%}
+                        <div class="modal-tab-items" id="ingrident_{{ingredients_block.title |  handleize }}">
+                            <div class="top-modal-title">
+                                {%- assign ingredients_items = ingredients_block.ingredients_items.value -%}
+
+                                {%- for ingredients_item in ingredients_items -%}
+                                <p class="title">{{ ingredients_item.title  }}</p>
+                                <p class="lead">{{ ingredients_item.text  }}</p>
+                                {%- endfor -%}
+              
+
+                            </div>
+                        </div>
+                    {%- endfor -%}
+                   
+                    </div>
+                </div>
+
+            {%- endif -%}
+            </div>
+        </div>
+    </section>
+    <!-- Modal 2 -->
+
+{%- endif -%}

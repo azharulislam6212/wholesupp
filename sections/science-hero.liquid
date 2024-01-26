@@ -1,0 +1,66 @@
+
+{% liquid
+assign s = section.settings
+%}
+
+
+        <div class="hero-bg">
+            {% if s.image_mob != blank %}
+                {% render 'smart-image', image: s.image, image_mob: s.image_mob %}
+              {% elsif s.image != blank %}
+                {% render 'responsive-image' with image: s.image %}
+                {% else %}
+                {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+              {% endif %}
+        
+
+        </div>
+        <div class="common-wrap clear">
+            <div class="heron-inner">
+                <div class="hero-content">
+                    {% if s.heading != blank %}
+                        <h1>{{ s.heading }}</h1>
+                      {% endif %}
+                      {% if s.text != blank %}
+                        {{ s.text }}
+                      {% endif %}
+                </div>
+        </div>
+
+{% schema %}
+    {
+      "name": "Science Hero",
+      "tag": "section",
+      "class": "hero-wrap",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image For Desktop"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_mob",
+          "label": "Image For Mobile"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Researched from farm to formulation"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>We work with leading experts in the fields of nutrition, science, medicine, and wellness to develop our Smart Food Formulation.</p>"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Science Hero"
+        }
+      ]
+    }
+    {% endschema %}
+    

@@ -1,0 +1,16 @@
+{
+  "sections": {
+    "blog-page-header": {
+      "type": "blog-page-header",
+      "settings": {}
+    },
+    "main": {
+      "type": "main-blog",
+      "settings": {}
+    }
+  },
+  "order": [
+    "blog-page-header",
+    "main"
+  ]
+}

@@ -1,0 +1,418 @@
+{
+  "sections": {
+    "hero_brQrW4": {
+      "type": "hero",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/bg-hero.png",
+        "image_mob": "shopify:\/\/shop_images\/bg-hero-mobi.png",
+        "heading": "The superfood shake that packs a punch",
+        "text": "<p>A convenient shake to support your active lifestyle with<br\/>13 superfoods and 31g of protein. Oh, and it’s delicious.<\/p><p><strong>Only £1.99 per meal.<\/strong><\/p>",
+        "button_label": "Shop now",
+        "button_link": "",
+        "feature_text": "<ul><li>Feel full for longer<\/li><li>Recover quicker<\/li><li>Reduce inflammation<\/li><\/ul>",
+        "show_review": true
+      }
+    },
+    "designed_slider_CCjMqi": {
+      "type": "designed-slider",
+      "blocks": {
+        "slider_e7KbV3": {
+          "type": "slider",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/author.svg",
+            "author": "<strong>Kate Jayden <\/strong>@decajayden",
+            "designation": "Tri Athlete and Whole Supp ambassador",
+            "text": "<p>“Incredible product that helps me get meals on the go or after a late night  run. I love that the packaging is plastic free and home compostable. It also tastes great.”<\/p>"
+          }
+        },
+        "slider_UaJ4Fa": {
+          "type": "slider",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/author.svg",
+            "author": "<strong>Kate Jayden <\/strong>@decajayden",
+            "designation": "Tri Athlete and Whole Supp ambassador",
+            "text": "<p>“Incredible product that helps me get meals on the go or after a late night  run. I love that the packaging is plastic free and home compostable. It also tastes great.”<\/p>"
+          }
+        },
+        "slider_937PdB": {
+          "type": "slider",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/author.svg",
+            "author": "<strong>Kate Jayden <\/strong>@decajayden",
+            "designation": "Tri Athlete and Whole Supp ambassador",
+            "text": "<p>“Incredible product that helps me get meals on the go or after a late night  run. I love that the packaging is plastic free and home compostable. It also tastes great.”<\/p>"
+          }
+        },
+        "slider_zqPnQd": {
+          "type": "slider",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/author.svg",
+            "author": "<strong>Kate Jayden <\/strong>@decajayden",
+            "designation": "Tri Athlete and Whole Supp ambassador",
+            "text": "<p>“Incredible product that helps me get meals on the go or after a late night  run. I love that the packaging is plastic free and home compostable. It also tastes great.”<\/p>"
+          }
+        },
+        "slider_rmPJMi": {
+          "type": "slider",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/author.svg",
+            "author": "<strong>Kate Jayden <\/strong>@decajayden",
+            "designation": "Tri Athlete and Whole Supp ambassador",
+            "text": "<p>“Incredible product that helps me get meals on the go or after a late night  run. I love that the packaging is plastic free and home compostable. It also tastes great.”<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "slider_e7KbV3",
+        "slider_UaJ4Fa",
+        "slider_937PdB",
+        "slider_zqPnQd",
+        "slider_rmPJMi"
+      ],
+      "settings": {
+        "title": "Designed for athletes & active lifestyles"
+      }
+    },
+    "explore_collection_jtRWh9": {
+      "type": "explore-collection",
+      "blocks": {
+        "product_mVKxMC": {
+          "type": "product",
+          "settings": {
+            "chose_product": "shaker",
+            "image": "shopify:\/\/shop_images\/timers.jpg",
+            "imge_over_text_1": "4.91 bag = 15 meals",
+            "imge_over_text_2": "£ 1.99 per meal",
+            "image_url": "",
+            "heading": "FIRST TIMERS",
+            "text": "Starter Pack",
+            "small_text": "Tasty Meal Shake, Shaker and a FREE Scoop"
+          }
+        },
+        "product_KPmpJH": {
+          "type": "product",
+          "settings": {
+            "chose_product": "nutritionally-complete-shakes",
+            "image": "shopify:\/\/shop_images\/flavours.jpg",
+            "imge_over_text_1": "4.91 bag = 15 meals",
+            "imge_over_text_2": "£ 1.99 per meal",
+            "image_url": "",
+            "heading": "SHOP FLAVOURS",
+            "text": "Superfood Meal Shake",
+            "image_icon": "shopify:\/\/shop_images\/group-icon.svg",
+            "small_text": "Available in 3 tasty flavours"
+          }
+        }
+      },
+      "block_order": [
+        "product_mVKxMC",
+        "product_KPmpJH"
+      ],
+      "settings": {
+        "title": "Explore the collection"
+      }
+    },
+    "product_intro_video_jtbEf6": {
+      "type": "product-intro-video",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/video-thumb.png",
+        "image_mob": "shopify:\/\/shop_images\/video-thumb-mobi.jpg",
+        "video_url": "https:\/\/www.youtube.com\/watch?v=Nz4m-v0n3zg",
+        "heading": "Fuel good feel great",
+        "text": "<p>Developed by nutritionists and backed by science, our Smart Food Formulation brings together 13 sustainably-sourced superfoods into one nutritionally complete meal.<\/p>",
+        "feature_text": "<ul><li>No more skipping breakfast<\/li><li>No more afternoon slumps<\/li><li>Perfect post-workout pick me up<\/li><\/ul>",
+        "button_label": "Shop now",
+        "button_link": "",
+        "button_label_2": "OUR STORY",
+        "button_link_2": "shopify:\/\/pages\/about-us"
+      }
+    },
+    "review_slider_gAigtb": {
+      "type": "review-slider",
+      "blocks": {
+        "slider_X8MUFT": {
+          "type": "slider",
+          "settings": {
+            "author": "Adam Colman - London",
+            "text": "<p>“This is hands down the best shake out there. I’ve tried multiple brands in the past but nothing compares to Whole Supp. Both chocolate and vanilla tastes as amazing...”<\/p>"
+          }
+        },
+        "slider_ptgLyU": {
+          "type": "slider",
+          "settings": {
+            "author": "Mark Morriarty - London",
+            "text": "<p>“Amazing product that gives you a strong level of healthy nutrition and protein. This is important when balancing work life, a young family and the ability to train optimally...”<\/p>"
+          }
+        },
+        "slider_hBcLgA": {
+          "type": "slider",
+          "settings": {
+            "author": "Niall McCarty - London",
+            "text": "<p>“Absolutely fantastic product and I rarely start the day without it. Taste great, mixes well and keeps me feeling fun and energised for hours.”<\/p>"
+          }
+        },
+        "slider_9gctN7": {
+          "type": "slider",
+          "settings": {
+            "author": "Hannah Benson - London",
+            "text": "<p>“Really tasty drink which I use daily after my gym session when I need to replace what is lost but am only able to get liquid in”<\/p>"
+          }
+        },
+        "slider_kEPiHz": {
+          "type": "slider",
+          "settings": {
+            "author": "Adam Colman - London",
+            "text": "<p>“This is hands down the best shake out there. I’ve tried multiple brands in the<br\/>                                        past but nothing compares to Whole Supp. Both chocolate and vanilla tastes as<br\/>                                        amazing...”<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "slider_X8MUFT",
+        "slider_ptgLyU",
+        "slider_hBcLgA",
+        "slider_9gctN7",
+        "slider_kEPiHz"
+      ],
+      "settings": {}
+    },
+    "superfoods_QA3XMr": {
+      "type": "superfoods",
+      "blocks": {
+        "slider_H7REWW": {
+          "type": "slider",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/flax-seeds.png",
+            "title": "Flax seeds",
+            "text": "<p>Improves Recovery, Reduces Inflammation and Supports Digestion<\/p>"
+          }
+        },
+        "slider_Ddn4ci": {
+          "type": "slider",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/spinach.png",
+            "title": "Spinach",
+            "text": "<p>Increases Muscle Strength, Improves Endurance and Reduces Inflammation<\/p>"
+          }
+        },
+        "slider_H9D9jk": {
+          "type": "slider",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/cherries.png",
+            "title": "Cherries",
+            "text": "<p>Reduced Muscle Soreness, Inflammation and Improved Sleep and Brain Function<\/p>"
+          }
+        },
+        "slider_RakTVi": {
+          "type": "slider",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/flax-seeds.png",
+            "title": "Flax seeds",
+            "text": "<p>Improves Recovery, Reduces Inflammation and Supports Digestion<\/p>"
+          }
+        },
+        "slider_Eqaeyi": {
+          "type": "slider",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/spinach.png",
+            "title": "Spinach",
+            "text": "<p>Increases Muscle Strength, Improves Endurance and Reduces Inflammation<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "slider_H7REWW",
+        "slider_Ddn4ci",
+        "slider_H9D9jk",
+        "slider_RakTVi",
+        "slider_Eqaeyi"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/superfood.png",
+        "heading": "13 superfoods to supercharge your day",
+        "text": "<p>Each carefully chosen in impactful amounts to support your gut and ensure optimal energy for an active lifestyle.<\/p>"
+      }
+    },
+    "us_vs_them_yUyRFa": {
+      "type": "us-vs-them",
+      "blocks": {
+        "slider_VtEQTz": {
+          "type": "slider",
+          "settings": {
+            "title": "Superfoods",
+            "image": "shopify:\/\/shop_images\/Happy-icn.svg",
+            "text": "13 Essential Superfoods",
+            "image_other": "shopify:\/\/shop_images\/Okay-icn.svg",
+            "text_other": "Rarely"
+          }
+        },
+        "slider_mygHf4": {
+          "type": "slider",
+          "settings": {
+            "title": "Great taste",
+            "image": "shopify:\/\/shop_images\/Happy-icn.svg",
+            "text": "Customers love the taste",
+            "image_other": "shopify:\/\/shop_images\/Sad-icn.svg",
+            "text_other": "Negative taste reviews"
+          }
+        },
+        "slider_qgGUjb": {
+          "type": "slider",
+          "settings": {
+            "title": "Gut-friendly",
+            "image": "shopify:\/\/shop_images\/Happy-icn.svg",
+            "text": "Yes",
+            "image_other": "shopify:\/\/shop_images\/Okay-icn.svg",
+            "text_other": "Rarely"
+          }
+        },
+        "slider_LQAPj4": {
+          "type": "slider",
+          "settings": {
+            "title": "Science backed",
+            "image": "shopify:\/\/shop_images\/Happy-icn.svg",
+            "text": "Informed Sports Certified",
+            "image_other": "shopify:\/\/shop_images\/Sad-icn.svg",
+            "text_other": "Not Informed Sports Certified"
+          }
+        },
+        "slider_6h3XLx": {
+          "type": "slider",
+          "settings": {
+            "title": "Planet-friendly",
+            "image": "shopify:\/\/shop_images\/Happy-icn.svg",
+            "text": "Plastic-free & compostable",
+            "image_other": "shopify:\/\/shop_images\/Sad-icn.svg",
+            "text_other": "Occasionally recyclable plastic"
+          }
+        }
+      },
+      "block_order": [
+        "slider_VtEQTz",
+        "slider_mygHf4",
+        "slider_qgGUjb",
+        "slider_LQAPj4",
+        "slider_6h3XLx"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/hero_MOBILE.png",
+        "image_mob": "shopify:\/\/shop_images\/hero_MOBILE.png",
+        "heading": "Us vs Them",
+        "text": "<p>We never shy away from competition. And when we put the industry under the microscope, the facts speak for themselves.<\/p>"
+      }
+    },
+    "led_by_science_Hmzijw": {
+      "type": "led-by-science",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/led.png",
+        "heading": "Led by science from farm to formulation",
+        "text": "<p>Science doesn’t mess around. And neither do we. We work with leading experts in the fields of nutrition, science, medicine, and wellness so you can fuel good to feel great — daily.<\/p>",
+        "feature_text": "<ul><li>Informed Sports Certified<\/li><li>Sustainably-sourced superfoods<\/li><li>100% transparency<\/li><\/ul>",
+        "button_label": "THE SCIENCE",
+        "button_link": "shopify:\/\/pages\/the-science",
+        "video_url": ""
+      }
+    },
+    "put_your_order_XFLQE4": {
+      "type": "put-your-order",
+      "blocks": {
+        "support_hUJhq8": {
+          "type": "support",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Save-icn.svg",
+            "title": "Save 10% on each order"
+          }
+        },
+        "support_mNEpg3": {
+          "type": "support",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Shipping-icn.svg",
+            "title": "Free shipping each month"
+          }
+        },
+        "support_64jL9X": {
+          "type": "support",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Cancel-icn.svg",
+            "title": "Cancel or swap anytime"
+          }
+        },
+        "flavour_9T6jKq": {
+          "type": "flavour",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/chocolate.png",
+            "title": "CHOCOLATE"
+          }
+        },
+        "flavour_N9VQap": {
+          "type": "flavour",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/ceramel.png",
+            "title": "CARAMEL SEA SALT"
+          }
+        },
+        "flavour_adeR4m": {
+          "type": "flavour",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/vanila.png",
+            "title": "VANILLA"
+          }
+        }
+      },
+      "block_order": [
+        "support_hUJhq8",
+        "support_mNEpg3",
+        "support_64jL9X",
+        "flavour_9T6jKq",
+        "flavour_N9VQap",
+        "flavour_adeR4m"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/rehal.png",
+        "image_mob": "shopify:\/\/shop_images\/rehal-mobi.png",
+        "heading": "Put your order on autopilot & save 10%",
+        "text": "<p>Simply select your delivery cycle to save 10% on the superfood substitute you’ll never want to be without.<\/p>",
+        "flavours_text": "😋 AVAILABLE IN 3 TASTY FLAVOURS",
+        "button_label": "SUBSCRIBE & SAVE",
+        "button_link": "",
+        "subcribe": "<strong>Only £1.79 per meal<\/strong> vs average UK meal of £10.99"
+      }
+    },
+    "banner_kFiRHh": {
+      "type": "banner",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/sky.jpg",
+        "image_mob": "shopify:\/\/shop_images\/sky-mobi.png",
+        "heading": "Good for you and the planet",
+        "text": "<p>We’re all about transparency. And we’ve made a promise that nothing in Whole Supp will ever harm you or the planet.<\/p>",
+        "button_label": "SUSTAINABILITY",
+        "button_link": "",
+        "image_fly": "shopify:\/\/shop_images\/fly-pack.png",
+        "image_cloud": "shopify:\/\/shop_images\/cloud-pack.png"
+      }
+    },
+    "image_with_text_GL6wkp": {
+      "type": "image-with-text",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/kitchen.png",
+        "image_mob": "shopify:\/\/shop_images\/kitchen_4dd496cd-ddb7-4681-8340-0b7975b8901f.png",
+        "heading": "Shaking things up in the kitchen",
+        "text": "<p>Meet your new pantry staple. Discover delicious Whole Supp recipes for supercharged snacks that help you stay on top of your game.<\/p>",
+        "button_label": "RECIPES",
+        "button_link": "\/blogs\/news\/tagged\/recipes"
+      }
+    }
+  },
+  "order": [
+    "hero_brQrW4",
+    "designed_slider_CCjMqi",
+    "explore_collection_jtRWh9",
+    "product_intro_video_jtbEf6",
+    "review_slider_gAigtb",
+    "superfoods_QA3XMr",
+    "us_vs_them_yUyRFa",
+    "led_by_science_Hmzijw",
+    "put_your_order_XFLQE4",
+    "banner_kFiRHh",
+    "image_with_text_GL6wkp"
+  ]
+}

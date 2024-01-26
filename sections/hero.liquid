@@ -1,0 +1,110 @@
+{% liquid
+  assign s = section.settings
+%}
+
+<div class="hero-bg">
+
+  {% if s.image_mob != blank %}
+    {% render 'smart-image', image: s.image, image_mob: s.image_mob %}
+  {% elsif s.image != blank %}
+    {% render 'responsive-image' with image: s.image %}
+  {% endif %}
+</div>
+<div class="common-wrap clear">
+  <div class="heron-inner">
+    <div class="hero-content">
+      {% if s.heading != blank %}
+        <h1>{{ s.heading }}</h1>
+      {% endif %}
+
+      {% if s.text != blank %}
+        {{ s.text }}
+      {% endif %}
+    </div>
+
+    {% if s.button_label != blank %}
+      <div class="hero-btn">
+        <a href="{{s.button_link }}" class="btn green">{{ s.button_label }}</a>
+      </div>
+    {% endif %}
+    {% if s.feature_text != blank %}
+      <div class="list-text">
+        {{ s.feature_text }}
+      </div>
+    {% endif %}
+  </div>
+  {%- if s.show_review -%}
+  <div class="bottom-review">
+    <div class="rating-star">
+
+      {% for i in (1..5) %}
+        <img src="{{"Star.svg" | asset_url}}">
+    {% endfor %}
+
+    </div>
+
+      <p>4.9 based on <a href="#">160 reviews</a> <img src="{{"reviewsio-logo1.svg" | asset_url}}"></p>
+   
+
+  </div>
+{%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "Hero",
+  "tag": "section",
+  "class": "hero-wrap",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image For Desktop"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mob",
+      "label": "Image For Mobile"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "The superfood shake that packs a punch"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>A convenient shake to support your active lifestyle with 13 superfoods and 31g of protein. Oh, and it’s delicious.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "Shop now"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Link"
+    },
+    {
+      "type": "richtext",
+      "id": "feature_text",
+      "label": "Feature Text"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_review",
+      "label": "Show Review Widget",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero"
+    }
+  ]
+}
+{% endschema %}

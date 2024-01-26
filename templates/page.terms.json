@@ -1,0 +1,46 @@
+{
+  "sections": {
+    "page_header_general_djFGN8": {
+      "type": "page-header-general",
+      "settings": {
+        "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris a odio ut augue sagittis mattis.<\/p>"
+      }
+    },
+    "general_text_yabNTE": {
+      "type": "general-text",
+      "blocks": {
+        "menu_EqRqLJ": {
+          "type": "menu",
+          "settings": {
+            "title": "FAQs",
+            "link": "shopify:\/\/pages\/faqs"
+          }
+        },
+        "menu_f3NCdD": {
+          "type": "menu",
+          "settings": {
+            "title": "Shipping",
+            "link": "shopify:\/\/pages\/shipping"
+          }
+        },
+        "menu_gGPxD7": {
+          "type": "menu",
+          "settings": {
+            "title": "Terms",
+            "link": "shopify:\/\/pages\/terms"
+          }
+        }
+      },
+      "block_order": [
+        "menu_EqRqLJ",
+        "menu_f3NCdD",
+        "menu_gGPxD7"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "page_header_general_djFGN8",
+    "general_text_yabNTE"
+  ]
+}

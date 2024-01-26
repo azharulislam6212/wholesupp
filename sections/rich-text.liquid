@@ -1,0 +1,34 @@
+
+{% liquid
+assign s = section.settings
+%}
+  
+  <div class="common-wrap clear">
+    <div class="straight-nutritino-content">
+          {% if s.text != blank %}
+            {{ s.text }}
+          {% endif %}
+    </div>
+  </div>
+
+
+{% schema %}
+{
+  "name": "Rich Text",
+  "tag": "section",
+  "class": "straight-nutritino-wrap",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>Whether you’re an athlete or committed to an active lifestyle, our mission is to empower healthy living by bringing together all the best superfoods into a convenient, wholesome, and well-balanced meal — that’s good for you, and the planet.&nbsp;</p>"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Rich Text"
+    }
+  ]
+}
+{% endschema %}

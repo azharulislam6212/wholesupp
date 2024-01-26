@@ -1,0 +1,145 @@
+<!doctype html>
+<html class="no-js" lang="{{ request.locale.iso_code }}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="">
+    <link rel="canonical" href="{{ canonical_url }}">
+    <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+
+    {%- if settings.favicon != blank -%}
+      <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
+    {%- endif -%}
+
+    {%- unless settings.type_header_font.system? and settings.type_body_font.system? -%}
+      <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
+    {%- endunless -%}
+
+    <title>
+      {{ page_title }}
+      {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
+      {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
+      {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+    </title>
+
+    {% if page_description %}
+      <meta name="description" content="{{ page_description | escape }}">
+    {% endif %}
+
+    {% render 'meta-tags' %}
+
+    {{ content_for_header }}
+
+    {%- liquid
+      assign body_font_bold = settings.type_body_font | font_modify: 'weight', 'bold'
+      assign body_font_italic = settings.type_body_font | font_modify: 'style', 'italic'
+      assign body_font_bold_italic = body_font_bold | font_modify: 'style', 'italic'
+    %}
+
+    {% style %}
+      {{ settings.type_body_font | font_face: font_display: 'swap' }}
+      {{ body_font_bold | font_face: font_display: 'swap' }}
+      {{ body_font_italic | font_face: font_display: 'swap' }}
+      {{ body_font_bold_italic | font_face: font_display: 'swap' }}
+      {{ settings.type_header_font | font_face: font_display: 'swap' }}
+    {% endstyle %}
+
+    {{ 'language-select.css' | asset_url | stylesheet_tag }}
+    {{ 'selectric.css' | asset_url | stylesheet_tag }}
+    {{ 'slick.css' | asset_url | stylesheet_tag }}
+    {{ 'slick-theme.css' | asset_url | stylesheet_tag }}
+    {{ 'style.css' | asset_url | stylesheet_tag }}
+    {{ 'custom.css' | asset_url | stylesheet_tag }}
+
+    {%- unless settings.type_body_font.system? -%}
+      <link rel="preload" as="font" href="{{ settings.type_body_font | font_url }}" type="font/woff2" crossorigin>
+    {%- endunless -%}
+    {%- unless settings.type_header_font.system? -%}
+      <link rel="preload" as="font" href="{{ settings.type_header_font | font_url }}" type="font/woff2" crossorigin>
+    {%- endunless -%}
+
+    
+
+    {%- comment -%}
+    <script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+    if (Shopify.designMode) {
+      document.documentElement.classList.add('shopify-design-mode');
+    }
+    </script>
+    {%- endcomment -%}
+  </head>
+
+  {% if template == 'page.faqs' %}
+    {% assign main_class = "faq-page" %}
+   {% elsif  template == 'page.shipping'  %}
+    {% assign main_class = "faq-page" %}
+   {% elsif  template == 'page.terms'  %}
+    {% assign main_class = "faq-page" %}
+   {% elsif  template == 'page.science'  %}
+    {% assign main_class = "science-page" %}
+    {% elsif  template == 'product'  %}
+      {% assign main_class = "main-wrap product-page" %}
+      {% elsif  template == 'blog'  %}
+        {% assign main_class = "" %}
+    {% else %}
+      {% assign main_class = "main-wrap" %}
+  {% endif %}
+
+
+  <body class="{{template}}">
+
+    
+    
+    <main id="MainContent" class="content-for-layout {{ main_class }}" role="main" tabindex="-1">
+
+      <header class="main-header-section">
+        {% section 'announcement-bar' %}
+        {% section 'header' %}
+      </header>
+
+      {% if template == 'page.about' %}
+        {% assign temaplte_class = "about-page" %}
+       {%- elsif  template == 'page.terms'  -%}
+        {% assign temaplte_class = "termsPage" %}
+        {% elsif  template == 'blog'  %}
+        {% assign temaplte_class = "blog-page" %}
+      {% endif %}
+      
+    <section class="main-content-wrap {{temaplte_class}}">
+      {{ content_for_layout }}
+    </section>
+
+    {% section 'instagram' %}
+    {% section 'footer' %}
+
+
+    </main>
+    
+    {% section 'cart-drawer' %}
+
+    {% if  template == 'product'  %}
+    {% section 'ingredients-modal' %}
+    {% section 'nutritional-modal' %}
+    {%- endif -%}
+
+    <div class="video-popup-container">
+      <div class="video-popup-close" class="fade">&#10006;</div>
+      <div class="video-popup-iframe-container">
+        <iframe class="video-popup-iframe" src="" width="100%" height="100%" frameborder="0"></iframe>
+      </div>
+    </div>
+
+
+    <script src="{{ 'jquery-3.5.1.min.js' | asset_url }}" defer></script>
+    <script src="{{ 'vendor.min.js' | asset_url }}" defer></script>
+    <script src="{{ 'language-select.js' | asset_url }}" defer></script>
+    <script src="{{ 'slick.min.js' | asset_url }}" defer></script>
+    <script src="{{ 'jquery.selectric.min.js' | asset_url }}" defer></script>
+    <script src="{{ 'common-scripts.js' | asset_url }}" defer></script>
+    <script src="{{ 'custom.js' | asset_url }}" defer></script>
+
+
+  </body>
+</html>
+

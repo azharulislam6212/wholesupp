@@ -1,0 +1,112 @@
+
+
+{% liquid
+    assign s = section.settings
+  %}
+
+<div class="common-wrap clear">
+  {% if s.heading != blank %}
+    <h2 class="title-large">{{ s.heading }}</h2>
+  {% endif %}
+
+  {% if s.text != blank %}
+    <p class="title-large"> 
+    {{ s.text }}
+    </p>
+  {% endif %}
+
+  <div class="order-save-inner">
+    <div class="order-save-content">
+      <div class="top-content">
+        {% if s.heading != blank %}
+        <h2>{{ s.heading }}</h2>
+    {% endif %}
+    {% if s.text != blank %}
+        <p id="large-device">
+            {{ s.text }}
+        </p>
+    {% endif %}
+      </div>
+      {% liquid
+      assign items = section.blocks | where: 'type', 'faq'
+    %}
+
+    {%- if items != blank -%}
+        
+      <div class="accordion">
+        {%- for block in items -%}
+            {% assign b = block.settings %}
+        <div class="accordion-item">
+          <h5>{{ b.heading }}</h5>
+          <div class="accordion-content">
+            {{ b.text }}
+          </div>
+        </div>
+
+    {%- endfor -%}
+
+
+      </div>
+    {%- endif -%}
+    </div>
+    <div class="save-product-thumb">
+      <figure>
+        {% if s.image != blank %}
+            {% render 'responsive-image' with image: s.image %}
+            {% else %}
+            {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+            {% endif %}
+      </figure>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Led By Science Accordion",
+  "tag": "section",
+  "class": "order-save similar-warp",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Led by science"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "What science says, goes. We rely on it in every part of our process to ensure peak mental and physical health to support your active lifestyle."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "Accordion",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Led By Science Accordion"
+    }
+  ]
+}
+{% endschema %}

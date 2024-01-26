@@ -1,0 +1,163 @@
+{% liquid
+  assign s = section.settings
+%}
+<div class="circle-bg">
+  <img src="{{"circle.svg" | asset_url}}">
+</div>
+<div class="common-wrap clear">
+  <div class="us-them-inner">
+    <div class="us-content">
+      <div class="text-info">
+        {% if s.heading != blank %}
+          <h2>{{ s.heading }}</h2>
+        {% endif %}
+
+        {% if s.text != blank %}
+          {{ s.text }}
+        {% endif %}
+      </div>
+      <div class="heights-thumb">
+        {% if s.image_mob != blank %}
+          {% render 'smart-image', image: s.image, image_mob: s.image_mob %}
+        {% elsif s.image != blank %}
+          {% render 'responsive-image' with image: s.image %}
+        {% else %}
+          {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+        {% endif %}
+      </div>
+    </div>
+
+    {% liquid
+      assign items = section.blocks | where: 'type', 'slider'
+    %}
+
+    <div class="food-test-wrap">
+      <div class="food-test-info">
+        <div class="food-review-item">
+          <ul>
+            {%- for block in items -%}
+              {% assign b = block.settings %}
+              {% if b.title != blank %}
+                <li>{{ b.title }}</li>
+              {% endif %}
+            {%- endfor -%}
+          </ul>
+        </div>
+        <div class="food-rating-item  black-bg">
+          <img src="{{"Logo-white.svg" | asset_url }}" class="top-logo">
+          {%- for block in items -%}
+            {% assign b = block.settings %}
+            <div class="icon-box {%if forloop.index == 1 %} top-space {%endif%}">
+              {% if b.image != blank %}
+                <img src="{{ b.image | img_url:"master" }}" alt="{{b.image.alt }}">
+              {% endif %}
+
+              <h5 class="sub-heading">{{ b.title }}</h5>
+              <span>{{ b.text }}</span>
+              <div class="line"></div>
+            </div>
+          {%- endfor -%}
+        </div>
+        <div class="food-rating-item">
+          <div class="dropdown">
+            <select class="select-btn">
+              <option>Other meal shakes</option>
+              <option>Meal shakes 1</option>
+              <option>Meal shakes 2</option>
+              <option>Meal shakes 3</option>
+            </select>
+          </div>
+          {%- for block in items -%}
+            {% assign b = block.settings %}
+            <div class="icon-box">
+                {% if b.image_other != blank %}
+                    <img src="{{ b.image_other | img_url:"master" }}" alt="{{b.image_other.alt }}">
+                  {% endif %}
+              <h5 class="sub-heading">{{ b.title }}</h5>
+              <span class="black-text">{{ b.text_other }}</span>
+              <div class="line"></div>
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "US vs Them",
+  "tag": "section",
+  "class": "us-them-wrap",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image For Desktop"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mob",
+      "label": "Image For Mobile"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Us vs Them"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>We never shy away from competition. And when we put the industry under the microscope, the facts speak for themselves.</p>"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slider",
+      "name": "Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "header",
+          "content": "Whole Supp"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Icon"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "text",
+          "label": "Text"
+        },
+        {
+          "type": "header",
+          "content": "Other Supp"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_other",
+          "label": "Icon"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "text_other",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "US vs Them"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,298 @@
+
+  <!-- Beginning footer section
+            ============================== -->
+            <footer class="main-footer-section">
+              <div class="common-wrap clear">
+                  <div class="footer-inner flex-box">
+
+                    {%- for block in section.blocks -%}
+                      {%- case block.type -%}
+                        {%- when 'subscribe_newsletter' -%}
+                          {%- liquid
+                            assign heading = block.settings.heading
+                            assign description = block.settings.description
+                          -%}
+                      <div class="footer-newsletter">
+                 
+                          {% if heading != blank %}
+                            <h3>{{ heading }}</h3>
+                          {% endif %}
+                          {% if description != blank %} {{ description }} {% endif %}
+
+                          {% form 'customer' %} 
+                          {% if form.posted_successfully? %}
+                            <p class="form--success">Thank you for signing up!</p>
+                          {% else %}
+
+                          <div class="newsletter-input">
+                              <div class="newsletter-input-row">
+
+                                <input type="hidden" name="contact[tags]" value="newsletter">
+                                <input
+                                  type="email"
+                                  name="contact[email]"
+                                  value="{% if customer %}{{ customer.email }}{% endif %}"
+                                  placeholder="Email"
+                                  autocapitalize="off"
+                                  autocorrect="off"
+                                >
+                                  {{ form.errors | default_errors }}
+                              </div>
+                              <div class="newsletter-input-row submit">
+                                  <input type="submit" value="SUBSCRIBE">
+                              </div>
+                          </div>
+                        {% endif %}
+                      {% endform %}
+
+                      </div>
+
+                    {%- endcase -%}
+                  {%- endfor -%}
+
+
+                      <div class="footer-widget-wrap">
+                        {%- for block in section.blocks -%}
+                          {%- case block.type -%}
+                            
+                            {%- when 'contact' -%}
+                              {%- liquid
+                                assign heading = block.settings.heading
+                                assign description = block.settings.description
+                                assign mail_1 = block.settings.mail_1
+                                assign mail_2 = block.settings.mail_2
+                              -%}
+                          <div class="footer-widget">
+                            {% if heading != blank %}
+                              <span>{{ heading }}</span>
+                            {% endif %}
+                            {% if description != blank %}
+                              {{description }}
+                            {% endif %}
+                             
+                          </div>
+                          {%- when 'menu' -%}
+                            {%- liquid
+                              assign menu = block.settings.menu
+                              assign heading = block.settings.heading
+                            -%}
+                          <div class="footer-widget">
+            
+                              {% if heading != blank %}
+                                <span>{{ heading }}</span>
+                              {% endif %}
+                              {% if menu != blank %}
+                                <ul>
+                                  {%- for link in menu.links -%}
+                                    <li>
+                                      <a href="{{ link.url }}">{{ link.title }}</a>
+                                    </li>
+                                  {%- endfor -%}
+                                </ul>
+                              {% endif %}
+                          </div>
+                          {%- when 'social_link' -%}
+                            {%- liquid
+             
+                              assign social_link_1 = block.settings.social_link_1
+                              assign social_label_1 = block.settings.social_label_1
+                        
+                              assign social_link_2 = block.settings.social_link_2
+                              assign social_label_2 = block.settings.social_label_2
+
+                              assign social_label_3 = block.settings.social_label_3
+                              assign social_link_3 = block.settings.social_link_3
+                              assign heading = block.settings.heading
+                            -%}
+
+                          <div class="footer-widget">
+                            {% if heading != blank %}
+                              <span>{{ heading }}</span>
+                            {% endif %}
+                              <ul>
+                                {% if social_label_1 != blank %}
+                                  <li> <a href="{{social_link_1}}">{{ social_label_1 }}</a></li>
+                                {% endif %}
+                                {% if social_label_2 != blank %}
+                                  <li> <a href="{{social_link_2}}">{{ social_label_2 }}</a></li>
+                                {% endif %}
+                                {% if social_label_3 != blank %}
+                                  <li> <a href="{{social_link_3}}">{{ social_label_3 }}</a></li>
+                                {% endif %}
+                              </ul>
+                          </div>
+
+                        {%- endcase -%}
+                      {%- endfor -%}
+  
+                      </div>
+                  </div>
+                  <div class="footer-bottom">
+                        {%- liquid
+                              assign bottom_menu = section.settings.bottom_menu
+                       
+                            -%}
+                      <div class="footer-bottom-widget footer-custom-widget">
+                          <p>&copy;{{ shop.name | link_to: routes.root_url }} {{ 'now' | date: '%Y' }}</p>
+                      </div>
+                      {% if bottom_menu != blank %}
+                        <div class="policy-link">
+                          <ul>
+                            {%- for link in bottom_menu.links -%}
+                              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                            {%- endfor -%}
+                          </ul>
+                      </div>
+                      {% endif %}
+                     
+                  </div>
+              </div>
+          </footer>
+          {%- if section.settings.logo -%}
+          <div class="logo-section">
+              <div class="common-wrap clear">
+                 <div class="footer-logo">
+                  <a href="{{ routes.root_url }}">
+                    <img src="{{ section.settings.logo | img_url:"master" }}" alt="{{section.settings.logo.alt}}">
+                  </a>
+                  </div>
+              </div>
+          </div>
+        {%- endif -%}
+
+{% schema %}
+{
+  "name": "t:sections.footer.name",
+  "blocks": [
+    {
+      "type": "subscribe_newsletter",
+      "name": "Subscribe Newsletter",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Get the inside scoop"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description",
+          "default": "<p>Join our community for 20% of your first order and wholesome news in your inbox. All superfoods, no spam.</p>"
+        }
+      ]
+    },
+    {
+      "type": "contact",
+      "name": "Contact",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "CONTACT"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description",
+          "default": "<p>195 Chrystie St RM 303M London, UK 10002</p>"
+        }
+      ]
+    },
+    {
+      "type": "menu",
+      "name": "Menu",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "EXPLORE"
+        },
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": "Select Main Menu",
+          "default": "main-menu"
+        }
+      ]
+    },
+    {
+      "type": "social_link",
+      "name": "Social Link",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "SOCIAL"
+        },
+        {
+          "type": "header",
+          "content": "Social Link 1"
+        },
+        {
+          "type": "text",
+          "id": "social_label_1",
+          "label": "Social Label"
+        },
+        {
+          "type": "url",
+          "id": "social_link_1",
+          "label": "Social Link"
+        },
+        {
+          "type": "header",
+          "content": "Social Link 2"
+        },
+        {
+          "type": "text",
+          "id": "social_label_2",
+          "label": "Social Label"
+        },
+        {
+          "type": "url",
+          "id": "social_link_2",
+          "label": "Social Link"
+        },
+        {
+          "type": "header",
+          "content": "Social Link 3"
+        },
+        {
+          "type": "text",
+          "id": "social_label_3",
+          "label": "Social Label"
+        },
+        {
+          "type": "url",
+          "id": "social_link_3",
+          "label": "Social Link"
+        }
+      ]
+    }
+   
+  ],
+  "settings": [
+    {
+      "type": "header",
+      "content": "Logo"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Image"
+    },
+    {
+      "type": "link_list",
+      "id": "bottom_menu",
+      "label": "Bottom Menu"
+    }
+  ]
+}
+{% endschema %}

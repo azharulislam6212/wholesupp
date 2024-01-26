@@ -1,0 +1,103 @@
+{% assign s = section.settings %}
+
+        {% if s.heading != blank %}
+            <h2>{{ s.heading }}</h2>
+        {% endif %}
+
+        {% liquid
+        assign items = section.blocks | where: 'type', 'slider'
+      %}
+
+      {%- if items != blank -%}
+        {%- for block in items -%}
+            {% assign mod = forloop.index | modulo: 2 %}
+            {% assign b = block.settings %}
+                <div class="our-founders-info  {% if mod == 0 %}  even  {% endif %}">
+                    <div class="common-wrap clear">
+                        <div class="our-founders-inner">
+                            <div class="our-founders-container">
+                                <div class="our-founder-info-item">
+                                    <div class="our-founder-info-item-img">
+                                        {% if b.image_mob != blank %}
+                                            {% render 'smart-image', image: b.image, image_mob: b.image_mob %}
+                                          {% elsif b.image != blank %}
+                                            {% render 'responsive-image' with image: b.image %}
+                                            {% else %}
+                                            {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                                          {% endif %}
+                                    </div>
+                                    <div class="our-founder-info-item-text">
+                                        {%- if b.title  != blank -%}
+                                            <h4>{{ b.title }}</h4>
+                                        {%- endif -%}
+                                        {%- if b.designation  != blank -%}
+                                         <span>{{ b.designation}}</span>
+                                       {%- endif -%}
+                                        {{ b.text }}
+                                     
+                                      </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {%- endfor -%}
+
+    {% endif %}
+
+
+
+{% schema %}
+    {
+      "name": "Our Founders",
+      "tag": "section",
+      "class": "our-founders-wrap",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Title",
+          "default": "Our Founders"
+        }
+      ],
+      "blocks": [
+        {
+          "type": "slider",
+          "name": "Item",
+          "settings": [
+            {
+              "type": "image_picker",
+              "id": "image",
+              "label": "Image For Desktop"
+            },
+            {
+              "type": "image_picker",
+              "id": "image_mob",
+              "label": "Image For Mobile"
+            },
+            {
+              "type": "text",
+              "id": "title",
+              "label": "Title"
+            },
+            {
+              "type": "text",
+              "id": "designation",
+              "label": "Designation"
+            },
+            {
+              "type": "richtext",
+              "id": "text",
+              "label": "Text"
+            }
+          ]
+        }
+      ],
+      "presets": [
+        {
+          "name": "Our Founders"
+        }
+      ]
+    }
+    {% endschema %}
+    

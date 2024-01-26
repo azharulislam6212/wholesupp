@@ -1,0 +1,104 @@
+{% liquid
+    assign s = section.settings
+  %}
+
+    <div class="insta-intro flex flex-vertical-align">
+        {% if s.heading != blank %}
+        <h2 class="reveal-text">{{ s.heading }}</h2> 
+    {% endif %}
+
+    {% if s.button_label != blank %}
+        <a href="{{s.button_link }}" class="btn transparent mail-btn">{{ s.button_label }}</a>
+      {% endif %}
+    
+        {% if s.heading2 != blank %}
+            <h2 class="revers-text">{{ s.heading2 }}</h2>
+          {% endif %}
+
+    </div>
+
+    {% liquid
+        assign insta = section.blocks | where: 'type', 'insta'
+      %}
+
+      {% if insta != blank %}
+        
+ 
+    <div class="insta-slider-wrap">
+
+        {%- for block in insta -%}
+            {% assign b = block.settings %}
+
+        <a href="{{b.img_link }}" class="insta-slider-item">
+            <figure>
+
+                {% if b.image != blank %}
+                    {% render 'responsive-image' with image: b.image %}
+              {% else %}
+                    {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                  {% endif %}
+             
+            </figure>
+        </a>
+    {%- endfor -%}
+ 
+    </div>
+
+{% endif %}
+
+
+{% schema %}
+{
+  "name": "Instagram",
+  "tag": "section",
+  "class": "insta-wrap",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Follow for all things wholesome"
+    },
+    {
+        "type": "text",
+        "id": "heading2",
+        "label": "Heading",
+        "default": "for all things wholesome"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "@wholesupp"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "insta",
+      "name": "Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+            "type": "url",
+            "id": "img_link",
+            "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Instagram"
+    }
+  ]
+}
+{% endschema %}

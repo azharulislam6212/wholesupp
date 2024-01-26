@@ -1,0 +1,97 @@
+<!-- Designed for athletes & active lifestyles -->
+{% assign s = section.settings %}
+
+<div class="common-wrap clear">
+  <div class="athletes-inner">
+
+  {%- if s.title != blank -%}
+    <h5>
+        {{ s.title }}
+        </h5>
+  {%- endif -%}
+  {% liquid
+  assign items = section.blocks | where: 'type', 'slider'
+%}
+
+{%- if items != blank -%}
+    
+
+    <div class="athletes-slider-wrap">
+        {%- for block in items -%}
+            {% assign b = block.settings %}
+
+      <div class="athletes-slider-item">
+        <h3>
+            {{b.text}}
+        </h3>
+        <div class="author-details">
+
+        {% if b.image != blank %}
+            <div class="author-icon">
+                {% render 'responsive-image' with image: b.image %}
+            </div>
+        {% endif %}
+
+ 
+          <author>{{b.author }}</author>
+          <dfn>{{b.designation}}</dfn>
+        </div>
+      </div>
+
+    {%- endfor -%}
+
+    </div>
+
+{%- endif -%}
+  </div>
+</div>
+
+<!-- End Designed for athletes & active lifestyles -->
+
+{% schema %}
+{
+  "name": "Product Testimonial",
+  "tag": "section",
+  "class": "athletes-testimonila-wrap",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slider",
+      "name": "Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "author",
+          "label": "Author"
+        },
+        {
+          "type": "text",
+          "id": "designation",
+          "label": "Designation"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Testimonial"
+    }
+  ]
+}
+{% endschema %}

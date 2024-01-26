@@ -1,0 +1,196 @@
+{% liquid
+  assign s = section.settings
+%}
+
+<div class="common-wrap clear">
+  <div class="order-save-inner">
+    <div class="order-save-content">
+      <div class="top-content">
+        {% if s.heading != blank %}
+            <h2>{{ s.heading }}</h2>
+          {% endif %}
+          {% if s.text != blank %}
+            {{ s.text }}
+          {% endif %}
+      </div>
+      <div class="bottom-content">
+        <div class="ups-item">
+
+            {% liquid
+                assign supports = section.blocks | where: 'type', 'support'
+              %}
+              {%- for block in supports -%}
+                {% assign b = block.settings %}
+
+                <div class="selling-btn">
+                      {% if b.image != blank %}
+                            {% render 'responsive-image' with image: b.image %}
+                      {% else %}
+                            {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                          {% endif %}
+                    {% if b.title != blank %}
+                        <p>{{ b.title }}</p>
+                      {% endif %}
+                  </div>
+              {%- endfor -%}
+
+
+        </div>
+
+        {% if s.button_label != blank %}
+            <a href="{{s.button_link }}" class="btn green save-btn">{{ s.button_label }}</a>
+          {% endif %}
+          {% if s.subcribe != blank %}
+            <span class="price-text">{{s.subcribe}}</span>
+
+        {% endif %}
+     
+      </div>
+    </div>
+    <div class="save-product-thumb">
+      <figure>
+
+            {% if s.image_mob != blank %}
+                {% render 'smart-image', image: s.image, image_mob: s.image_mob %}
+              {% elsif s.image != blank %}
+                {% render 'responsive-image' with image: s.image %}
+                {% else %}
+                {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                {% endif %}
+
+      </figure>
+      <div class="protin-item">
+        <img src="{{'calories.svg' | asset_url }}">
+        <img src="{{'protein.svg' | asset_url }}">
+        <img src="{{'nutrients.svg' | asset_url }}">
+        <img src="{{'bcaa.svg' | asset_url }}">
+      </div>
+      <div class="product-variant">
+        {% if s.flavours_text != blank %}
+        <span>{{s.flavours_text}}</span>
+    {% endif %}
+
+    {% liquid
+        assign flavours = section.blocks | where: 'type', 'flavour'
+      %}
+
+      {% if flavours != blank %}
+    
+        <div class="variant-items">
+            
+              {%- for block in flavours -%}
+                {% assign b = block.settings %}
+          <div class="variant-item">
+            {% if b.image != blank %}
+                {% render 'responsive-image' with image: b.image %}
+          {% else %}
+                {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+              {% endif %}
+        {% if b.title != blank %}
+            <dfn>{{ b.title }}</dfn>
+          {% endif %}
+          </div>
+        {%- endfor -%}
+        </div>
+
+    {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Put Your Order",
+  "tag": "section",
+  "class": "order-save",
+  "settings": [
+    {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image For Desktop"
+      },
+      {
+        "type": "image_picker",
+        "id": "image_mob",
+        "label": "Image For Mobile"
+      },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Put your order on autopilot & save 10%"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>Simply select your delivery cycle to save 10% on the superfood substitute you’ll never want to be without.</p>"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "flavours_text",
+      "label": "Flavours Heading",
+      "default": "😋 AVAILABLE IN 3 TASTY FLAVOURS"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "SUBSCRIBE & SAVE"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Link"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "subcribe",
+      "label": "Subcribe Text",
+      "default": "Only £1.79 per meal vs average UK meal of £10.99"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "flavour",
+      "name": "Flavour",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        }
+      ]
+    },
+    {
+      "type": "support",
+      "name": "Support",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Put Your Order"
+    }
+  ]
+}
+{% endschema %}

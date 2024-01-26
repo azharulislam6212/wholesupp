@@ -1,0 +1,303 @@
+
+
+
+ <!-- start blog-single-hero section  -->
+ <section class="blog-single-hero-wrap">
+  <div class="blog-signle-hero-bg">
+    {%- if article.image != blank -%}
+      {% render 'responsive-image' with image: article.image %}
+    {%- endif -%}
+  </div>
+  <div class="common-wrap clear">
+      <div class="blog-single-hero-inner">
+          <div class="blog-single-hero-content">
+              <h1>{{ article.title}}</h1>
+              <p>We work with leading experts in the fields of nutrition</p>
+          </div>
+      </div>
+  </div>
+</section>
+<!-- end blog-single-hero section -->
+<div class="blog-single-page-detection">
+  <div class="common-wrap clear">
+      <div class="breadcum">
+          <ul>
+              <li><a href="{{routes.root_url}}">Home</a>  <span>/</span></li>
+              <li><a href="{{blog.url}}">Blog </a> <span>/</span></li>
+              {% for tag in article.tags limit: 2 %}
+                {% unless tag contains "Featured"  or  tag contains "FEATURED" or  tag contains "featured_blogs" %}
+                  <li><a href="{{ blog.url }}/tagged/{{ tag | handle }}">{{ tag }}</a> <span>/</span></li>
+                {% endunless %}
+              {% endfor %}
+          </ul>
+          <p> {{ article.title }}</p>
+      </div>
+  </div>
+</div>
+<!-- start blog-single-content seciton -->
+<section class="blog-single-content-wrap">
+  <div class="common-wrap clear">
+      <div class="blog-single-content-inner">
+        <div class="blog-single-top-text">
+        {{ article.content }}
+      </div>
+
+          {% comment %} <div class="blog-single-top-text">
+              <div class="blog-single-top-text-prgp">
+                  <p>Enter the wonderful world of mushrooms. These fleshy, fruiting bodies of fungus are capable of much more than meets the eye. They're full of vitamins and nutrients. They sequester carbon emissions. They keep forests thriving
+                      by recycling dead matter back into soil. Not all heroes wear capes. Some wear domed caps.</p>
+                  <p>Because the truth is: they're not all trying to turn us into killer zombies. There are a lot of health benefits of mushrooms, for people and the planet.</p>
+                  <p>But with all the varieties of mushrooms out there, from medicinal to poisonous, how do we separate friendly fungi from foe?
+                  </p>
+                  <p>Let's start from the beginning (of time).</p>
+              </div>
+              <h4>We Wouldn't Be Alive Without Mushrooms</h4>
+              <div class="blog-single-top-text-prgp">
+                  <p>Enter the wonderful world of mushrooms. These fleshy, fruiting bodies of fungus are capable of much more than meets the eye. They're full of vitamins and nutrients. They sequester carbon emissions. They keep forests thriving
+                      by recycling dead matter back into soil. Not all heroes wear capes. Some wear domed caps.
+                  </p>
+                  <p>Because the truth is: they're not all trying to turn us into killer zombies. There are a lot of health benefits of mushrooms, for people and the planet.
+                  </p>
+                  <p>But with all the varieties of mushrooms out there, from medicinal to poisonous, how do we separate friendly fungi from foe?
+                  </p>
+                  <p>Let's start from the beginning (of time).</p>
+              </div>
+          </div>
+          <div class="comparison-wrap">
+              <div class="comparison-heading">
+                  <h4>Comparison: Whole Supp vs SlimFast</h4>
+                  <p>Here is a summary of the key nutritional aspects.</p>
+              </div>
+              <div class="comparison-item-wrap">
+                  <div class="comparison-item">
+                      <h6>Per Serving</h6>
+                      <span>Cost</span>
+                      <span>Protein</span>
+                      <span>Gluten Free</span>
+                      <span>Fat</span>
+                      <span>Sugar</span>
+                  </div>
+                  <div class="comparison-item">
+                      <h6>Whole Supp</h6>
+                      <span>£1.79</span>
+                      <span>31g</span>
+                      <span>Yes</span>
+                      <span>2.8g</span>
+                      <span>2.2g</span>
+                  </div>
+                  <div class="comparison-item white-box">
+                      <h6>SlimFast</h6>
+                      <span>£1.16</span>
+                      <span>23g</span>
+                      <span>No</span>
+                      <span>13g</span>
+                      <span>18g</span>
+                  </div>
+              </div>
+          </div>
+          <div class="blog-single-point-text">
+              <h4>1. Berries</h4>
+              <div class="blog-single-top-text-prgp">
+                  <p>Rich in antioxidants and vitamins, berries help combat oxidative stress and inflammation induced by intense physical exercise. They are also packed with fibre, boosting your satiety and promoting healthy digestion.</p>
+              </div>
+              <h4>2. Flax Seeds</h4>
+              <div class="blog-single-top-text-prgp">
+                  <p>Flaxseeds have long been hailed as a superfood and for good reason! Despite their tiny size, they pack an astonishing nutritional punch. Athletes can benefit from the rich amounts of omega-3 fatty acids found in flaxseeds,
+                      as they can reduce inflammation and aid muscle fibre regeneration. What's more, flaxseeds have the highest percentage of the essential omega-3 fatty acid alpha-linolenic acid (ALA) found in any plant-based source, making
+                      this quite the superstar superfood.</p>
+              </div>
+          </div>
+          <div class="blog-single-shop-ads">
+              <h4>Shop Meal Shakes</h4>
+              <div class="blog-single-shop-ads-inner">
+                  <div class="bss-ads-left">
+                      <picture>
+                          <source media="(min-width: 769px)" srcset="img/blog-single/meal-shakes.png" sizes="100vw">
+                          <source media="(max-width: 768px)" srcset="img/blog-single/meal-shakes.png" sizes="100vw">
+                          <img src="img/blog-single/meal-shakes.png" srcset="img/blog-single/meal-shakes.png, img/blog-single/blog-single-hero.jpg" sizes="100vw" alt="hero bg">
+                      </picture>
+                      <div class="bss-rating-star">
+                          <figure><img src="img/blog-single/1star.png" alt=""></figure>
+                          <span>4.9</span>
+                      </div>
+                      <a href="#" class="bss-bag">
+                          <figure><img src="img/blog-single/Union.svg" alt=""></figure>
+                          <span>1 bag = 15 meals</span>
+                      </a>
+                  </div>
+                  <div class="bss-ads-right">
+                      <h5>Superfood Meal Shake</h5>
+                      <div class="bss-rating">
+                          <figure><img src="img/blog-single/5star.png" alt=""></figure>
+                          <a href="#">160 reviews</a>
+                      </div>
+                      <p>Fuel your active lifestyle with Whole Supp meal shakes!</p>
+                      <div class="bss-price">
+                          <h5>£34.99<del>£58.33</del></h5>
+                      </div>
+                      <h6>£1.99 per meal</h6>
+                      <div class="bss-shop-now-btn">
+                          <a href="#" class="btn green">SHOP NOW</a>
+                      </div>
+                  </div>
+              </div>
+              <p>Enter the wonderful world of mushrooms. These fleshy, fruiting bodies of fungus are capable of much more than meets the eye. They're full of vitamins and nutrients. They sequester carbon emissions. They keep forests thriving
+                  by recycling dead matter back into soil. Not all heroes wear capes. Some wear domed caps.</p>
+          </div>
+          <div class="blog-single-video">
+              <div id="video-container" onclick="startVideo()">
+                  <img src="img/blog-single/blog-single-video.png" alt="Video Thumbnail">
+                  <video id="myVideo" preload="metadata">
+                      <source src="img/video.mp4" type="video/mp4">
+                  </video>
+              </div>
+          </div>
+          <div class="blog-single-bottom-text">
+              <h6>The truth in 3 simple steps </h6>
+              <ol>
+                  <li>They’re not all trying to turn us into killer zombies. </li>
+                  <li>There are a lot of health benefits of mushrooms, for people and the planet.</li>
+                  <li>But with all the varieties of mushrooms out there, from medicinal to poisonous, how do we separate friendly fungi from foe?</li>
+              </ol>
+              <p>Let’s start from the beginning (of time).</p>
+          </div>
+          <div class="blog-single-bottom-tags-btn tag-btn-wrap">
+                  <a class="tag-btn transparent light-bg">MIND HEALTH</a>
+                  <a class="tag-btn transparent light-bg">BODY</a>
+                  <a class="tag-btn transparent light-bg">NUTRITION</a>
+                  <a class="tag-btn transparent light-bg">FITNESS</a>
+          </div> {% endcomment %}
+          <div class="blog-single-time-person">
+              <p>{{ article.published_at | date: '%b' }} {{- article.published_at | date: '%d' }}, {{ article.published_at | date: '%Y' -}} • Posted by <a href="#">{{ article.author}}</a></p>
+          </div>
+      </div>
+  </div>
+</section>
+<!-- end blog-single-content seciton -->
+<!-- start further-reading section -->
+<section class="further-reading-wrap">
+  <div class="common-wrap clear">
+      <div class="further-reading-inner">
+          <div class="further-reading-heading">
+            {% if section.settings.heading != blank %}
+                        
+              <h4>{{section.settings.heading}}</h4>
+            {% endif %}
+
+              <a href="{{blog.url}}" class="btn transparent">ALL POSTS</a>
+          </div>
+
+          {%- liquid 
+
+          assign currentHandle = article.handle 
+           assign blog_limit = section.settings.blog_limit
+       -%}
+
+
+          <div class="blog-item-inner">
+            {%- for article in blogs[blog.handle].articles limit: blog_limit -%}
+              {% unless article.handle == currentHandle %}
+              <div class="blog-item">
+                  <div class="blog-item-img">
+                    {%- if article.image != blank -%}
+                      {% render 'responsive-image' with image: article.image %}
+                    {%- endif -%}
+                  </div>
+                  <div class="blog-item-content">
+                      <h5>{{ article.title }}</h5>
+                      <div>
+                      {% if article.excerpt != empty %}
+                        {{ article.excerpt | strip_html | truncate: 150, '' }}
+                      {% else %}
+                        {{ article.content | strip_html | truncate: 150 }}
+                      {% endif %}
+                    </div>
+                  </div>
+                  <div class="tag-btn-wrap">
+                    {% for tag in article.tags  %}
+                      {% unless tag contains "Featured"  or  tag contains "FEATURED" or  tag contains "featured_blogs" %}
+                      <button class="tag-btn green">{{ tag }}</button>
+                    {% endunless %}
+                  {% endfor %}
+                  </div>
+                  {% assign reading_time = article.content | strip_html | split: ' ' | size | times: 1.0 | divided_by: 250 | ceil %}
+                  <div class="blog-item-time">
+                      <span>{{ article.published_at | date: '%b' }} {{- article.published_at | date: '%d' }}, {{ article.published_at | date: '%Y' -}} • {{reading_time}} minute read</span>
+                  </div>
+              </div>
+            {%- endunless -%}
+            {%- endfor -%}
+
+          </div>
+          <div class="further-reading-heading-mobi">
+              <a href="{{blog.url}}" class="btn transparent">ALL POSTS</a>
+          </div>
+      </div>
+  </div>
+</section>
+<!-- start further-reading section -->
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "articleBody": {{ article.content | strip_html | json }},
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": {{ request.origin | append: page.url | json }}
+    },
+    "headline": {{ article.title | json }},
+    {% if article.excerpt != blank %}
+      "description": {{ article.excerpt | strip_html | json }},
+    {% endif %}
+    {% if article.image %}
+      "image": [
+        {{ article | image_url: width: article.image.width | prepend: "https:" | json }}
+      ],
+    {% endif %}
+    "datePublished": {{ article.published_at | date: '%Y-%m-%dT%H:%M:%SZ' | json }},
+    "dateCreated": {{ article.created_at | date: '%Y-%m-%dT%H:%M:%SZ' | json }},
+    "author": {
+      "@type": "Person",
+      "name": {{ article.author | json }}
+    },
+    "publisher": {
+      "@type": "Organization",
+      {% if settings.share_image %}
+        "logo": {
+          "@type": "ImageObject",
+          "height": {{ settings.share_image.height | json }},
+          "url": {{ settings.share_image | image_url: width: settings.share_image.width | prepend: "https:" | json }},
+          "width": {{ settings.share_image.width | json }}
+        },
+      {% endif %}
+      "name": {{ shop.name | json }}
+    }
+  }
+  </script>
+
+
+  {% schema %}
+  {
+    "name": "Single Blog",
+    "settings": [
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Title",
+        "default": "Further reading"
+      },
+      {
+        "type": "range",
+        "id": "blog_limit",
+        "label": "Blog Limit",
+        "min": 1,
+        "max": 10,
+        "step": 1,
+        "default": 3
+      }
+    ]
+  }
+  {% endschema %}

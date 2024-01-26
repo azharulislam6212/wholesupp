@@ -1,0 +1,118 @@
+
+{% liquid
+    assign s = section.settings
+  %}
+
+    <div class="common-wrap clear">
+        <div class="product-intro-inner">
+            <div class="product-intro-thumb">
+                <figure>
+                 {% if s.image != blank %}
+                    {% render 'responsive-image' with image: s.image %}
+                    {% else %}
+                    {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                    {% endif %}
+                </figure>
+            </div>
+            <div class="product-intro-content">
+                {% if s.heading != blank %}
+                    <h2>{{ s.heading }}</h2>
+                  {% endif %}
+                  {% if s.text != blank %}
+                    {{ s.text }}
+                  {% endif %}
+                  {% if s.feature_text != blank %}
+                    <div class="list-text">
+                      <ul>
+                        {{ s.feature_text }}
+                      </ul>
+                    </div>
+                  {% endif %}
+                <div class="btn-wrap">
+
+                {% assign video_id = '' %}
+                {% if s.video_url contains 'youtube' %}
+                  {% assign video_id = s.video_url | replace: 'https://www.youtube.com/watch?v=', '' %}
+                {% elsif s.video_url contains 'vimeo' %}
+                  {% assign video_id = s.video_url | replace: '//player.vimeo.com/video/', '' %}
+                {% endif %}
+
+                {%- if s.video_url != blank -%}
+
+                  <a
+                  href="javascript:void(0)"
+                  data-id="{{video_id}}"
+                  data-type="youtube"
+                  data-autoplay="true"
+                  class="btn green video-btn"
+                >
+                  <img src="{{'arraw-black.svg' |  asset_url }}" alt="">WATCH VIDEO</a>
+
+                {%- endif -%}
+
+                   
+                    {% if s.button_label != blank %}
+                        <a href="{{s.button_link }}" class="btn transparent">{{ s.button_label }}</a>
+                      {% endif %}
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+{% schema %}
+{
+  "name": "Led By Science",
+  "tag": "section",
+  "class": "led-science",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Led by science from farm to formulation"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>Science doesn’t mess around. And neither do we. We work with leading experts in the fields of nutrition, science, medicine, and wellness so you can fuel good to feel great — daily.</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "feature_text",
+      "label": "Feature List"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "THE SCIENCE"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Link"
+    },
+    {
+      "type": "video_url",
+      "id": "video_url",
+      "accept": ["youtube", "vimeo"],
+      "default": "https://www.youtube.com/watch?v=Nz4m-v0n3zg",
+      "label": "Video Url"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Led By Science"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,131 @@
+{% liquid
+    assign s = section.settings
+  %}
+    <figure id="mobile">
+
+          {% if s.image != blank %}
+            {% render 'responsive-image' with image: s.image %}
+            {% else %}
+            {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+          {% endif %}
+
+    </figure>
+    <div class="common-wrap clear">
+        <div class="nutrition-inner">
+       <div class="nutristion-content">
+        {% if s.heading != blank %}
+            <h2>{{ s.heading }}</h2>
+          {% endif %}
+          {% if s.text != blank %}
+            {{ s.text }}
+          {% endif %}
+
+       </div>
+       <div class="nutrisiton-item">
+        {% if s.header_1 != blank %}
+            <p>{{ s.header_1 }}</p>
+          {% endif %}
+
+          
+          {% liquid
+          assign items = section.blocks | where: 'type', 'item'
+        %}
+
+        {%- if items != blank -%}
+        
+            <ul>
+                {%- for block in items  -%}
+                    {% assign b = block.settings %}
+                    {%- if b.text != blank -%}
+                       <li><img src="{{"tick.svg" | asset_url }}">{{ b.text }}</li>
+                    {%- endif -%}
+                    {%- endfor -%}
+            </ul> 
+        {%- endif -%}
+       </div>
+       <div class="nutrisiton-item close-item">
+        {% if s.header_2 != blank %}
+            <p>{{ s.header_2 }}</p>
+          {% endif %}
+          
+        {%- if items != blank -%}
+            <ul>
+                {%- for block in items  -%}
+                    {% assign b = block.settings %}
+                    {%- if b.text2 != blank -%}
+                       <li><img src="{{"Close.svg" | asset_url }}">{{ b.text2 }}</li>
+                    {%- endif -%}
+                    {%- endfor -%}
+
+            </ul>
+        {%- endif -%}
+       </div>
+
+        </div>
+    </div>
+
+
+
+
+{% schema %}
+    {
+      "name": "Nutrition Mission",
+      "tag": "section",
+      "class": "nutrition-mission",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image For Mobile"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Nutrition on a mission"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "Formulated with the highest quality scientifically-researched ingredients, each sip of Whole Supp gives you everything you need and nothing you don’t."
+        },
+        {
+          "type": "text",
+          "id": "header_1",
+          "label": "Header Label 1",
+          "default": "Formulated WITH"
+        },
+        {
+          "type": "text",
+          "id": "header_2",
+          "label": "Header Label 2",
+          "default": "Formulated WITHOUT"
+        }
+      ],
+      "blocks": [
+        {
+          "type": "item",
+          "name": "Item",
+          "settings": [
+            {
+              "type": "inline_richtext",
+              "id": "text",
+              "label": "WITH Text"
+            },
+            {
+              "type": "inline_richtext",
+              "id": "text2",
+              "label": "WITHOUT Text"
+            }
+          ]
+        }
+      ],
+      "presets": [
+        {
+          "name": "Nutrition Mission"
+        }
+      ]
+    }
+    {% endschema %}
+    

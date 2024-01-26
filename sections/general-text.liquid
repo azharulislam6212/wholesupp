@@ -1,0 +1,84 @@
+
+{% assign s = section.settings %}
+
+
+ <div class="common-wrap clear">
+    <div class="faqs-inner">
+      <aside class="sidebar-wrap">
+        {% liquid
+        assign items = section.blocks | where: 'type', 'menu'
+      %}
+
+
+        <ul>
+            {%- for block in items -%}
+                {% assign b = block.settings %}
+                {% capture param %}{{ template.suffix | handleize }}{% endcapture %}
+                {% capture hanlder %}{{ b.link | handleize |  remove_first: "pages-" }}{% endcapture %}
+
+          <li class="lists {{hanlder}}">
+            <a {% if param contains hanlder %} class="show-active"  {% endif %} href="{{ b.link }}">{{ b.title}}</a>
+                {% if  param contains hanlder  %} 
+                    {% liquid
+                    assign headings = section.blocks | where: 'type', 'heading'
+                  %}
+                     <ul class="sub-list">
+                        {%- for block in headings -%}
+                            {% assign b = block.settings %}
+                        <li class="list"><a href="#tab_{{ b.heading |  handleize}}"> {{ b.heading }}</a></li>
+                    {%- endfor -%}
+                </ul>  
+            {% endif %}
+          </li>
+
+        {%- endfor -%}
+
+        </ul>
+      </aside>
+      <div class="left-faqs">
+        <div class="left-item">
+          <div class="accordion">
+            <div class="general-text-content">
+            {% comment %} <h3 class="genmeral-text__title">{{page.title}}</h3> {% endcomment %}
+            <div class="general-page__text">{{page.content}}</div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+{% schema %}
+{
+  "name": "General Content",
+  "tag": "section",
+  "class": "faqs-info",
+  "settings": [
+    
+  ],
+  "blocks": [
+    {
+      "type": "menu",
+      "name": "Menu",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Menu Label"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "General Content"
+    }
+  ]
+}
+{% endschema %}

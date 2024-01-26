@@ -1,0 +1,138 @@
+<!-- Explore the collection -->
+
+{% liquid
+    assign s = section.settings
+  %}
+  <div class="common-wrap clear">
+    <div class="collection-inner">
+        {% if s.title != blank %}
+            <h3>{{s.title}}</h3>
+        {% endif %}
+        {% liquid
+            assign items = section.blocks | where: 'type', 'product'
+          %}
+  
+      <div class="collection-container">
+        <div class="collection-products">
+         {%- for block in items -%}
+                {% assign b = block.settings %}
+                {% assign chose_product = block.settings.chose_product %}
+
+          <a href="{{chose_product.url}}" class="collection-item">
+            <div class="collection-thumb">
+              <figure>
+                    {% if b.image != blank %}
+                            {% render 'responsive-image' with image: b.image %}
+                        {%elsif chose_product != blank %}
+                        {% render 'responsive-image' with image: chose_product.featured_image %}
+                       {% else %}
+                       {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                    {% endif %}
+              </figure>
+              <div class="product-rating">
+                <div class="rating-bullet">
+                  <img src="{{"Star-black.svg" | asset_url }}" alt="">
+                  <span>4.9</span>
+                </div>
+              </div>
+              <div class="cart-info">
+                <div class="cart-bag-btns">
+                  <div class="bag-btn">
+                    <button><img src="{{"Bag.svg" | asset_url}}">{{b.imge_over_text_1}}</button>
+                  </div>
+                  <div class="price-btn">
+                    <span>{{b.imge_over_text_2}}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="product-content">
+              <h5>{{ b.heading }}</h5>
+              <span>{{ b.text }}  {% if chose_product != blank %}  •  {%- if chose_product.compare_at_price > chose_product.price -%} <del>{{chose_product.compare_at_price}}</del> {%- endif -%} &nbsp;{{ chose_product.price | money }}  {% endif %}  </span>
+              <p>{% if b.image_icon != blank %}
+                <img src="{{b.image_icon | img_url: "master"}}"> {% endif %} {{b.small_text}}</p>
+            </div>
+          </a>
+        {%- endfor -%}
+
+    
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<!-- End Explore the collection -->
+
+{% schema %}
+{
+  "name": "Explore Collection",
+  "tag": "section",
+  "class": "collection-wrap",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Product",
+      "settings": [
+        {
+            "type": "product",
+            "id": "chose_product",
+            "label": "Select Product"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+            "type": "text",
+            "id": "imge_over_text_1",
+            "label": "Image Over Text"
+          },
+          {
+            "type": "text",
+            "id": "imge_over_text_2",
+            "label": "Image Over Text"
+         },
+        {
+          "type": "url",
+          "id": "image_url",
+          "label": "Image Url"
+        },
+        {
+            "type": "text",
+            "id": "heading",
+            "label": "Title"
+          },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text"
+        },
+        {
+            "type": "image_picker",
+            "id": "image_icon",
+            "label": "Image Icon"
+        },
+        {
+          "type": "textarea",
+          "id": "small_text",
+          "label": "Small Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Explore Collection"
+    }
+  ]
+}
+{% endschema %}

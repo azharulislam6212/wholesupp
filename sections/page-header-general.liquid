@@ -1,0 +1,35 @@
+{% liquid
+  assign s = section.settings
+%}
+
+  <div class="common-wrap clear">
+    <div class="blog-hero-inner">
+
+        <h1>{{ page.title }}</h1>
+      {% if s.text != blank %}
+        {{ s.text }}
+      {% endif %}
+
+    </div>
+  </div>
+
+
+{% schema %}
+{
+  "name": "Page Header general",
+  "tag": "section",
+  "class": "blog-hero-wrap",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Page Header general"
+    }
+  ]
+}
+{% endschema %}

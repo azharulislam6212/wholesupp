@@ -1,0 +1,108 @@
+{% liquid
+  assign s = section.settings
+%}
+
+<div class="common-wrap clear">
+  <div class="superfoods-inner">
+    <div class="superfoods-content">
+        {% if s.heading != blank %}
+            <h2>{{s.heading}}</h2>
+        {% endif %}
+        {% if s.text != blank %}
+          {{ s.text }}
+       {% endif %}
+      <div class="superfoods-slider">
+        {% liquid
+          assign items = section.blocks | where: 'type', 'slider'
+        %}
+        {%- for block in items -%}
+          {% assign b = block.settings %}
+          <div class="superfoods-item">
+            <div class="icon-supperfood">
+              {% if forloop.index < 10 %}
+                <dfn>0{{ forloop.index }}</dfn>
+              {% else %}
+                <dfn>{{ forloop.index }}</dfn>
+              {% endif %}
+              {% if b.image != blank %}
+                {% render 'responsive-image' with image: b.image %}
+              {% else %}
+                {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+              {% endif %}
+            </div>
+            {% if b.title != blank %}
+              <span>{{ b.title }}</span>
+            {% endif %}
+            {% if b.text != blank %}
+              {{ b.text }}
+            {% endif %}
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+    <div class="superfoods-thumb">
+      {% if s.image != blank %}
+        <figure>
+          {% render 'responsive-image' with image: s.image %}
+        </figure>
+      {% else %}
+        {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Superfoods",
+  "tag": "section",
+  "class": "superfoods-wrap",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "13 superfoods to supercharge your day"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>Each carefully chosen in impactful amounts to support your gut and ensure optimal energy for an active lifestyle.</p>"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slider",
+      "name": "Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Superfoods"
+    }
+  ]
+}
+{% endschema %}

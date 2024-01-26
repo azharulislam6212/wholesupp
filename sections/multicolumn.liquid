@@ -1,0 +1,35 @@
+
+
+{% schema %}
+{
+  "name": "t:sections.multicolumn.name",
+  "class": "section",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "default": "Multicolumn",
+      "label": "t:sections.multicolumn.settings.title.label"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "column",
+      "name": "t:sections.multicolumn.blocks.column.name",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:sections.multicolumn.blocks.column.settings.image.label"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.multicolumn.presets.name"
+    }
+  ]
+}
+{% endschema %}

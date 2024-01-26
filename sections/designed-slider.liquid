@@ -1,0 +1,92 @@
+<!-- Designed for athletes & active lifestyles -->
+{% assign s = section.settings %}
+
+
+  <div class="common-wrap clear">
+    <div class="designed-inner">
+      {%- if s.title != blank -%}
+        <div class="left-title">
+          <h3>
+            {{ s.title }}
+          </h3>
+        </div>
+      {%- endif -%}
+
+      <div class="counter-slider">
+        {% liquid
+          assign items = section.blocks | where: 'type', 'slider'
+        %}
+
+        <div class="slider-for ">
+          {%- for block in items -%}
+            {% assign b = block.settings %}
+            <div class="slider-content">
+              <div class="author-details">
+                {% if b.image != blank %}
+                    <div class="author-icon">
+                        {% render 'responsive-image' with image: b.image %}
+                    </div>
+                {% endif %}
+                   <author>{{b.author }}</author>
+                 <dfn>{{b.designation}}</dfn>
+              </div>
+              <div class="author-content">
+                 {{b.text}}
+              </div>
+            </div>
+          {%- endfor -%}
+     
+          <!-- Add more slides as needed -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+{% schema %}
+{
+  "name": "Designed Slider",
+  "tag": "section",
+  "class": "designed-slider-wrap",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slider",
+      "name": "Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "author",
+          "label": "Author"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "designation",
+          "label": "Designation"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Designed Slider"
+    }
+  ]
+}
+{% endschema %}

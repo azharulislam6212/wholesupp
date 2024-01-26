@@ -1,0 +1,61 @@
+
+{%- assign shaking_kitchen = product.metafields.custom.product_shaking_kitchen.value -%}
+
+{%- if shaking_kitchen != blank -%}
+  <div class="order-save similar-warp">
+    <div class="common-wrap clear">
+      {%- if shaking_kitchen.title != blank -%}
+          <h2 class="title-large">{{shaking_kitchen.title}}</h2>
+      {%- endif -%}
+  
+        <div class="order-save-inner">
+            <div class="order-save-content">
+              {%- if shaking_kitchen.title != blank -%}
+                <div class="top-content">
+                    <h2>{{ shaking_kitchen.title}}</h2>
+                </div>
+              {%- endif -%}
+                <div class="bottom-content">
+                  {%- if shaking_kitchen.sub_text != blank -%}
+                    <span>{{ shaking_kitchen.sub_text }}</span>
+                  {%- endif -%}
+                  {%- if shaking_kitchen.text != blank -%}
+                           {{ shaking_kitchen.text | metafield_tag}}
+                  {%- endif -%}
+  
+                  {%- if shaking_kitchen.button_label != blank -%}
+                    <a href="{{ shaking_kitchen.button_link }}" class="btn green ">{{ shaking_kitchen.button_label }}</a>
+                  {%- endif -%}
+                </div>
+            </div>
+            <div class="save-product-thumb">
+                <figure>
+                  {%- if shaking_kitchen.image != blank -%}
+                      {% render 'responsive-image' with image: shaking_kitchen.image.value %}
+                {%- endif -%}
+                </figure>
+  
+            </div>
+        </div>
+    </div>
+  </div>
+    
+  
+
+<!-- End Shaking things up in the kitchen -->
+{%- endif -%}
+{% schema %}
+    {
+      "name": "Product Shaking kitchen",
+      "tag": "section",
+      "settings": [
+
+      ],
+      "presets": [
+        {
+          "name": "Product Shaking kitchen"
+        }
+      ]
+    }
+    {% endschema %}
+    

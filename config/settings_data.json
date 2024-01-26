@@ -1,0 +1,157 @@
+{
+  "current": {
+    "favicon": "shopify:\/\/shop_images\/icon.svg",
+    "sections": {
+      "announcement-bar": {
+        "type": "announcement-bar",
+        "settings": {
+          "text": "Free shipping on all orders over £55+"
+        }
+      },
+      "header": {
+        "type": "header",
+        "blocks": {
+          "megamenu_B44mVP": {
+            "type": "megamenu",
+            "settings": {
+              "link_title": "Shop",
+              "image_1": "shopify:\/\/shop_images\/megamenu-1.png",
+              "url_1": "shopify:\/\/products\/starter-pack",
+              "heading_1": "STARTER PACK",
+              "text_1": "START  YOUR WHOLESUPP JOURNEY",
+              "price_text_1": "£34.99",
+              "image_2": "shopify:\/\/shop_images\/megamenu-2.png",
+              "url_2": "shopify:\/\/products\/nutritionally-complete-shakes",
+              "heading_2": "SUPERFOOD MEAL SHAKE",
+              "text_2": "YOUR ULTIMATE MEAL PLAN",
+              "price_text_2": "£29.99",
+              "image_3": "shopify:\/\/shop_images\/megamenu-3.png",
+              "url_3": "shopify:\/\/products\/shaker",
+              "heading_3": "ECO-FRIENDLY SHAKER",
+              "text_3": "SUPER CONVENIENT",
+              "price_text_3": "£15.00"
+            }
+          }
+        },
+        "block_order": [
+          "megamenu_B44mVP"
+        ],
+        "settings": {
+          "logo": "shopify:\/\/shop_images\/Logo.svg",
+          "main_menu": "main-menu",
+          "button_label": "Try starter pack",
+          "button_url": ""
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "blocks": {
+          "subscribe_newsletter_cdYMqm": {
+            "type": "subscribe_newsletter",
+            "settings": {
+              "heading": "Get the inside scoop",
+              "description": "<p>Join our community for 20% of your first order and wholesome news in your inbox. All superfoods, no spam.<\/p>"
+            }
+          },
+          "contact_TVqtFr": {
+            "type": "contact",
+            "settings": {
+              "heading": "CONTACT",
+              "description": "<p>195 Chrystie St RM 303M London, UK 10002<\/p><ul><li><a href=\"mailto:support@wholesupp.com\">support@wholesupp.com<\/a><\/li><li><a href=\"mailto:press@wholesupp.com\">press@wholesupp.com<\/a><\/li><\/ul>"
+            }
+          },
+          "menu_LqKzHG": {
+            "type": "menu",
+            "settings": {
+              "heading": "EXPLORE",
+              "menu": "main-menu"
+            }
+          },
+          "social_link_aAfxmt": {
+            "type": "social_link",
+            "settings": {
+              "heading": "SOCIAL",
+              "social_label_1": "Instagram",
+              "social_link_1": "",
+              "social_label_2": "Facebook",
+              "social_link_2": "",
+              "social_label_3": "Twitter",
+              "social_link_3": ""
+            }
+          }
+        },
+        "block_order": [
+          "subscribe_newsletter_cdYMqm",
+          "contact_TVqtFr",
+          "menu_LqKzHG",
+          "social_link_aAfxmt"
+        ],
+        "settings": {
+          "logo": "shopify:\/\/shop_images\/Logo-white.svg",
+          "bottom_menu": "footer-sub"
+        }
+      },
+      "instagram": {
+        "type": "instagram",
+        "blocks": {
+          "insta_NEjkzJ": {
+            "type": "insta",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/insta1.png",
+              "img_link": ""
+            }
+          },
+          "insta_bBCDWJ": {
+            "type": "insta",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/insta2.png",
+              "img_link": ""
+            }
+          },
+          "insta_cDmnjf": {
+            "type": "insta",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/insta3.png",
+              "img_link": ""
+            }
+          },
+          "insta_C3iPGV": {
+            "type": "insta",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/insta4.png",
+              "img_link": ""
+            }
+          },
+          "insta_hnzrzC": {
+            "type": "insta",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/insta5.png",
+              "img_link": ""
+            }
+          }
+        },
+        "block_order": [
+          "insta_NEjkzJ",
+          "insta_bBCDWJ",
+          "insta_cDmnjf",
+          "insta_C3iPGV",
+          "insta_hnzrzC"
+        ],
+        "settings": {
+          "heading": "Follow <em>for all things wholesome<\/em>",
+          "heading2": "for all things wholesome",
+          "button_label": "@wholesupp",
+          "button_link": ""
+        }
+      },
+      "cart-drawer": {
+        "type": "cart-drawer",
+        "settings": {
+          "text": "Free shipping on all orders over £55+",
+          "reveiw_text": "1,599 Happy Customers"
+        }
+      }
+    },
+    "content_for_index": []
+  }
+}

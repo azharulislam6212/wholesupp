@@ -1,0 +1,168 @@
+{% liquid
+    assign s = section.settings
+  %}
+
+    <div class="common-wrap clear">
+        <div class="supercharged-inner">
+            <div class="supercharged-top-text">
+                {% if s.heading != blank %}
+                    <h2>{{ s.heading }}</h2>
+                  {% endif %}
+                  {% if s.text != blank %}
+                    {{ s.text }}
+                  {% endif %}
+            </div> 
+
+            {% liquid
+              assign items = section.blocks | where: 'type', 'ingredients'
+            %}
+            {%- if items != blank -%}
+
+         <div class="tabs-details">
+            {%- for block in items limit: 1 -%}
+                {% assign b = block.settings %}
+                {%- if b.image != blank -%}
+            <div class="tab-thumb">
+                <img src="{{ b.image | img_url:"master" }}" loading="lazy" id="tab-img">
+            </div>
+
+        {%- endif -%}
+        {%- endfor -%}
+            <div class="tropical-tab-trigar">
+                    <select id="select-box">
+                        {%- for block in items -%}
+                            {% assign b = block.settings %}
+                            <option value="{{ b.heading | handleize }}">{{ b.heading}}</option>
+                            {%- endfor -%}
+                      </select>
+
+                      <div class="tab-wrap">
+                        {%- for block in items -%}
+                            {% assign b = block.settings %}
+                        <div class="tabs-trigger" id="{{ b.heading | handleize }}" data-image="{{ b.image | img_url:"master" }}">
+
+                        {%- if forloop.index < 10 -%}
+                            <h4>0{{forloop.index}}</h4>
+                            {%- else -%}
+                            <h4>{{forloop.index}}</h4>
+                        {%- endif -%}
+                          
+                            <div class="tabs-item" >
+                                <h5>{{ b.heading}}</h5>
+                                  {{ b.text}}
+
+                                  {%- if b.heading_1 != blank or b.heading_2 != blank -%}
+                               
+                                
+                                <div class="accordion">
+                                    {%- if b.heading_1 != blank -%}
+                                        
+                                        <div class="tab-accordion-item">
+                                            <h5>{{ b.heading_1}}</h5>
+                                            <div class="tab-accordion-content">
+                                            {{b.text_1}}
+                                            </div>
+                                        </div>
+
+                                    {%- endif -%}
+
+                                    {%- if b.heading_2 != blank -%}
+                                            
+                                        <div class="tab-accordion-item">
+                                            <h5>{{ b.heading_2}}</h5>
+                                            <div class="tab-accordion-content">
+                                            {{b.text_2}}
+                                            </div>
+                                        </div>
+
+                                    {%- endif -%}
+                                    </div>
+                                {%- endif -%}
+                            </div>
+                           
+                        </div>
+                    {%- endfor -%}
+                
+                     </div>
+            </div>
+            </div>
+        </div>
+         {%- endif -%}
+
+    </div>
+
+
+
+{% schema %}
+    {
+      "name": "Supercharged Ingredients",
+      "tag": "section",
+      "class": "supercharged-wrap",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Supercharged ingredients"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Rich in essential vitamins and minerals, our 13 bioactive superfoods work alone and in synergy to boost energy, reduce recovery, increase endurance, and support your active lifestyle. </p>"
+        }
+      ],
+      "blocks": [
+        {
+          "type": "ingredients",
+          "name": "Ingredient",
+          "settings": [
+            {
+                "type": "image_picker",
+                "id": "image",
+                "label": "Image"
+            },
+            {
+              "type": "text",
+              "id": "heading",
+              "label": "Title"
+            },
+            {
+              "type": "richtext",
+              "id": "text",
+              "label": "Text"
+            },
+            {
+              "type": "header",
+              "content": "Accordions"
+            },
+            {
+              "type": "text",
+              "id": "heading_1",
+              "label": "Title"
+            },
+            {
+              "type": "richtext",
+              "id": "text_1",
+              "label": "Text"
+            },
+            {
+              "type": "text",
+              "id": "heading_2",
+              "label": "Title"
+            },
+            {
+              "type": "richtext",
+              "id": "text_2",
+              "label": "Text"
+            }
+          ]
+        }
+      ],
+      "presets": [
+        {
+          "name": "Supercharged Ingredients"
+        }
+      ]
+    }
+    {% endschema %}

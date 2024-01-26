@@ -1,0 +1,59 @@
+
+{%- assign product_ingredients = product.metafields.custom.product_ingredients.value -%}
+
+{%- if product_ingredients != blank -%}
+    <!-- 13 superfoods to supercharge your day  -->
+    <div class="superfoods-wrap">
+      {%- assign ingredient_items = product_ingredients.ingredient_items.value -%}
+      <div class="common-wrap clear">
+          <div class="superfoods-inner">
+              <div class="superfoods-content">
+                  <div class="food-text">
+                      <h2>{{ product_ingredients.title }}</h2>
+                      <p>{{ product_ingredients.text }}</p>
+                  </div>
+    
+                  {%- if ingredient_items != blank -%}
+                  <div id="superfoods-slider">
+                  {%- for ingredient_item in ingredient_items -%}
+    
+                      <div class="superfoods-item">
+                          <div class="icon-supperfood">
+                          {%- if forloop.index < 10 -%}
+                            <dfn>0{{ forloop.index }}</dfn>
+                            {%- else -%}
+                            <dfn>{{ forloop.index }}</dfn>
+                          {%- endif -%}
+                          {%- if ingredient_item.image != blank -%}
+                                {% render 'responsive-image' with image: ingredient_item.image.value %}
+                          {%- endif -%}
+                          </div>
+                          <span>{{ ingredient_item.title }}</span>
+                          {{ ingredient_item.text | metafield_tag }}
+                      </div>
+                    {%- endfor -%}
+    
+                  </div>
+                {%- endif -%}
+              </div>
+          </div>
+      </div>
+    </div>
+
+<!-- End 13 superfoods to supercharge your day  -->
+{%- endif -%}
+{% schema %}
+    {
+      "name": "Product Ingredients",
+      "tag": "section",
+      "settings": [
+
+      ],
+      "presets": [
+        {
+          "name": "Product Ingredients"
+        }
+      ]
+    }
+    {% endschema %}
+    

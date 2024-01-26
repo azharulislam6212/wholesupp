@@ -1,0 +1,110 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "item_EKMtXn": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Save-icn_cce73f87-9bb9-4b9a-b35f-c8e71f5f0792.svg",
+            "text": "<p>Save £3 on each bag<\/p>"
+          }
+        },
+        "item_JJCkFU": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Shipping-icn_f3e1bf13-068d-4efd-a8b7-be4527b1cd87.svg",
+            "text": "<p>Free shipping<br\/>each month<\/p>"
+          }
+        },
+        "item_higrUd": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Cancel-icn.svg",
+            "text": "<p>Cancel or  swap anytime<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_EKMtXn",
+        "item_JJCkFU",
+        "item_higrUd"
+      ],
+      "settings": {}
+    },
+    "product_nutrition_info_GmGXG3": {
+      "type": "product-nutrition-info",
+      "settings": {}
+    },
+    "product_testiomonial_8TFgAm": {
+      "type": "product-testiomonial",
+      "blocks": {
+        "slider_mBXjtr": {
+          "type": "slider",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/author.svg",
+            "author": "<strong> Kate Jayden <\/strong>@decajayden",
+            "designation": "Tri Athlete and Whole Supp ambassador",
+            "text": "“Incredible product that helps me get meals on the go or after a late night run. I love that the packaging is plastic free and home compostable. It also tastes great.”"
+          }
+        },
+        "slider_eyCLH7": {
+          "type": "slider",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/author.svg",
+            "author": "<strong> Kate Jayden <\/strong>@decajayden",
+            "designation": "Tri Athlete and Whole Supp ambassador",
+            "text": "“Incredible product that helps me get meals on the go or after a late night run. I love that the packaging is plastic free and home compostable. It also tastes great.”"
+          }
+        },
+        "slider_CEjeYh": {
+          "type": "slider",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/author.svg",
+            "author": "<strong> Kate Jayden <\/strong>@decajayden",
+            "designation": "Tri Athlete and Whole Supp ambassador",
+            "text": "“Incredible product that helps me get meals on the go or after a late night run. I love that the packaging is plastic free and home compostable. It also tastes great.”"
+          }
+        }
+      },
+      "block_order": [
+        "slider_mBXjtr",
+        "slider_eyCLH7",
+        "slider_CEjeYh"
+      ],
+      "settings": {
+        "title": "Designed for athletes & active lifestyles"
+      }
+    },
+    "product_benefits_6LnBep": {
+      "type": "product-benefits",
+      "settings": {}
+    },
+    "product_ingridents_LeL8UR": {
+      "type": "product-ingridents",
+      "settings": {}
+    },
+    "product_faq_RMViYa": {
+      "type": "product-faq",
+      "settings": {}
+    },
+    "product_reviews_8eqer9": {
+      "type": "product-reviews",
+      "settings": {}
+    },
+    "product_kitchen_UpFbUP": {
+      "type": "product-kitchen",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "product_nutrition_info_GmGXG3",
+    "product_testiomonial_8TFgAm",
+    "product_benefits_6LnBep",
+    "product_ingridents_LeL8UR",
+    "product_faq_RMViYa",
+    "product_reviews_8eqer9",
+    "product_kitchen_UpFbUP"
+  ]
+}

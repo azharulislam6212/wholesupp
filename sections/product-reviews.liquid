@@ -1,0 +1,111 @@
+
+<!-- Customer Reviews -->
+
+  <div class="common-wrap clear">
+      <div class="customer-reviews-inner">
+          <h2>Customer Reviews</h2>
+          <div class="review-title">
+              <img src="{{"reviewsio-logo-3.svg" | asset_url }}">
+              <p><span>4.9</span> based on <a href="#">160 reviews</a></p>
+          </div>
+          <div class="customer-reviews-item">
+              <div class="review-item slider-content">
+                  <div class="rating-star">
+                    {% for i in (1..5) %}
+                        <img src="{{"Star-black.svg" | asset_url}}">
+                    {% endfor %}
+                  </div>
+                  <div class="review-text">
+                      <p>“This is hands down the best shake out there. I’ve tried multiple brands in the
+                          past but nothing compares to Whole Supp. Both chocolate and vanilla tastes as
+                          amazing...”</p>
+                      <div class="author-name">
+                          <author>Adam Colman - London</author>
+                          <img src="{{"verified.png" | asset_url}}">
+                      </div>
+                  </div>
+              </div>
+              <div class="review-item slider-content">
+                  <div class="rating-star">
+                    {% for i in (1..5) %}
+                        <img src="{{"Star-black.svg" | asset_url}}">
+                    {% endfor %}
+                  </div>
+                  <div class="review-text">
+                      <p>“Amazing product that gives you a strong level of healthy nutrition and protein.
+                          This is important when balancing work life, a young family and the ability to
+                          train optimally...”</p>
+                      <div class="author-name">
+                          <author>Mark Morriarty - London</author>
+                          <img src="{{"verified.png" | asset_url}}">
+                      </div>
+                  </div>
+              </div>
+              <div class="review-item slider-content">
+                  <div class="rating-star">
+                    {% for i in (1..5) %}
+                        <img src="{{"Star-black.svg" | asset_url}}">
+                    {% endfor %}
+                  </div>
+                  <div class="review-text">
+                      <p>“Absolutely fantastic product and I rarely start the day without it. Taste great,
+                          mixes well and keeps me feeling fun and energised for hours.”</p>
+                      <div class="author-name">
+                          <author>Niall McCarty - London</author>
+                          <img src="{{"verified.png" | asset_url}}">
+                      </div>
+                  </div>
+              </div>
+              <div class="review-item slider-content">
+                  <div class="rating-star">
+                    {% for i in (1..5) %}
+                        <img src="{{"Star-black.svg" | asset_url}}">
+                    {% endfor %}
+                  </div>
+                  <div class="review-text">
+                      <p>“Really tasty drink which I use daily after my gym session when I need to replace
+                          what is lost but am only able to get liquid in”</p>
+                      <div class="author-name">
+                          <author>Hannah Benson - London</author>
+                          <img src="{{"verified.png" | asset_url}}">
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="blog-item-page-number">
+              <ul class="pagination">
+                  <li class="previous-page">
+                    <img src="{{"arrow-white.svg" | asset_url}}">
+                  </li>
+                  <li class="active-page">1</li>
+                  <li>2</li>
+                  <li>3</li>
+                  <li>4</li>
+                  <li>5</li>
+                  <li class="next-page">
+                      <a href="#"><img src="{{"arrow-white2.svg" | asset_url}}"> </a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+  </div>
+  </div>
+
+<!-- End Customer Reviews -->
+
+{% schema %}
+    {
+      "name": "Product Reviews",
+      "tag": "section",
+      "class": "customer-reviews",
+      "settings": [
+
+      ],
+      "presets": [
+        {
+          "name": "Product Reviews"
+        }
+      ]
+    }
+    {% endschema %}
+    

@@ -1,0 +1,90 @@
+{% assign s = section.settings %}
+
+<div class="common-wrap clear">
+  <div class="our-values-inner">
+    {% if s.heading != blank %}
+      <h2>{{ s.heading }}</h2>
+    {% endif %}
+
+    {% liquid
+    assign items = section.blocks | where: 'type', 'slider'
+  %}
+
+  {%- if items != blank -%}
+
+    <div class="our-values-item-wrap">
+
+    {%- for block in items -%}
+        {% assign b = block.settings %}
+      <div class="our-values-item">
+        <div class="our-values-item-thumb">
+            {% if b.image_mob != blank %}
+                {% render 'smart-image', image: b.image, image_mob: b.image_mob %}
+              {% elsif b.image != blank %}
+                {% render 'responsive-image' with image: b.image %}
+                {% else %}
+                {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+              {% endif %}
+        
+        </div>
+        <div class="our-values-item-content">
+          <h4>{{ b.title }}</h4>
+              {{ b.text }}
+        </div>
+      </div>
+    {%- endfor -%}
+
+    </div>
+
+{%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Our values",
+  "tag": "section",
+  "class": "our-values-wrap",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Title",
+      "default": "Our values"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slider",
+      "name": "Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image For Desktop"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_mob",
+          "label": "Image For Mobile"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Our values"
+    }
+  ]
+}
+{% endschema %}

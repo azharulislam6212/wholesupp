@@ -1,0 +1,388 @@
+
+{% assign currentVariable = product.selected_or_first_available_variant %}
+
+
+  <div class="common-wrap clear">
+      <div class="product-inner">
+          <div class="wrapper">
+              <div class="image-gallery">
+                  <aside class="thumbnails">
+                    {% for image in product.images %}
+                      <a href="#" class="thumbnail" data-big="{{image | img_url: 'master'}}">
+                          <div class="thumbnail-image">
+                            {% render 'responsive-image' with image:image, above_fold:true %}
+                          </div>
+                      </a>
+                    {% endfor %}
+                    
+                  </aside>
+                  <div class="left-gallery-thumb">
+                      <div class="primary">
+
+                      {%- if product.selected_or_first_available_variant.featured_media != null -%}
+                        {%- assign featured_media = product.selected_or_first_available_variant.featured_media -%}
+
+                        {% render 'responsive-image' with image:featured_media, above_fold:true %}
+                        
+
+                        {%- endif -%}
+                      </div>
+
+                      {%- assign protein_items = product.metafields.custom.protein_items.value -%}
+
+                      {%- if protein_items != blank -%}
+                    
+                      <div class="protin-item">
+                        {% for protein_item in protein_items %}
+                            <img src="{{protein_item | img_url: "master"}}" alt="{{protein_item.alt}}">
+                        {% endfor %}
+                   
+                      </div>
+                    {%- endif -%}
+
+
+                    {%- if product.metafields.custom.bag_text != blank -%}
+                        <div class="bag-btn" id="bag-btn">
+                            <button><img src="{{"Bag.svg" |   asset_url }}"> {{ product.metafields.custom.bag_text}}</button>
+                        </div>
+                    {%- endif -%}
+
+               
+                  </div>
+
+                  
+              </div>
+
+          </div>
+          <div class="product-detail-item">
+              <div class="product-info">
+                  <h3>{{ product.title }}</h3> 
+                  <div class="bss-rating">
+                      <figure><img src="{{"5star.png" | asset_url}}" alt=""></figure>
+                      <a href="#">160 reviews</a>
+                  </div>
+                  {{ product.description }}
+                  {% assign product_featured_list =  product.metafields.custom.product_featured_list.value %}
+
+         
+
+                  {%- if product_featured_list != blank -%}
+                    
+                    <ul class="prduct-listing">
+                        {% for feature_text in product_featured_list %}
+                          <li><img src="{{"tick.svg" | asset_url }}">{{ feature_text }}</li>
+                        {% endfor %}
+                      </ul>
+                  {%- endif -%}
+              
+              </div>
+
+              {% assign author = product.metafields.custom.author.value %}
+              {%- if author != blank -%}
+              <div class="product-review-comment">
+                  <div class="review-text">
+                      <p>{{author.text | metafield_tag}}</p>
+                      <span>{{author.author_name | metafield_tag}}</span>
+                  </div>
+                  <div class="author-icon">
+                      <img src="{{ author.author_image | img_url: "master"}}">
+                  </div>
+            
+              </div>
+    
+            {%- endif -%}
+
+            {%- assign currentProductId = section.id | append: '-' | append: product.id -%}
+            {%- assign product_form_id = 'product-form-' | append: currentProductId -%}
+
+            {% assign current_variant = product.selected_or_first_available_variant %}
+
+            {%- form 'product',
+              product,
+              class: 'main-product-form',
+              id: product_form_id,
+              novalidate: 'novalidate'
+            -%}
+
+
+
+            {% comment %} {%- if product.variants.size == 1 -%}
+              <input type="hidden" name="id" value="{{current_variant.id }}">
+              {%- else -%}
+
+              {%- for option in product.options_with_values -%}
+                {% assign values = '' %}
+                {% assign option_index = 0 %}
+                      {% for variant in product.variants %}
+                          {% assign value = variant.options[option_index] %}
+                              {% assign values = values | join: ',' %}
+                              {% assign values = values | append: ',' | append: value %}
+                              {% assign values = values | split: ',' %}
+                      <input type="hidden"  {% if option.selected_value == value %} name="id[]" {% endif %} value="{{variant.id }}">
+                    {% endfor %}
+
+                  {% endfor %}
+            {%- endif -%} {% endcomment %}
+
+
+            {% unless product.has_only_default_variant %}
+
+              <div class="flavours-wrap">
+                  <div class="flavours-title">
+                      <div class="number-info">
+                          <span>1</span>
+                          <p>Choose flavours</p>
+                      </div>
+                      <div class="right-quantity">
+                          <span><span class="quantity-count">1</span> bags / 45 meals</span>
+                      </div>
+                  </div>
+                  <div class="flavours-items">
+                    {%- for option in product.options_with_values -%}
+                      {% assign values = '' %}
+                      {% assign option_index = 0 %}
+
+                    {% for variant in product.variants %}
+                      {% assign value = variant.options[option_index] %}
+                      {% assign values = values | join: ',' %}
+                      {% assign values = values | append: ',' | append: value %}
+                      {% assign values = values | split: ',' %}
+
+                      <div class="flavours-item     {% if option.selected_value == value %} selected {% endif %}  {%- if variant.image.src == blank -%} no-img {%- endif -%}">
+                          <div class="flavours-img">
+                            {%- if variant.image.src != blank -%}
+                              <img src="{{variant.image.src | img_url:"master"}}">
+                            {%- endif -%}
+                  
+                              <span>{{ variant.title }}</span>
+                          </div>
+                          <div class="select-item">
+                            {%- if product.variants.size > 1 -%}
+                              <input type="hidden" name="id"  value="{{variant.id }}">
+                             {%- else -%}
+                              
+                               <input type="hidden" name="id" value="{{current_variant.id }}">
+                        
+                            {%- endif -%}
+
+                          <input type="hidden" name="quantity" {% if option.selected_value == value %}value="1"  {%- else -%}  value="0"{% endif %}>
+                          
+
+                              <select  {% if product.variants.size > 1 %}   class="select_quantity" {% endif %}>
+                                  <option value="0">0</option>
+                                  <option value="1"  {% if option.selected_value == value %} selected {% endif %}>1</option>
+                                  <option value="2">2</option>
+                                  <option value="3">3</option>
+                                  <option value="4">4</option>
+                                  <option value="5">5</option>
+                              </select>
+                          </div>
+                      </div>
+                    {% endfor %}
+
+            {% endfor %}
+
+                  </div>
+              </div>
+            {% endunless %}
+
+
+
+
+              <div class="flavours-wrap purchase">
+
+              {% if product.selling_plan_groups.size > 0 %}
+
+                {%- liquid
+                assign current_variant = product.selected_or_first_available_variant | default: product.variants.first
+                assign current_selling_plan_allocation = current_variant.selected_selling_plan_allocation
+               
+                if current_selling_plan_allocation == nil and current_variant.requires_selling_plan
+                 assign current_selling_plan_allocation = current_variant.selling_plan_allocations | first
+                endif
+      
+      
+                assign offer = current_selling_plan_allocation | default: current_variant
+                assign offerPrice = offer.price 
+                assign discount = offer.price | times: 0.1
+                assign discountedPrice = offerPrice | minus: discount
+      
+                assign perdiscount  = current_variant.price | minus: discountedPrice
+                assign perce  = perdiscount | divided_by: current_variant.price
+                assign percentage  = perce | times:100
+      
+               %}
+
+
+
+                  <div class="flavours-title">
+                      <div class="number-info">
+                          <span>2</span>
+                          <p>Purchase type</p>
+                      </div>
+                  </div>
+                  <div class="flavours-items purchase-items">
+                    {% assign selling_plan_first = product.selling_plan_groups[0].selling_plans[1] %}
+                    <input type="hidden"  name="selling_plan" value="">
+
+
+                      <div class="purchase-item save">
+                          <div class="radio custom-selling_plan_wrap" data-selling-percentage="{{percentage | round}}">
+                              <input id="radio-1" name="purchase_option" value="autodeliver" data-selling-id="{{ selling_plan_first.id }}"  data-subscription-price="{{ discountedPrice | money }}"  type="radio" checked>
+                              <label for="radio-1" class="radio-label">
+                                  <p>Subscribe & Save</p>
+                              </label>
+                              <div class="price-box">
+                                  <span><del id="mobile">{{offerPrice | money }}</del> {{ discountedPrice | money }}<del
+                                          id="large-device">{{offerPrice | money }}</del>
+                                      <dfn>£1.79 per meal </dfn></span>
+                              </div>
+                          </div>
+                          <div class="save-btn">
+                              <button class="bulet-btn blue">Save {{percentage | round | append: '%' }}</button>
+                              <button class="bulet-btn yello">Best Value</button>
+                          </div>
+                      </div>
+                      <div class="purchase-item checked">
+                          <div class="radio">
+                              <input id="radio-2" name="purchase_option" type="radio"  value="onetime" data-ontime-price="{{offerPrice | money }}" checked>
+                              <label for="radio-2" class="radio-label">
+                                  <p>One-Time Purchase</p>
+                              </label>
+                              <div class="price-box">
+                                  <span>{{offerPrice | money }}
+                                      <dfn>£1.99 per meal</dfn></span>
+                              </div>
+                          </div>
+
+                      </div>
+                  </div>
+
+                {% endif %}
+      {% comment %} selling_plan_groups {% endcomment %}
+
+
+                  <div class="add-cart">
+                      <button type="submit"  name="add" class="btn green add-to-cart-btn" {% if product.selected_or_first_available_variant.available == false %}disabled{% endif %}>ADD TO CART</button>
+                  </div>
+              </div>
+
+      
+        
+
+              {% unless product == empty %}
+                <script type="application/json" data-product-json>
+                  {{ product | json }}
+                </script>
+             {% endunless %}
+      
+        {%- endform -%}
+
+         
+              {% liquid
+              assign items = section.blocks | where: 'type', 'item'
+            %}
+    
+
+            {%- if items != blank -%}
+                
+         
+              <div class="ups-item">
+
+              {%- for block in items -%}
+                {% assign b = block.settings %}
+                  <div class="selling-btn">
+        
+                      {% if b.image != blank %}
+
+                        <img src="{{b.image | img_url:"master"}}" alt="{{b.image.alt}}">
+                  
+                    {% endif %}
+                    {{b.text}}
+    
+                  </div>
+
+                {%- endfor -%}
+              
+              </div>
+
+            {%- endif -%}
+          </div>
+      </div>
+  </div>
+
+
+
+
+  {%- liquid
+    if product.selected_or_first_available_variant.featured_media
+      assign seo_media = product.selected_or_first_available_variant.featured_media
+    else
+      assign seo_media = product.featured_media
+    endif
+  -%}
+
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org/",
+      "@type": "Product",
+      "name": {{ product.title | json }},
+      "url": {{ request.origin | append: product.url | json }},
+      {% if seo_media -%}
+        "image": [
+          {{ seo_media | image_url: width: seo_media.preview_image.width | prepend: "https:" | json }}
+        ],
+      {%- endif %}
+      "description": {{ product.description | strip_html | json }},
+      {% if product.selected_or_first_available_variant.sku != blank -%}
+        "sku": {{ product.selected_or_first_available_variant.sku | json }},
+      {%- endif %}
+      "brand": {
+        "@type": "Thing",
+        "name": {{ product.vendor | json }}
+      },
+      "offers": [
+        {%- for variant in product.variants -%}
+          {
+            "@type" : "Offer",
+            {%- if variant.sku != blank -%}
+              "sku": {{ variant.sku | json }},
+            {%- endif -%}
+            "availability" : "http://schema.org/{% if variant.available %}InStock{% else %}OutOfStock{% endif %}",
+            "price" : {{ variant.price | divided_by: 100.00 | json }},
+            "priceCurrency" : {{ cart.currency.iso_code | json }},
+            "url" : {{ request.origin | append: variant.url | json }}
+          }{% unless forloop.last %},{% endunless %}
+        {%- endfor -%}
+      ]
+    }
+  </script>
+
+{% schema %}
+{
+  "name": "t:sections.main-product.name",
+  "tag": "section",
+  "class": "product-wrap",
+  "settings": [
+
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "text"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

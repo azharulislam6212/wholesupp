@@ -1,0 +1,186 @@
+{
+  "sections": {
+    "main": {
+      "type": "about-hero",
+      "settings": {
+        "bg_image": "shopify:\/\/shop_images\/about-hero-bg.jpg",
+        "bg_image_mob": "shopify:\/\/shop_images\/about-hero-mobi.jpg",
+        "heading": "No secrets here",
+        "text": "<p>From superfood sourcing and planet-friendly packaging to ethical responsibility and sustainability — we’re 100% transparent in everything we do.<\/p>",
+        "image": "shopify:\/\/shop_images\/about-hero-thumb.jpg",
+        "image_mob": "shopify:\/\/shop_images\/about-hero-thumb-mobi.jpg"
+      }
+    },
+    "rich_text_ncn8rb": {
+      "type": "rich-text",
+      "settings": {
+        "text": "<h2>Just straight up nutrition on a mission<\/h2><p>Whether you’re an athlete or committed to an active lifestyle, our mission is to empower healthy living by bringing together all the best superfoods into a convenient, wholesome, and well-balanced meal — that’s good for you, and the planet. <\/p>"
+      }
+    },
+    "our_values_D6qQY4": {
+      "type": "our-values",
+      "blocks": {
+        "slider_i9yxeT": {
+          "type": "slider",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/honesty-thumb.png",
+            "image_mob": "shopify:\/\/shop_images\/honesty-thumb-mobi.png",
+            "title": "Honesty",
+            "text": "<p>Transparency is non-negotiable — from farm to formulation and everything in between.<\/p>"
+          }
+        },
+        "slider_cBreKf": {
+          "type": "slider",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/complete.png",
+            "image_mob": "shopify:\/\/shop_images\/complete-mobi.png",
+            "title": "Complete Nutrition",
+            "text": "<p>Each sip is nutritiously complete with everything you need and nothing you don’t.<\/p>"
+          }
+        },
+        "slider_pPBTGK": {
+          "type": "slider",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/planet-friendly.jpg",
+            "image_mob": "shopify:\/\/shop_images\/planet-friendly-mobi.png",
+            "title": "Planet-Friendly",
+            "text": "<p>We're nothing without nature. And we care for the Earth’s health as much as we do yours.<\/p>"
+          }
+        },
+        "slider_rkcjPG": {
+          "type": "slider",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/convenience.jpg",
+            "image_mob": "shopify:\/\/shop_images\/convenience-mobi.png",
+            "title": "Convenience",
+            "text": "<p>Developed and formulated for busy lifestyles - just 2 scoops for a meal at home, work, or on the go.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "slider_i9yxeT",
+        "slider_cBreKf",
+        "slider_pPBTGK",
+        "slider_rkcjPG"
+      ],
+      "settings": {
+        "heading": "Our values"
+      }
+    },
+    "our_founders_KDrk7N": {
+      "type": "our-founders",
+      "blocks": {
+        "slider_zYcmGm": {
+          "type": "slider",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/darren-thumb.png",
+            "image_mob": "shopify:\/\/shop_images\/darren-thumb-mobi.png",
+            "title": "Darren O'Reilly",
+            "designation": "Ex-professional athlete",
+            "text": "<p>After 6 years as a professional rugby player with access to the best nutritionists, I left the sports fields for the corporate world.<\/p><p>I soon struggled to balance a busy lifestyle with essential nutritional needs. I wanted a healthy solution that tasted great too, and so I came up with Whole Supp: a delicious, nutritionally complete meal that’s good for both you and the planet.<\/p>"
+          }
+        },
+        "slider_KBnGLd": {
+          "type": "slider",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/brian-thumb.png",
+            "image_mob": "shopify:\/\/shop_images\/brian-thumb-mobi.png",
+            "title": "Dr Brian Carson",
+            "designation": "Head of Science & Innovation",
+            "text": "<p>As our Head of Science and Innovation, I came up with Whole Supp’s Smart Food formulation and lead our scientific research studies.<\/p><p>I studied human metabolism, nutrition and exercise for 15 years and hold a PhD in physiology. The formulation consistent of 13 plant-based ingredients, including superfoods to support both performance and recovery.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "slider_zYcmGm",
+        "slider_KBnGLd"
+      ],
+      "settings": {
+        "heading": "Our Founders"
+      }
+    },
+    "led_by_science_cACyVH": {
+      "type": "led-by-science",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/led_d60d8d60-2ecb-45a4-b987-cdd351c4b440.png",
+        "heading": "Our ingredients",
+        "text": "<p>Science doesn’t mess around. And neither do we. We work with leading experts in the fields of nutrition, science, medicine, and wellness so you can fuel good to feel great — daily.<\/p>",
+        "feature_text": "<ul><li>Informed Sports Certified<\/li><li>Sustainably-sourced superfoods<\/li><li>100% transparency<\/li><\/ul>",
+        "button_label": "THE SCIENCE",
+        "button_link": "",
+        "video_url": "https:\/\/www.youtube.com\/watch?v=Nz4m-v0n3zg"
+      }
+    },
+    "planet_XGERpW": {
+      "type": "planet",
+      "blocks": {
+        "item_JeJ4TU": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/compostable-icon.png",
+            "title": "Compostable",
+            "text": "<p>We have TUV compost certification for home composting.<\/p>"
+          }
+        },
+        "item_NzULEi": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Recycle-icn.svg",
+            "title": "Recyclable",
+            "text": "<p>We use non-toxic inks and all of our paper is sourced from managed forests.<\/p>"
+          }
+        },
+        "item_8PGVK8": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Food-Waste-icn.svg",
+            "title": "Zero food waste",
+            "text": "<p>We have designed our products to eradicate any food waste.<\/p>"
+          }
+        },
+        "item_dj8MyL": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Sustainable-icn.svg",
+            "title": "Sustainable",
+            "text": "<p>We source our ingredients responsibly and ethically — locally and globally.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_JeJ4TU",
+        "item_NzULEi",
+        "item_8PGVK8",
+        "item_dj8MyL"
+      ],
+      "settings": {
+        "heading": "Nothing will ever harm you or the planet",
+        "text": "<p> We’re serious about keeping you — and the planet — healthy, which is why we have zero tolerance for plastic packaging. In becoming as planet-friendly as possible, our pouches are home compostable while delivery boxes are 100% recyclable.<\/p>",
+        "image_fly": "shopify:\/\/shop_images\/planet-icon.svg",
+        "image_cloud": "shopify:\/\/shop_images\/planet-icon-right.svg"
+      }
+    },
+    "hero_akftWF": {
+      "type": "hero",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/bg-hero_8e44c4c3-7e71-4ba7-ac39-5a5f7d6e7918.png",
+        "image_mob": "shopify:\/\/shop_images\/bg-hero-mobi_86bf3a00-abdf-4227-92df-bc739385f993.png",
+        "heading": "The superfood shake that packs a punch",
+        "text": "<p>A convenient shake to support your active lifestyle with<br\/>13 superfoods and 31g of protein. Oh, and it’s delicious.<\/p><p><strong>Only £1.99 per meal.<\/strong><\/p>",
+        "button_label": "TRY OUR STARTER PACK",
+        "button_link": "",
+        "feature_text": "",
+        "show_review": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "rich_text_ncn8rb",
+    "our_values_D6qQY4",
+    "our_founders_KDrk7N",
+    "led_by_science_cACyVH",
+    "planet_XGERpW",
+    "hero_akftWF"
+  ]
+}

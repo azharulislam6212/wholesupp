@@ -1,0 +1,448 @@
+{
+  "sections": {
+    "science-hero": {
+      "type": "science-hero",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/olivie-strauss.png",
+        "image_mob": "shopify:\/\/shop_images\/olivie-strauss-mobi.png",
+        "heading": "Researched from farm to formulation",
+        "text": "<p>We work with leading experts in the fields of nutrition, science, medicine, and wellness to develop our Smart Food Formulation.<\/p>"
+      }
+    },
+    "led_by_science_accordion_cD7d98": {
+      "type": "led-by-science-accordion",
+      "blocks": {
+        "faq_H4VWt3": {
+          "type": "faq",
+          "settings": {
+            "heading": "Science-backed superfoods",
+            "text": "<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis, eaque.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis, eaque.<\/p>"
+          }
+        },
+        "faq_nCcDL7": {
+          "type": "faq",
+          "settings": {
+            "heading": "Powerful bioactivity",
+            "text": "<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis, eaque.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis, eaque.<\/p>"
+          }
+        },
+        "faq_c8g8gd": {
+          "type": "faq",
+          "settings": {
+            "heading": "Approved by athletes",
+            "text": "<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis, eaque.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis, eaque<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_H4VWt3",
+        "faq_nCcDL7",
+        "faq_c8g8gd"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/led_13a7e292-9e53-4086-ab22-372effd738a4.png",
+        "heading": "Led by science",
+        "text": "What science says, goes. We rely on it in every part of our process to ensure peak mental and physical health to support your active lifestyle."
+      }
+    },
+    "block_quote_nerqTr": {
+      "type": "block-quote",
+      "settings": {
+        "heading": "Dr. Brian Carson",
+        "text": "When we put the industry under the microscope there wasn’t many truly complete, wholesome products. Ineffective ingredients in minimal quantities, GMO, artificial coloring and packed full of sugars. Our health and our bodies deserve better."
+      }
+    },
+    "supercharged_ingredients_q8FUeD": {
+      "type": "supercharged-ingredients",
+      "blocks": {
+        "ingredients_Wmrig7": {
+          "type": "ingredients",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/flax.png",
+            "heading": "Flax Seeds",
+            "text": "<p>Flaxseeds are high in omega-3 fatty acids which can help reduce inflammation and improve recovery time after exercise.<\/p>",
+            "heading_1": "Benefits",
+            "text_1": "<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis, eaque.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis, eaque.<\/p>",
+            "heading_2": "Nutrients",
+            "text_2": "<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis, eaque.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis, eaque.<\/p>"
+          }
+        },
+        "ingredients_tCq9CC": {
+          "type": "ingredients",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/superfood_f792edd9-75b7-4ea0-8c54-3dc52e8b5070.png",
+            "heading": "Spinach",
+            "text": "<p>Flaxseeds are high in omega-3 fatty acids which can help reduce inflammation and improve recovery time after exercise.<\/p>",
+            "heading_1": "Benefits",
+            "text_1": "<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis, eaque.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis, eaque.<\/p>",
+            "heading_2": "Benefits",
+            "text_2": "<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis, eaque.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis, eaque.<\/p>"
+          }
+        },
+        "ingredients_bPLHUB": {
+          "type": "ingredients",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/flax.png",
+            "heading": "Cherries",
+            "text": "<p>Flaxseeds are high in omega-3 fatty acids which can help reduce inflammation and improve recovery time after exercise.<\/p>",
+            "heading_1": "Benefits",
+            "text_1": "<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis, eaque.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis, eaque.<\/p>",
+            "heading_2": "Benefits",
+            "text_2": "<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis, eaque.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis, eaque.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "ingredients_Wmrig7",
+        "ingredients_tCq9CC",
+        "ingredients_bPLHUB"
+      ],
+      "settings": {
+        "heading": "Supercharged ingredients",
+        "text": "<p>Rich in essential vitamins and minerals, our 13 bioactive superfoods work alone and in synergy to boost energy, reduce recovery, increase endurance, and support your active lifestyle. <\/p>"
+      }
+    },
+    "nutrition_mission_aeAfnG": {
+      "type": "nutrition-mission",
+      "blocks": {
+        "item_CTCQNE": {
+          "type": "item",
+          "settings": {
+            "text": "<a href=\"#\">Bioactive<\/a>ingredients",
+            "text2": "GMO"
+          }
+        },
+        "item_Mc6WCf": {
+          "type": "item",
+          "settings": {
+            "text": "Plant based superfoods",
+            "text2": "Soy"
+          }
+        },
+        "item_A3dTFC": {
+          "type": "item",
+          "settings": {
+            "text": "Rich source of vitamins",
+            "text2": "Gluten"
+          }
+        },
+        "item_XJmY9B": {
+          "type": "item",
+          "settings": {
+            "text": "Sustainably sourced ingredients",
+            "text2": "Dairy"
+          }
+        },
+        "item_BUcy37": {
+          "type": "item",
+          "settings": {
+            "text": "",
+            "text2": "Added Sugars"
+          }
+        },
+        "item_j4hgE6": {
+          "type": "item",
+          "settings": {
+            "text": "",
+            "text2": "Herbicides"
+          }
+        },
+        "item_QKGGJP": {
+          "type": "item",
+          "settings": {
+            "text": "",
+            "text2": "Pesticides"
+          }
+        },
+        "item_fw9iwq": {
+          "type": "item",
+          "settings": {
+            "text": "",
+            "text2": "Preservatives"
+          }
+        }
+      },
+      "block_order": [
+        "item_CTCQNE",
+        "item_Mc6WCf",
+        "item_A3dTFC",
+        "item_XJmY9B",
+        "item_BUcy37",
+        "item_j4hgE6",
+        "item_QKGGJP",
+        "item_fw9iwq"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/nutrision.png",
+        "heading": "Nutrition on a mission",
+        "text": "Formulated with the highest quality scientifically-researched ingredients, each sip of Whole Supp gives you everything you need and nothing you don’t.",
+        "header_1": "Formulated WITH",
+        "header_2": "Formulated WITHOUT"
+      }
+    },
+    "product_intro_bioactivity_xypPci": {
+      "type": "product-intro-bioactivity",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/bioactive.png",
+        "image_mob": "shopify:\/\/shop_images\/bioactive-mobi.png",
+        "video_url": "https:\/\/www.youtube.com\/watch?v=Nz4m-v0n3zg",
+        "heading": "Bioactivity & why it matters",
+        "text": "<p> The bioactive compounds found in our plant-based, whole food ingredients offer remarkable concentrations of health-promoting nutrients that supercharge your overall wellbeing.<\/p>",
+        "author": "Dr. Brian Carson explains"
+      }
+    },
+    "vitamins_minerals_dYqU7T": {
+      "type": "vitamins-minerals",
+      "blocks": {
+        "vitamins_7pEUGM": {
+          "type": "vitamins",
+          "settings": {
+            "title": "Vitamin A",
+            "text": "<p>Vitamin A, also know as retinol, has many important functions but is mainly known for improving eye health and supporting skin cell renewal.<\/p>",
+            "title_2": "SUPPORTS",
+            "text_2": "<p>Immunity & Eye Health<\/p>"
+          }
+        },
+        "vitamins_M9nd9g": {
+          "type": "vitamins",
+          "settings": {
+            "title": "Vitamin B1",
+            "text": "<p>Vitamin B1, also know as retinol, has many important functions but is mainly known for improving eye health and supporting skin cell renewal.<\/p>",
+            "title_2": "SUPPORTS",
+            "text_2": "<p>Immunity & Eye Health<\/p>"
+          }
+        },
+        "vitamins_rwrMDN": {
+          "type": "vitamins",
+          "settings": {
+            "title": "Vitamin B2",
+            "text": "<p>Vitamin B2, also know as retinol, has many important functions but is mainly known for improving eye health and supporting skin cell renewal.<\/p>",
+            "title_2": "SUPPORTS",
+            "text_2": "<p>Immunity & Eye Health<\/p>"
+          }
+        },
+        "vitamins_7qG7zQ": {
+          "type": "vitamins",
+          "settings": {
+            "title": "Vitamin B3",
+            "text": "<p>Vitamin B3, also know as retinol, has many important functions but is mainly known for improving eye health and supporting skin cell renewal.<\/p>",
+            "title_2": "SUPPORTS",
+            "text_2": "<p>Immunity & Eye Health<\/p>"
+          }
+        },
+        "vitamins_7iTbf6": {
+          "type": "vitamins",
+          "settings": {
+            "title": "Vitamin B5",
+            "text": "<p>Vitamin B5, also know as retinol, has many important functions but is mainly known for improving eye health and supporting skin cell renewal.<\/p>",
+            "title_2": "SUPPORTS",
+            "text_2": "<p>Immunity & Eye Health<\/p>"
+          }
+        },
+        "vitamins_YVQFWf": {
+          "type": "vitamins",
+          "settings": {
+            "title": "Vitamin B6",
+            "text": "<p>Vitamin B6, also know as retinol, has many important functions but is mainly known for improving eye health and supporting skin cell renewal.<\/p>",
+            "title_2": "SUPPORTS",
+            "text_2": "<p>Immunity & Eye Health<\/p>"
+          }
+        },
+        "vitamins_TWDqgp": {
+          "type": "vitamins",
+          "settings": {
+            "title": "Vitamin B9",
+            "text": "<p>Vitamin B9, also know as retinol, has many important functions but is mainly known for improving eye health and supporting skin cell renewal.<\/p>",
+            "title_2": "SUPPORTS",
+            "text_2": "<p>Immunity & Eye Health<\/p>"
+          }
+        },
+        "vitamins_JnkLBn": {
+          "type": "vitamins",
+          "settings": {
+            "title": "Vitamin B7",
+            "text": "<p>Vitamin B7, also know as retinol, has many important functions but is mainly known for improving eye health and supporting skin cell renewal.<\/p>",
+            "title_2": "SUPPORTS",
+            "text_2": "<p>Immunity & Eye Health<\/p>"
+          }
+        },
+        "vitamins_UPdNbx": {
+          "type": "vitamins",
+          "settings": {
+            "title": "Vitamin B12",
+            "text": "<p>Vitamin B12, also know as retinol, has many important functions but is mainly known for improving eye health and supporting skin cell renewal.<\/p>",
+            "title_2": "SUPPORTS",
+            "text_2": "<p>Immunity & Eye Health<\/p>"
+          }
+        },
+        "vitamins_U4Emwy": {
+          "type": "vitamins",
+          "settings": {
+            "title": "Vitamin C",
+            "text": "<p>Vitamin A, also know as retinol, has many important functions but is mainly known for improving eye health and supporting skin cell renewal.<\/p>",
+            "title_2": "SUPPORTS",
+            "text_2": "<p>Immunity & Eye Health<\/p>"
+          }
+        },
+        "vitamins_7kndRd": {
+          "type": "vitamins",
+          "settings": {
+            "title": "Vitamin D3",
+            "text": "<p>Vitamin D3, also know as retinol, has many important functions but is mainly known for improving eye health and supporting skin cell renewal.<\/p>",
+            "title_2": "SUPPORTS",
+            "text_2": "<p>Immunity & Eye Health<\/p>"
+          }
+        },
+        "vitamins_wn9aiE": {
+          "type": "vitamins",
+          "settings": {
+            "title": "Vitamin E",
+            "text": "<p>Vitamin E, also know as retinol, has many important functions but is mainly known for improving eye health and supporting skin cell renewal.<\/p>",
+            "title_2": "SUPPORTS",
+            "text_2": "<p>Immunity & Eye Health<\/p>"
+          }
+        },
+        "vitamins_yxdAg6": {
+          "type": "vitamins",
+          "settings": {
+            "title": "Vitamin K",
+            "text": "<p>Vitamin K, also know as retinol, has many important functions but is mainly known for improving eye health and supporting skin cell renewal.<\/p>",
+            "title_2": "SUPPORTS",
+            "text_2": "<p>Immunity & Eye Health<\/p>"
+          }
+        },
+        "minerals_kV8Pep": {
+          "type": "minerals",
+          "settings": {
+            "title": "Mineral Vitamin  A",
+            "text": "<p>Vitamin A, also know as retinol, has many important functions but is mainly known for improving eye health and supporting skin cell renewal.<\/p>",
+            "title_2": "SUPPORTS",
+            "text_2": "<p>Immunity & Eye Health<\/p>"
+          }
+        },
+        "minerals_UEE9EW": {
+          "type": "minerals",
+          "settings": {
+            "title": "Mineral Vitamin B1",
+            "text": "<p>Vitamin B1, also know as retinol, has many important functions but is mainly known for improving eye health and supporting skin cell renewal.<\/p>",
+            "title_2": "SUPPORTS",
+            "text_2": "<p>Immunity & Eye Health<\/p>"
+          }
+        },
+        "minerals_yCAbXw": {
+          "type": "minerals",
+          "settings": {
+            "title": "Mineral Vitamin B2",
+            "text": "<p>Vitamin B2, also know as retinol, has many important functions but is mainly known for improving eye health and supporting skin cell renewal.<\/p>",
+            "title_2": "SUPPORTS",
+            "text_2": "<p>Immunity & Eye Health<\/p>"
+          }
+        },
+        "minerals_iFDnA4": {
+          "type": "minerals",
+          "settings": {
+            "title": "Mineral Vitamin B3",
+            "text": "<p>Vitamin B3, also know as retinol, has many important functions but is mainly known for improving eye health and supporting skin cell renewal.<\/p>",
+            "title_2": "SUPPORTS",
+            "text_2": "<p>Immunity & Eye Health<\/p>"
+          }
+        },
+        "others_p3m7cf": {
+          "type": "others",
+          "settings": {
+            "title": "Other Vitamin A",
+            "text": "<p>Vitamin A, also know as retinol, has many important functions but is mainly known for improving eye health and supporting skin cell renewal.<\/p>",
+            "title_2": "SUPPORTS",
+            "text_2": "<p>Immunity & Eye Health<\/p>"
+          }
+        },
+        "others_QME6QU": {
+          "type": "others",
+          "settings": {
+            "title": "Other Vitamin B1",
+            "text": "<p>Vitamin B1, also know as retinol, has many important functions but is mainly known for improving eye health and supporting skin cell renewal.<\/p>",
+            "title_2": "SUPPORTS",
+            "text_2": "<p>Immunity & Eye Health<\/p>"
+          }
+        },
+        "others_gRhGAT": {
+          "type": "others",
+          "settings": {
+            "title": "Other Vitamin B2",
+            "text": "<p>Vitamin B2, also know as retinol, has many important functions but is mainly known for improving eye health and supporting skin cell renewal.<\/p>",
+            "title_2": "SUPPORTS",
+            "text_2": "<p>Immunity & Eye Health<\/p>"
+          }
+        },
+        "others_TQaFNW": {
+          "type": "others",
+          "settings": {
+            "title": "Other Vitamin B3",
+            "text": "<p>Vitamin B2, also know as retinol, has many important functions but is mainly known for improving eye health and supporting skin cell renewal.<\/p>",
+            "title_2": "SUPPORTS",
+            "text_2": "<p>Immunity & Eye Health<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "vitamins_7pEUGM",
+        "vitamins_M9nd9g",
+        "vitamins_rwrMDN",
+        "vitamins_7qG7zQ",
+        "vitamins_7iTbf6",
+        "vitamins_YVQFWf",
+        "vitamins_TWDqgp",
+        "vitamins_JnkLBn",
+        "vitamins_UPdNbx",
+        "vitamins_U4Emwy",
+        "vitamins_7kndRd",
+        "vitamins_wn9aiE",
+        "vitamins_yxdAg6",
+        "minerals_kV8Pep",
+        "minerals_UEE9EW",
+        "minerals_yCAbXw",
+        "minerals_iFDnA4",
+        "others_p3m7cf",
+        "others_QME6QU",
+        "others_gRhGAT",
+        "others_TQaFNW"
+      ],
+      "settings": {
+        "heading": "Vitamins & Minerals",
+        "text": "<p>Our superfoods are packed with 30 essential vitamins and minerals that are vegan, sustainably-sourced, and chosen in impactful amounts. <\/p>",
+        "tab_heading_1": "Vitamins",
+        "heading_1": "VITAMINS <em>20% of RDA*<\/em>",
+        "tab_text_1": "*Vitamin D is 50% of Recommended Daily Intake (RDI)",
+        "tab_heading_2": "Minerals",
+        "heading_2": "MINERALS <em>20% of RDA*<\/em>",
+        "tab_text_2": "*Vitamin D is 50% of Recommended Daily Intake (RDI)",
+        "tab_heading_3": "Other nutrients",
+        "heading_3": "Others <em>20% of RDA*<\/em>",
+        "tab_text_3": "*Vitamin D is 50% of Recommended Daily Intake (RDI)"
+      }
+    },
+    "banner_cCX3a7": {
+      "type": "banner",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/sky_05889e7a-d606-4ea0-9d66-1539bb31f2f9.jpg",
+        "image_mob": "shopify:\/\/shop_images\/sky-mobi_1e4c3994-7b99-4b46-9658-2b61b1c5aafa.png",
+        "heading": "Good for you and the planet",
+        "text": "<p>We’re all about transparency. And we’ve made a promise that nothing in Whole Supp will ever harm you or the planet.<\/p>",
+        "button_label": "SUSTAINABILITY",
+        "button_link": "",
+        "image_fly": "shopify:\/\/shop_images\/fly-pack_9022854d-a97f-4440-96ee-58d9b39a52f1.png",
+        "image_cloud": "shopify:\/\/shop_images\/cloud-pack_fb9c4e17-957b-4ba5-b36a-75eb923da046.png"
+      }
+    }
+  },
+  "order": [
+    "science-hero",
+    "led_by_science_accordion_cD7d98",
+    "block_quote_nerqTr",
+    "supercharged_ingredients_q8FUeD",
+    "nutrition_mission_aeAfnG",
+    "product_intro_bioactivity_xypPci",
+    "vitamins_minerals_dYqU7T",
+    "banner_cCX3a7"
+  ]
+}

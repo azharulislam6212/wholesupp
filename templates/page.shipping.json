@@ -1,0 +1,103 @@
+{
+  "sections": {
+    "page-header-faq": {
+      "type": "page-header-faq",
+      "blocks": {
+        "item_4G8hpw": {
+          "type": "item",
+          "settings": {
+            "label": "FAQs",
+            "link": "shopify:\/\/pages\/faqs"
+          }
+        },
+        "item_rVexkw": {
+          "type": "item",
+          "settings": {
+            "label": "Terms",
+            "link": "shopify:\/\/pages\/terms"
+          }
+        }
+      },
+      "block_order": [
+        "item_4G8hpw",
+        "item_rVexkw"
+      ],
+      "settings": {
+        "heading": "Frequently Asked Questions",
+        "text": "<p>Here are some of the questions we get asked by our customers<\/p>",
+        "filter_label": "Shipping"
+      }
+    },
+    "faq-page-content": {
+      "type": "faq-page-content",
+      "blocks": {
+        "menu_GFdDey": {
+          "type": "menu",
+          "settings": {
+            "title": "FAQs",
+            "link": "shopify:\/\/pages\/faqs"
+          }
+        },
+        "menu_cxVnKH": {
+          "type": "menu",
+          "settings": {
+            "title": "Shipping",
+            "link": "shopify:\/\/pages\/shipping"
+          }
+        },
+        "menu_GXtrdQ": {
+          "type": "menu",
+          "settings": {
+            "title": "Terms",
+            "link": "shopify:\/\/pages\/terms"
+          }
+        },
+        "heading_UXTY8y": {
+          "type": "heading",
+          "settings": {
+            "heading": "Shipping"
+          }
+        },
+        "faq_Pji6BN": {
+          "type": "faq",
+          "settings": {
+            "heading": "What is Whole Supp?",
+            "text": "<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis, eaque.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis, eaque.<\/p>"
+          }
+        },
+        "faq_68iMMN": {
+          "type": "faq",
+          "settings": {
+            "heading": "What is the taste and texture like?",
+            "text": "<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis, eaque.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis, eaque.<\/p>"
+          }
+        },
+        "faq_Y6hmwt": {
+          "type": "faq",
+          "settings": {
+            "heading": "It has more calories than a protein shake, why is that?",
+            "text": "<p>A Whole Supp shake does indeed contain 400 calories vs the average 120 - 200 calories in a vegan protein shake<\/p><p>However, unlike a protein shake, it will also give you many of the other nutrients to keep you full and energised after your workout. Each portion contains not only 31g of protein but also 13g of healthy fat, 7g of fibre and over 30+ vitamins and minerals.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "menu_GFdDey",
+        "menu_cxVnKH",
+        "menu_GXtrdQ",
+        "heading_UXTY8y",
+        "faq_Pji6BN",
+        "faq_68iMMN",
+        "faq_Y6hmwt"
+      ],
+      "settings": {
+        "heading": "Not finding what you are looking for?",
+        "button_label": "CONTACT US",
+        "button_link": ""
+      }
+    }
+  },
+  "order": [
+    "page-header-faq",
+    "faq-page-content"
+  ]
+}

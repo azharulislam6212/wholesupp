@@ -1,0 +1,371 @@
+
+<div class="common-wrap clear">
+  <div class="header-inner">
+      <div class="logo-wrap">
+        {%- if section.settings.logo -%}
+          <div class="main-logo">
+        <a href="{{ routes.root_url }}" class="logo">
+          <img src="{{ section.settings.logo | img_url:"master" }}" alt="{{section.settings.logo.alt}}">
+        </a>
+        </div>
+        {%- else -%}
+        <div class="main-logo main-logo-text">
+          <a href="{{ routes.root_url }}" class="logo">{{ shop.name }}</a>
+        </div>
+      {%- endif -%}
+
+      </div>
+      <div class="nav-wrap">
+          <nav class="main-nav">
+              <ul>
+                {% if section.settings.main_menu != blank %}
+
+                  {%- for link in section.settings.main_menu.links -%}
+                  {%- assign has_megamenu = false -%}
+                  {%- for block in section.blocks -%}
+                    {%- case block.type -%}
+                      {%- when 'megamenu' -%}
+                        {% assign link_title = block.settings.link_title | handleize %}
+                        {% assign menu_title = link.title | handleize %}
+
+                        {%- if link_title == menu_title -%}
+                          {%- assign has_megamenu = true -%}
+                          {%- endif -%}
+
+                    {%- endcase -%}
+                  {%- endfor -%}
+
+                  {% if has_megamenu %}
+
+                  <li class="mega-menu"><a href="{{ link.url }}">{{ link.title | escape }} </a>
+                      <div class="megamenu-wrap sub_menu">
+                          <div class="megamenu-inner">
+                              <div class="megamenu-wave">
+                                  <figure><img src="{{'waves.svg' | asset_url }}" alt=""></figure>
+                              </div>
+                              <div class="megamenu-item-wrap">
+                                {%- for block in section.blocks -%}
+                                  {%- case block.type -%}
+                                    {%- when 'megamenu' -%}
+                                      {%liquid
+                                        assign b =  block.settings
+                                      %}
+
+
+                                      <a href="{{b.url_1 }}" class="megamenu-item">
+                                        <div class="megamenu-item-img">
+                                          {% if b.image_2 != blank %}
+                                          {% render 'responsive-image',  with image: b.image_1 %}
+                                          {% else %}
+                                          {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                                        {% endif %}
+                                        </div>
+                                        <div class="megamenu-item-content">
+                                            <h6>{{b.heading_1}}</h6>
+                                            <p>{{b.text_1}}</p>
+                                            <span>{{b.price_text_1}}</span>
+                                        </div>
+                                    </a>
+
+                                    
+                                    <a href="{{b.url_2 }}" class="megamenu-item">
+                                      <div class="megamenu-item-img">
+                                        {% if b.image_2 != blank %}
+                                        {% render 'responsive-image',  with image: b.image_2 %}
+
+                                        {% else %}
+                                        {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                                      {% endif %}
+                                      </div>
+                                      <div class="megamenu-item-content">
+                                          <h6>{{b.heading_2}}</h6>
+                                          <p>{{b.text_2}}</p>
+                                          <span>{{b.price_text_2}}</span>
+                                      </div>
+                                  </a>
+
+
+                                  
+                                  <a href="{{b.url_3 }}" class="megamenu-item">
+                                    <div class="megamenu-item-img">
+                                      {% if b.image_3 != blank %}
+                                        {% render 'responsive-image',  with image: b.image_3 %}
+                                        {% else %}
+                                        {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                                      {% endif %}
+                                    
+                                    </div>
+                                    <div class="megamenu-item-content">
+                                        <h6>{{b.heading_3}}</h6>
+                                        <p>{{b.text_3}}</p>
+                                        <span>{{b.price_text_3}}</span>
+                                    </div>
+                                </a>
+
+
+                                    {%- endcase -%}
+                                  {%- endfor -%}
+
+                                 
+                              </div>
+                              <div class="megamenu-wave">
+                                <figure><img src="{{'waves.svg' | asset_url }}" alt=""></figure>
+                              </div>
+                          </div>
+                      </div>
+                  </li>
+
+                  {% else %}
+
+                  <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+
+                {% endif %}
+
+                {%- endfor -%}
+              
+                {% endif %}
+              </ul>
+              {%- form 'localization', id: "languageForm" -%}
+              <div class="translate_wrapper" id="mobile">
+              
+                  <div class="current_lang">
+                      <div class="lang">
+                        {% if localization.language.iso_code contains "nl" %}
+                          <img src="{{ 'NL.svg' | asset_url }}">
+                          {% elsif localization.language.iso_code contains "en" %}
+                          <img src="{{ 'flag.svg' | asset_url }}">
+                          {% elsif localization.language.iso_code contains "uk" %}
+                          <img src="{{ 'flag.svg' | asset_url }}">
+                        {% endif %}
+                          <span class="lang-txt">{{- localization.language.endonym_name | capitalize -}}</span>
+                       
+                          <span class="chevron"></span>
+                      </div>
+                  </div>
+
+                  <div class="more_lang">
+
+
+                      {%- for language in localization.available_languages -%}
+                          {%- assign is_selected = false -%}
+              
+                          {%- if language.iso_code == localization.language.iso_code -%}
+                            {%- assign is_selected = true -%}
+                          {%- endif -%}
+
+                          <div class="lang" data-value='{{ language.iso_code }}'  aria-current="{% if is_selected %}true{% else %}false{% endif %}">
+                            {% if language.iso_code contains "nl" %}
+                              <img src="{{ 'NL.svg' | asset_url }}">
+                              {% elsif language.iso_code contains "en" %}
+                              <img src="{{ 'flag.svg' | asset_url }}">
+                              {% elsif language.iso_code contains "uk" %}
+                              <img src="{{ 'flag.svg' | asset_url }}">
+                            {% endif %}
+                              <span class="lang-txt">{{- language.endonym_name | capitalize -}}</span>
+                          </div>
+                        {%- endfor -%}
+
+                    
+                  </div>
+              
+              </div>
+              <input type="hidden" name="locale_code" value="{{ localization.language.iso_code }}">
+            {%- endform -%}
+          </nav>
+
+      </div>
+      <div class="cart-wrap">
+        {% if section.settings.button_label != blank %}
+          <div class="btn-header">
+            <a href="{{section.settings.button_url}}" class="btn green">{{section.settings.button_label}}</a>
+        </div>
+        {% endif %}
+          <div class="cart-trigger flex-box">
+              <span>Cart</span>
+              <dfn>[ {{ cart.item_count }} ]</dfn>
+          </div>
+      </div>
+      <div class="phone-nav" id="phone-nav">
+          <div></div>
+          <div></div>
+          <div></div>
+      </div>
+  </div>
+</div>
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Organization",
+    "name": {{ shop.name | json }},
+    {% if section.settings.logo %}
+      "logo": {{ section.settings.logo | image_url: width: section.settings.logo.width | prepend: "https:" | json }},
+    {% endif %}
+    "sameAs": [
+      {{ settings.social_twitter_link | json }},
+      {{ settings.social_facebook_link | json }},
+      {{ settings.social_pinterest_link | json }},
+      {{ settings.social_instagram_link | json }},
+      {{ settings.social_tiktok_link | json }},
+      {{ settings.social_tumblr_link | json }},
+      {{ settings.social_snapchat_link | json }},
+      {{ settings.social_youtube_link | json }},
+      {{ settings.social_vimeo_link | json }}
+    ],
+    "url": {{ request.origin | append: page.url | json }}
+  }
+</script>
+
+{%- if request.page_type == 'index' -%}
+  {% assign potential_action_target = request.origin | append: routes.search_url | append: "?q={search_term_string}" %}
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "WebSite",
+      "name": {{ shop.name | json }},
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {{ potential_action_target | json }},
+        "query-input": "required name=search_term_string"
+      },
+      "url": {{ request.origin | append: page.url | json }}
+    }
+  </script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "t:sections.header.name",
+  "tag": "div",
+  "class": "header__inner",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Logo"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Image"
+    },
+    {
+      "type": "link_list",
+      "id": "main_menu",
+      "label": "Select Main Menu",
+      "default": "main-menu"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button Url"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "megamenu",
+      "name": "Megamenu",
+      "settings": [
+        {
+          "type": "text",
+          "id": "link_title",
+          "label": "Mega menu trigger",
+          "info": "Enter the name of the menu item you'd like to apply a mega menu."
+        },
+        {
+          "type": "header",
+          "content": "Block One"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_1",
+          "label": "Image"
+        },
+        {
+          "type": "url",
+          "id": "url_1",
+          "label": "Image Url"
+        },
+        {
+          "type": "text",
+          "id": "heading_1",
+          "label": "Heading"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "text_1",
+          "label": "Text"
+        },
+        {
+          "type": "text",
+          "id": "price_text_1",
+          "label": "Price"
+        },
+        {
+          "type": "header",
+          "content": "Block Two"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_2",
+          "label": "Image"
+        },
+        {
+          "type": "url",
+          "id": "url_2",
+          "label": "Image Url"
+        },
+        {
+          "type": "text",
+          "id": "heading_2",
+          "label": "Heading"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "text_2",
+          "label": "Text"
+        },
+        {
+          "type": "text",
+          "id": "price_text_2",
+          "label": "Price"
+        },
+        {
+          "type": "header",
+          "content": "Block Three"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_3",
+          "label": "Image"
+        },
+        {
+          "type": "url",
+          "id": "url_3",
+          "label": "Image Url"
+        },
+        {
+          "type": "text",
+          "id": "heading_3",
+          "label": "Heading"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "text_3",
+          "label": "Text"
+        },
+        {
+          "type": "text",
+          "id": "price_text_3",
+          "label": "Price"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

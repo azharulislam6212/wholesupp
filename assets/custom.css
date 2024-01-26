@@ -1,0 +1,352 @@
+.footer-custom-widget a{
+    color: #fff;
+}
+
+.hero-content p:last-child{
+    padding-top: 0;
+}
+
+
+
+.video-popup-overlay {
+    display: none;
+    position: fixed;
+    z-index: 995;
+    top: 0;
+    background-color: #000;
+    opacity: 0.8;
+    width: 100%;
+    height: 100%;
+  }
+
+
+  
+.video-popup-container {
+    display:none;
+    position: fixed;
+    z-index: 996;
+    width: 60%;
+    left: 50%;
+    margin-left: -30%;
+    top: 10%;
+    background-color: #fff;
+  }
+  
+  .video-popup-close {
+    cursor: pointer;
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    z-index: 998;
+    width: 25px;
+    height: 25px;
+    border-radius: 25px;
+    text-align: center;
+    font-size: 12px;
+    background-color: #000;
+    line-height: 25px;
+    color: #fff;
+  }
+  
+  .video-popup-iframe-container {
+    position: absolute;
+    z-index: 997;
+    width: 100%;
+    padding-bottom: 56.25%;
+    border: 2px solid #000;
+    border-radius: 2px;
+    background-color: #000;
+  }
+  
+  .video-popup-iframe {
+    z-index: 999;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: #000;
+  }
+
+  .template-404{
+    padding: 120px 0;
+    text-align: center;
+  }
+  .title-404{
+    margin: 15px 0;
+  }
+
+  @media only screen and (max-width:992px) {
+    .video-popup-container {
+        display: none;
+        width: 90%;
+        left: 35%;
+        top: 30%;
+    }
+    .video-popup-iframe-container {
+        min-height: 300px;
+    }
+
+
+
+  }
+
+  .accordion__header{
+    padding-bottom: 27px;
+  }
+  .accordion-item + .accordion__header{
+    padding-top: 70px;
+    clear: both;
+    float: none;
+    border-bottom: 1px dashed var(--black);
+  }
+
+  @media only screen and (min-width: 320px) and (max-width: 768px){
+    .accordion-item + .accordion__header{
+      padding-top: 54px;
+      clear: both;
+      float: none;
+    }
+    .accordion__header{
+      padding-bottom: 13px;
+    }
+  }
+
+
+  .tab-list-btn em{font-size: 16px; line-height: 22.4px; font-family: var(--AmbitRegular); padding-top: 13px; font-weight: 400;}
+
+
+  .blog-item-img{
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 63.66%;
+    -webkit-border-radius: 10px;
+  }
+
+  .blog-item-img img{
+    position: absolute;
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+    left: 0;
+    top: 0;
+  }
+
+  .blog-signle-hero-bg img{
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+  }
+
+  .blog-item-content h5 {
+    min-height: 62px;
+}
+
+
+
+.blog-single-content-inner h1 {
+  float: left;
+  width: 100%;
+  margin: 0 0 30px;
+  color: var(--Black,#000);
+  font-family: var(--AmbitSemiBold);
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 41.6px;
+}
+
+.blog-single-content-inner img{
+  display: block;
+  width: 100%;
+  margin: 0 0 30px;
+}
+.blog-single-content-inner p{
+  margin-bottom: 30px;
+}
+
+.blog-single-content-inner h2 {
+  float: left;
+  width: 100%;
+  margin: 0 0 30px;
+  color: var(--Black,#000);
+  font-family: var(--AmbitSemiBold);
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 41.6px;
+}
+
+.blog-single-content-inner ul{
+  list-style: disc;
+  padding-left: 20px;
+  margin: 30px 0;
+}
+.blog-single-content-inner ul>li{
+  margin-bottom: 20px;
+}
+
+.blog-single-content-inner ol{
+  padding-left: 20px;
+}
+
+.blog-single-content-inner ol>li{
+  margin-bottom: 20px;
+}
+
+.blog-single-content-inner ol>li>span{
+  display: block;
+}
+
+
+
+.product-page .selling-btn p {
+  max-width: 85px;
+}
+
+.nutritional-info .modal-nav li{
+  width: auto;
+  padding: 0;
+  height: auto;
+  line-height: normal;
+}
+.nutritional-info .modal-nav li a{
+  font-weight: 600;
+  font-family: var(--AmbitSemiBold);
+  width: 193px;
+  padding: 0 10px;
+  text-align: left;
+  border-radius: 10px;
+  background: #f4f1ea;
+  cursor: pointer;
+  height: 37px;
+  line-height: 41px;
+}
+.modal-nav li.active-btn a{
+  background: var(--Mint);
+}
+
+@media only screen and (min-width: 320px) and (max-width: 768px){
+  .nutritional-info .modal-nav li a{
+    width: 105px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 62px;
+    line-height: 22px;
+  }
+}
+
+
+.radio [type=radio]:checked+label, .radio [type=radio]:not(:checked)+label {
+   height: auto; 
+}
+
+.add-to-cart-btn{
+  cursor: pointer;
+}
+
+
+.rc-container-wrapper{
+  display: none;
+}
+
+.cart-item-sub{
+  margin-bottom: 20px;
+}
+
+.product-cart-overlay{
+  float: left;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: all 0s ease;
+  height: 100vh;
+  z-index: 99;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-end;
+  opacity: 1;
+  visibility: hidden;
+  webkit-transition: .4s ease-in-out;
+  transition: .4s ease-in-out;
+}
+
+.cartShow .product-cart-overlay{
+  opacity: 1;
+  visibility: visible;
+  z-index: 99;
+}
+
+.product-cart-main-area{
+  z-index: 999;
+}
+
+.epmty-cart{
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.epmty-cart p{
+  font-size: 30px;
+  font-weight: 500;
+
+}
+
+.cart-item-wrap.overflow-hidden {
+  overflow: hidden !important;
+}
+
+.flavours-item.no-img{
+  padding: 12px 0 12px 12px;
+}
+
+.cancel-subscription{
+  background-color: transparent;
+  border: 0;
+  color: var(--black);
+  font-size: 10px;
+  line-height: 11px;
+  font-family: var(--AmbitRegular);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-style: normal;
+  display: inline-block;
+  padding: 0;
+  cursor: pointer;
+}
+.general-page__text{
+  padding-top: 25px;
+}
+.general-page__text p{
+  margin-bottom: 25px;
+}
+.general-page__text ul{
+  margin-bottom: 25px;
+  list-style: disc;
+  padding-left: 18px;
+}
+.general-page__text ol{
+  margin-bottom: 25px;
+  padding-left: 18px;
+}
+.general-page__text a{
+  text-decoration: underline;
+  color: #000;
+}
+.shopify-policy__container{
+  padding: 50px 0;
+}
+
+
+@media (max-width: 767px) {
+
+  .template-404{
+    padding: 159px 0 110px;
+  }
+  
+}

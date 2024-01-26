@@ -1,0 +1,90 @@
+
+{% liquid
+assign s = section.settings
+%}
+
+  
+  <div class="about-hero-bg">
+    {% if s.bg_image_mob != blank %}
+        {% render 'smart-image', image: s.bg_image, image_mob: s.bg_image_mob %}
+      {% elsif s.bg_image != blank %}
+        {% render 'responsive-image' with image: s.bg_image %}
+        {% else %}
+        {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+      {% endif %}
+    </div>
+    <div class="common-wrap clear">
+        <div class="about-hero-inner">
+            <div class="about-hero-content">
+                {% if s.heading != blank %}
+                    <h1>{{ s.heading }}</h1>
+                  {% endif %}
+                  {% if s.text != blank %}
+                    {{ s.text }}
+                  {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="about-hero-thumb">
+
+     {% if s.image_mob != blank %}
+        {% render 'smart-image', image: s.image, image_mob: s.image_mob %}
+      {% elsif s.image != blank %}
+        {% render 'responsive-image' with image: s.image %}
+        {% else %}
+        {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+      {% endif %}
+
+
+
+    </div>
+
+
+
+{% schema %}
+    {
+      "name": "About Hero",
+      "tag": "section",
+      "class": "about-hero-section",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "bg_image",
+          "label": "Background For Desktop"
+        },
+        {
+          "type": "image_picker",
+          "id": "bg_image_mob",
+          "label": "Background For Mobile"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "No secrets here"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>From superfood sourcing and planet-friendly packaging to ethical responsibility and sustainability — we’re 100% transparent in everything we do.</p>"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image For Desktop"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_mob",
+          "label": "Image For Mobile"
+        }
+      ],
+      "presets": [
+        {
+          "name": "About Hero"
+        }
+      ]
+    }
+    {% endschema %}
+    

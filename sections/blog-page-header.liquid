@@ -1,0 +1,42 @@
+{% liquid
+  assign s = section.settings
+%}
+
+  <div class="common-wrap clear">
+    <div class="blog-hero-inner">
+    {% if s.heading != blank %}
+        <h1>{{ s.heading }}</h1>
+      {% endif %}
+      {% if s.text != blank %}
+        {{ s.text }}
+      {% endif %}
+    </div>
+  </div>
+
+
+{% schema %}
+{
+  "name": "Page Header",
+  "tag": "section",
+  "class": "blog-hero-wrap",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Whole Supp Blog"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>We work with leading experts in the fields of nutrition, science, medicine, and wellness to develop our Smart Food Formulation.</p>"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Page Header"
+    }
+  ]
+}
+{% endschema %}
